@@ -1,74 +1,20 @@
+"use client"
 import React from 'react'
-import Link from 'next/link';
 
+import '@szhsin/react-menu/dist/index.css';
+import '@szhsin/react-menu/dist/transitions/slide.css';
+import { menu_Items } from './menu-Items';
+import MyMenuComponent from './MyMenuComponent';
 
 const SiteNavBar = () => {
     return (
-        <div class='navbar flex justify-center items-center'>
-            <nav className='flex items-center flex-wrap  p-3 '>
-                <Link href='/' legacyBehavior>
-                    <a className='inline-flex items-center p-2 mr-4 '>
-                        <span className='text-sm   uppercase tracking-wide'>
-                            Home
-                        </span>
-                    </a>
-                </Link>
-            </nav>
-            <nav className='flex items-center flex-wrap  p-3 '>
-                <Link href='/' legacyBehavior>
-                    <a className='inline-flex items-center p-2 mr-4 '>
-                        <span className='text-sm uppercase tracking-wide'>
-                            About Us
-                        </span>
-                    </a>
-                </Link>
-            </nav>
-            <nav className='flex items-center flex-wrap  p-3 '>
-                <Link href='/' legacyBehavior>
-                    <a className='inline-flex items-center p-2 mr-4 '>
-                        <span className='text-sm   uppercase tracking-wide'>
-                            About Us
-                        </span>
-                    </a>
-                </Link>
-            </nav>
-            <nav className='flex items-center flex-wrap  p-3 '>
-                <Link href='/' legacyBehavior>
-                    <a className='inline-flex items-center p-2 mr-4 '>
-                        <span className='text-sm  uppercase tracking-wide'>
-                            About Us
-                        </span>
-                    </a>
-                </Link>
-            </nav>
-            <nav className='flex items-center flex-wrap  p-3 '>
-                <Link href='/' legacyBehavior>
-                    <a className='inline-flex items-center p-2 mr-4 '>
-                        <span className='text-sm   uppercase tracking-wide'>
-                            About Us
-                        </span>
-                    </a>
-                </Link>
-            </nav>
-            <nav className='flex items-center flex-wrap  p-3 '>
-                <Link href='/' legacyBehavior>
-                    <a className='inline-flex items-center p-2 mr-4 '>
-                        <span className='text-sm   uppercase tracking-wide'>
-                            About Us
-                        </span>
-                    </a>
-                </Link>
-            </nav>
-            <nav className='flex items-center flex-wrap  p-3 '>
-                <Link href='/' legacyBehavior>
-                    <a className='inline-flex items-center p-2 mr-4 '>
-                        <span className='text-sm  uppercase tracking-wide'>
-                            About Us
-                        </span>
-                    </a>
-                </Link>
-            </nav>
-        </div>
+        <>
+            <div className='flex p-3 justify-center navbar space-x-14'>
+                {menu_Items.map((menu, index) => {
+                    return (<MyMenuComponent items={menu} key={index}/>);
+                })}
+            </div>
+        </>
     )
 }
 

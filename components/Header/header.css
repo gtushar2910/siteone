@@ -24,12 +24,12 @@
     
   }
   
-  .navbar {
+   .navbar {
     display: flex;
     background: #14012e;
     vertical-align: middle;
     color: rgb(240, 230, 230);
-  }
+  } 
  
 
   .logoright {
