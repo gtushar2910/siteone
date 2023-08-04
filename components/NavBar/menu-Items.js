@@ -49,6 +49,10 @@ export const menu_Items = [
         title: 'TimeTable',
         url: ''
       },
+      {
+        title: 'TimeTable1',
+        url: ''
+      },
 
     ]
   },

@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.0.1",
     "@szhsin/react-menu": "^4.0.2",
     "autoprefixer": "10.4.14",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
+    "framer-motion": "^10.15.0",
     "next": "13.4.12",
     "postcss": "8.4.27",
     "react": "18.2.0",

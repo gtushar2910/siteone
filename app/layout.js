@@ -1,7 +1,10 @@
+"use client"
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Header from "@/components/Header/Header"
 const inter = Inter({ subsets: ['latin'] })
+import { NextUIProvider } from "@nextui-org/react";
+import Footer from '@/components/Foorter/Footer'
 
 export const metadata = {
   title: 'Information Technology Department',
@@ -10,11 +13,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+
     <html lang="en">
-      <body className={inter.className}>
-      <Header></Header>
-        {children}
-        </body>
+      <body className="h-screen">
+        <NextUIProvider>
+          <Header></Header>
+          {children}
+          <Footer></Footer>
+        </NextUIProvider>
+      </body>
     </html>
+
   )
 }

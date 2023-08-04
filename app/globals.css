@@ -17,11 +17,9 @@
 }
 
 body {
-  color: purple;
-  background: #aee9e0
+   background: #aee9e0
 }
 
-.dropdown {
-
-  /* display: none; */
- }
+.cardAboutDept {
+  background: #aee9e0
+}
