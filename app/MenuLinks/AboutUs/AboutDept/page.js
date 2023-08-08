@@ -18,7 +18,7 @@ export default function AboutDept() {
             not only Information Technology but also covering key of Communication Technology and
             by providing state-of-art learning resources. The department currently offers an
             AICTE approved Bachelor’s Degree in Information Technology and is affiliated to the Gujarat
-            Technological University. The faculty comprising of 11 permanent, qualified teaching faculty
+            Technological University. The faculty comprising of 10 permanent, qualified teaching faculty
             supported by lab assistants who are committed towards nurturing young IT professionals of next
             generation.
           </p>'
