@@ -21,11 +21,11 @@ export default function AboutDept() {
             Technological University. The faculty comprising of 10 permanent, qualified teaching faculty
             supported by lab assistants who are committed towards nurturing young IT professionals of next
             generation.
-          </p>'
+          </p>
           <br></br>
           <p class="mb-8 text-lg font-normal text-maroon-500 lg:text-xl sm:px-16 lg:px-48 dark:text-maroon-400">
             Academic results of Information Technology Department, SCET regularly top among GTU affiliated Engineering colleges of the South Gujarat Zone. The I.T. Department regularly organizes seminars, guest lectures, workshops, short term training and programming contests for students to expand their knowledge and skill set beyond the regular curriculum. We encourage our students to work on innovative and industry-applicable projects so that they can become the most highly sought after I.T. graduates in the country.
-          </p>'
+          </p>
 
         {/* <p>
         Academic results of Information Technology Department, SCET regularly top among GTU affiliated Engineering colleges of the South Gujarat Zone. The I.T. Department regularly organizes seminars, guest lectures, workshops, short term training and programming contests for students to expand their knowledge and skill set beyond the regular curriculum. We encourage our students to work on innovative and industry-applicable projects so that they can become the most highly sought after I.T. graduates in the country.

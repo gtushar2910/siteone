@@ -9,7 +9,7 @@ export const menu_Items = [
       },
       {
         title: 'Message from Head',
-        url: 'web-dev',
+        url: '/MenuLinks/AboutUs/MessageFromHead',
       },
       {
         title: 'Vision',
@@ -213,7 +213,7 @@ export const menu_Items = [
     submenu: [
       {
         title: 'List of Holidays-2023',
-        url: ''
+        url: 'https://www.google.com'
       },
       {
         title: 'Department Committies 2023-24',
