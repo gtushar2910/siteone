@@ -29,7 +29,7 @@ export const menu_Items = [
       },
       {
         title: 'Staff Information',
-        url: 'web-dev',
+        url: '/Staff/List',
       },
       {
         title: 'Infrastructure',
@@ -51,7 +51,7 @@ export const menu_Items = [
       },
       {
         title: 'TimeTable',
-        url: ''
+        url: 'https://docs.google.com/spreadsheets/d/1YvcWLhTgHj6P1ByJLTEoRaZmUXg0Wz0sfmh61-P1z8c/'
       },
       {
         title: 'Syllabus and Practical List',
@@ -213,7 +213,7 @@ export const menu_Items = [
     submenu: [
       {
         title: 'List of Holidays-2023',
-        url: 'https://www.google.com'
+        url: '/docs/holiday/holidays.pdf'
       },
       {
         title: 'Department Committies 2023-24',
@@ -221,31 +221,31 @@ export const menu_Items = [
       },
       {
         title: 'CR LR Candidate form',
-        url: ''
+        url: '/docs/CR-LR-Form.pdf'
       },
       {
         title: 'SCET Leave Management',
-        url: ''
+        url: 'https://www.scetlms.in'
       },
       {
         title: 'Intra Phone Directory',
-        url: ''
+        url: '/docs/intra.pdf'
       },
       {
         title: 'College Intranet',
-        url: ''
+        url: 'http://172.16.11.2'
       },
       {
         title: 'College Library',
-        url: ''
+        url: 'http://172.16.13.24/'
       },
       {
-        title: 'Keri Firewall',
-        url: ''
+        title: 'Kerio Firewall',
+        url: 'http://172.16.3.1:4080/login/index.php'
       },
       {
         title:'Policy for Internet Usage',
-        url:''
+        url:'/docs/internet_policy.pdf'
       },
     ]
   },
