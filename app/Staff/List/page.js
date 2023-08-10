@@ -5,6 +5,9 @@ import {EditIcon} from "./EditIcon";
 import {DeleteIcon} from "./DeleteIcon";
 import {EyeIcon} from "./EyeIcon";
 import {columns, users} from "./data";
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const statusColorMap = {
   active: "success",
@@ -12,54 +15,73 @@ const statusColorMap = {
   vacation: "warning",
 };
 
-export default function App() {
-  const renderCell = React.useCallback((user, columnKey) => {
-    const cellValue = user[columnKey];
+const StaffList = () => {
+
+  const [staffs, setStaffs] = useState([])
+
+  const getStaffList = async () => {
+    const response = await axios.get("/api/staff/getStaffList");
+    if (response)
+     setStaffs(response.data)
+  }
+
+  useEffect(() => {
+   getStaffList()
+  }, [])
+
+  const renderCell = React.useCallback((staff, columnKey) => {
+    const cellValue = staff[columnKey];
 
     switch (columnKey) {
       case "name":
         return (
           <User
-            avatarProps={{radius: "lg", src: user.avatar}}
-            description={user.email}
+            avatarProps={{radius: "lg", src: staff.photo}}
+            description={staff.email}
             name={cellValue}
           >
-            {user.email}
+            {staff.email}
           </User>
         );
-      case "role":
+      case "designation":
         return (
           <div className="flex flex-col">
             <p className="text-bold text-sm capitalize">{cellValue}</p>
-            <p className="text-bold text-sm capitalize text-default-400">{user.team}</p>
+            <p className="text-bold text-sm capitalize text-default-400">{staff.experience}</p>
           </div>
         );
-      case "status":
+      case "qualification":
         return (
-          <Chip className="capitalize" color={statusColorMap[user.status]} size="sm" variant="flat">
-            {cellValue}
-          </Chip>
+          <div className="flex flex-col">
+          <p className="text-bold text-sm capitalize">{cellValue}</p>
+        </div>
         );
-      case "actions":
+      case "area_of_int":
         return (
-          <div className="relative flex items-center gap-2">
-            <Tooltip content="Details">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EyeIcon />
-              </span>
-            </Tooltip>
-            <Tooltip content="Edit user">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EditIcon />
-              </span>
-            </Tooltip>
-            <Tooltip color="danger" content="Delete user">
-              <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                <DeleteIcon />
-              </span>
-            </Tooltip>
+          <div className="flex flex-col">
+            <p className="text-bold text-sm capitalize">{cellValue}</p>
           </div>
         );
+      // case "actions":
+      //   return (
+      //     <div className="relative flex items-center gap-2">
+      //       <Tooltip content="Details">
+      //         <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+      //           <EyeIcon />
+      //         </span>
+      //       </Tooltip>
+      //       <Tooltip content="Edit user">
+      //         <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+      //           <EditIcon />
+      //         </span>
+      //       </Tooltip>
+      //       <Tooltip color="danger" content="Delete user">
+      //         <span className="text-lg text-danger cursor-pointer active:opacity-50">
+      //           <DeleteIcon />
+      //         </span>
+      //       </Tooltip>
+      //     </div>
+      //   );
       default:
         return cellValue;
     }
@@ -74,9 +96,9 @@ export default function App() {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody items={users}>
+      <TableBody items={staffs}>
         {(item) => (
-          <TableRow key={item.id}>
+          <TableRow key={item.email}>
             {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
           </TableRow>
         )}
@@ -84,3 +106,7 @@ export default function App() {
     </Table>
   );
 }
+
+
+
+export default StaffList
