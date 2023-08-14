@@ -13,19 +13,23 @@ export const menu_Items = [
       },
       {
         title: 'Vision',
-        url: 'seo',
+        url: '/MenuLinks/AboutUs/Vision',
       },
       {
         title: 'Mission',
-        url: 'web-design',
+        url: '/MenuLinks/AboutUs/Mission',
       },
       {
         title: 'PEOs',
-        url: 'web-dev',
+        url: '/MenuLinks/AboutUs/PEOS',
       },
       {
         title: 'POs',
-        url: 'seo',
+        url: '/MenuLinks/AboutUs/POS',
+      },
+      {
+        title: 'PSOs',
+        url: '/MenuLinks/AboutUs/PSOS',
       },
       {
         title: 'Staff Information',
@@ -217,7 +221,11 @@ export const menu_Items = [
       },
       {
         title: 'Department Committies 2023-24',
-        url: ''
+        url: '/docs/committees/list/2023-2024.pdf'
+      },
+      {
+        title: 'Dept Cont. Evaluation Policy',
+        url: '/docs/ContEvaluation/Norms_2023-24.pdf'
       },
       {
         title: 'CR LR Candidate form',

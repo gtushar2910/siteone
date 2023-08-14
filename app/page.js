@@ -1,5 +1,5 @@
 
-import Header from "@/components/Header/Header"
+"use client"
 
 export default function Home() {
   return (
