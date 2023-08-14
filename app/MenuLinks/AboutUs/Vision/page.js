@@ -14,7 +14,7 @@ export default function App() {
           <ModalHeader className="flex flex-col gap-1">Vision</ModalHeader>
           <ModalBody>
                 <p className="text-lg font-medium text-[#243c5a] italic "> 
-                "To evolve as a global center of excellence in the field of Information Technology imparting technical education and professional ethics to thrive in an era of globalization."
+                To evolve as a global center of excellence in the field of Information Technology imparting technical education and professional ethics to thrive in an era of globalization.
                 </p>
                 </ModalBody>
           <ModalFooter>
