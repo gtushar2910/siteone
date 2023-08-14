@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
 
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <body className="h-screen">
         <NextUIProvider>
           <Header></Header>
