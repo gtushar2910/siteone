@@ -68,7 +68,7 @@ export default function Carousel({ images = imagesSlider }) {
                   src={image.src}
                   alt={image.alt}
                   layout="fill"
-                  objectFit="contain"
+                  objectFit="contains"
                   className="animate-fadeIn"
                 />
               );
