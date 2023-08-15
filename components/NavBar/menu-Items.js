@@ -51,7 +51,7 @@ export const menu_Items = [
       },
       {
         title: 'Continous Evaluation Scheme',
-        url: ''
+        url: '/docs/ContEvaluation/Norms_2023-24.pdf'
       },
       {
         title: 'TimeTable',
@@ -157,7 +157,7 @@ export const menu_Items = [
     submenu: [
       {
         title: 'Converse',
-        url: ''
+        url: '/MenuLinks/Events/Converse'
       },
       {
         title: 'Expert Talks/ Workshops/ STTPs',
@@ -222,10 +222,6 @@ export const menu_Items = [
       {
         title: 'Department Committies 2023-24',
         url: '/docs/committees/list/2023-2024.pdf'
-      },
-      {
-        title: 'Dept Cont. Evaluation Policy',
-        url: '/docs/ContEvaluation/Norms_2023-24.pdf'
       },
       {
         title: 'CR LR Candidate form',

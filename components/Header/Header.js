@@ -9,7 +9,7 @@ const Header = () => {
             <div className='header'>
                 <div className="container">
                     <div className="logoleft">
-                        <img src='/SCETLogo.jpg' width={85} />
+                        <a href='/'><img src='/SCETLogo.jpg' width={85} /></a>
                     </div>
                     <div className="headercontent">
                         <p className='heading-1'>Information Technology Department </p>
