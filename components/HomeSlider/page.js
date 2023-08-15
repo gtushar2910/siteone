@@ -58,7 +58,7 @@ export default function Carousel({ images = imagesSlider }) {
         <Swipe
           onSwipeLeft={handleNextSlide}
           onSwipeRight={handlePrevSlide}
-          className="relative z-10 w-full h-full p-0"
+          className="relative z-10 w-full h-full"
         >
           {images.map((image, index) => {
             if (index === currentSlide) {
