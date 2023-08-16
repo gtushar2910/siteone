@@ -23,3 +23,15 @@ model Staff {
   photo            String?
   homepage_url     String?
 }
+
+model Converse {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  name             String
+  event_dates      String
+  faculty_co       String
+  student_co       String
+  report_url       String?
+}
+
+

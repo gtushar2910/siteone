@@ -1,10 +1,10 @@
 "use client"
 import React from "react";
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, User, Chip, Tooltip, getKeyValue} from "@nextui-org/react";
-import {EditIcon} from "./EditIcon";
-import {DeleteIcon} from "./DeleteIcon";
-import {EyeIcon} from "./EyeIcon";
-import {columns, users} from "./data";
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, User, Chip, Tooltip, getKeyValue } from "@nextui-org/react";
+import { EditIcon } from "./EditIcon";
+import { DeleteIcon } from "./DeleteIcon";
+import { EyeIcon } from "./EyeIcon";
+import { columns, users } from "./data";
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -22,11 +22,11 @@ const StaffList = () => {
   const getStaffList = async () => {
     const response = await axios.get("/api/staff/getStaffList");
     if (response)
-     setStaffs(response.data)
+      setStaffs(response.data)
   }
 
   useEffect(() => {
-   getStaffList()
+    getStaffList()
   }, [])
 
   const renderCell = React.useCallback((staff, columnKey) => {
@@ -36,7 +36,7 @@ const StaffList = () => {
       case "name":
         return (
           <User
-            avatarProps={{radius: "lg", src: staff.photo}}
+            avatarProps={{ radius: "lg", src: staff.photo }}
             description={staff.email}
             name={cellValue}
           >
@@ -53,8 +53,8 @@ const StaffList = () => {
       case "qualification":
         return (
           <div className="flex flex-col">
-          <p className="text-bold text-sm capitalize">{cellValue}</p>
-        </div>
+            <p className="text-bold text-sm capitalize">{cellValue}</p>
+          </div>
         );
       case "area_of_int":
         return (
@@ -88,22 +88,27 @@ const StaffList = () => {
   }, []);
 
   return (
-  <Table aria-label="Example table with custom cells">
-      <TableHeader columns={columns}>
-        {(column) => (
-          <TableColumn key={column.uid} align={column.uid === "actions" ? "center" : "start"}>
-            {column.name}
-          </TableColumn>
-        )}
-      </TableHeader>
-      <TableBody items={staffs}>
-        {(item) => (
-          <TableRow key={item.email}>
-            {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
-          </TableRow>
-        )}
-      </TableBody>
-    </Table>
+    <div className="grid grid-cols-1 grid-flow-col gap-4 px-4 py-4 cardAboutDept">
+      <div className="box-border p-4 border-2 px-4" >
+        <Table aria-label="Example table with custom cells">
+          <TableHeader columns={columns}>
+            {(column) => (
+              <TableColumn key={column.uid} align={column.uid === "actions" ? "center" : "start"}>
+                {column.name}
+              </TableColumn>
+            )}
+          </TableHeader>
+          <TableBody items={staffs}>
+            {(item) => (
+              <TableRow key={item.email}>
+                {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
+    </div>
+
   );
 }
 
