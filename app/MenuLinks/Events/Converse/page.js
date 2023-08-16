@@ -1,15 +1,17 @@
 "use client"
 import React from "react";
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Row, Col, Tooltip, Link } from "@nextui-org/react";
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Tooltip, Link } from "@nextui-org/react";
 
 import { columns } from "./data";
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { DocumentIcon } from '@heroicons/react/24/solid'
 
 
 
-const StaffList = () => {
+
+const ConverseList = () => {
 
   const [list, setList] = useState([])
 
@@ -31,32 +33,35 @@ const StaffList = () => {
       case "name":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm capitalize">{cellValue}</p>
+            <p className="font-bold	 text-center text-indigo-700">{cellValue}</p>
           </div>
         );
       case "event_dates":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm capitalize">{cellValue}</p>
+            <p className="text-bold text-sm  text-center text-green-700">{cellValue}</p>
           </div>
         );
       case "faculty_co":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm capitalize">{cellValue}</p>
+            <p className="text-bold text-sm text-yellow-700">{cellValue}</p>
           </div>
         );
       case "student_co":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm capitalize">{cellValue}</p>
+             <p className="text-left  text-orange-700">{cellValue}</p>
           </div>
         );
       case "report":
         return (
-              <Tooltip content="View Report"  >
-              <Link href={listItem['report_url']} target="_blank" color="primary">pdf</Link>
-              </Tooltip>
+          <div className="flex flex-col items-center">
+            <Tooltip content="View Report"  >
+              <Link href={listItem['report_url']} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-blue-500" /></Link>
+            </Tooltip>
+          </div>
+
         );
       default:
         return cellValue;
@@ -69,8 +74,8 @@ const StaffList = () => {
         <Table aria-label="Example table with custom cells">
           <TableHeader columns={columns}>
             {(column) => (
-              <TableColumn key={column.uid} align={column.uid === "actions" ? "center" : "start"}>
-                {column.name}
+              <TableColumn key={column.uid}>
+                <p className="text-center text-orange-700">{column.name}</p>
               </TableColumn>
             )}
           </TableHeader>
@@ -90,4 +95,4 @@ const StaffList = () => {
 
 
 
-export default StaffList
+export default ConverseList

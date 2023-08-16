@@ -10,6 +10,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "@nextui-org/react": "^2.0.1",
     "@prisma/client": "^5.1.1",
     "@szhsin/react-menu": "^4.0.2",
