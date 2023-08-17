@@ -191,7 +191,7 @@ export const menu_Items = [
     submenu: [
       {
         title: 'Central Library Access',
-        url: ''
+        url: 'http://172.16.13.24/'
       },
       {
         title: 'Books in Dept',
@@ -203,11 +203,11 @@ export const menu_Items = [
       },
       {
         title: 'Central Library Info',
-        url: ''
+        url: '/docs/library/central_library_info.pdf'
       },
       {
         title: 'Library Manual',
-        url: ''
+        url: '/docs/library/manual_central.pdf'
       },
     ]
   },
@@ -238,10 +238,6 @@ export const menu_Items = [
       {
         title: 'College Intranet',
         url: 'http://172.16.11.2'
-      },
-      {
-        title: 'College Library',
-        url: 'http://172.16.13.24/'
       },
       {
         title: 'Kerio Firewall',

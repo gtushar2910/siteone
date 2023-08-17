@@ -27,7 +27,6 @@ const ConverseList = () => {
 
   const renderCell = React.useCallback((listItem, columnKey) => {
     const cellValue = listItem[columnKey];
-    const report_url = listItem['report_url']
 
     switch (columnKey) {
       case "name":
@@ -61,7 +60,6 @@ const ConverseList = () => {
               <Link href={listItem['report_url']} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-blue-500" /></Link>
             </Tooltip>
           </div>
-
         );
       default:
         return cellValue;
@@ -75,7 +73,7 @@ const ConverseList = () => {
           <TableHeader columns={columns}>
             {(column) => (
               <TableColumn key={column.uid}>
-                <p className="text-center text-orange-700">{column.name}</p>
+                <p className="text-center text-default-700">{column.name}</p>
               </TableColumn>
             )}
           </TableHeader>
