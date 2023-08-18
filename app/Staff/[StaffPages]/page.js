@@ -3,7 +3,7 @@ import React from 'react'
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import SideNavbar from '@/components/NavBar/SideNavBar'
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Image, Avatar } from "@nextui-org/react";
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
 import { useRouter,useSearchParams, usePathname  } from 'next/navigation'
 
@@ -37,9 +37,9 @@ const page = () => {
   return (
     <div className="flex flex-cols content-center px-4 py-4 cardAboutDept">
       <div>
-        <SideNavbar name={staff.name}/>
+        <SideNavbar staff={staff}/>
       </div>
-      <div className="flex items-center">
+      {/* <div className="flex items-center w-64">
         <Card className="px-4 py-4 bg-green">
 
           <CardBody className="overflow-visible py-2">
@@ -51,8 +51,7 @@ const page = () => {
             />
           </CardBody>
         </Card>
-      </div>
-      <div className="flex items-center justify-start bg-green px-4">
+      </div> */}
         <div className="box-border p-4 border-2 px-4" >
           <Table hideHeader isStriped color="success" fullWidth aria-label="Example static collection table">
             <TableHeader>
@@ -91,7 +90,6 @@ const page = () => {
             </TableBody>
           </Table>
         </div>
-      </div>
     </div>
   )
 }
