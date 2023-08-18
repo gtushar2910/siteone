@@ -16,7 +16,7 @@ const columnsValues = [
 ];
 
 
-const page = () => {
+const StaffHomePage = () => {
 
   const pathname = usePathname()
 
@@ -94,4 +94,4 @@ const page = () => {
   )
 }
 
-export default page
+export default StaffHomePage
