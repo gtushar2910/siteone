@@ -31,7 +31,7 @@ const StaffHomePage = () => {
 
   useEffect(() => {
     getStaff()
-  }, [])
+  })
 
 
   return (
