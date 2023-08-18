@@ -47,7 +47,7 @@ export const menu_Items = [
     submenu: [
       {
         title: 'Academic Calender',
-        url: ''
+        url: '/MenuLinks/Academics/AcadCal'
       },
       {
         title: 'Continous Evaluation Scheme',
