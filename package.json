@@ -10,6 +10,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@nextui-org/react": "^2.0.1",
     "@prisma/client": "^5.1.1",
@@ -29,7 +30,8 @@
     "react-dom": "18.2.0",
     "react-easy-swipe": "^0.0.23",
     "react-icons": "^4.10.1",
-    "tailwindcss": "3.3.3"
+    "tailwindcss": "3.3.3",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "prisma": "^5.1.1"

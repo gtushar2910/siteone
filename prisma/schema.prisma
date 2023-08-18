@@ -18,10 +18,96 @@ model Staff {
   qualification    String
   experience       String
   area_of_int      String
-  email            String
+  email            String @unique
   contact          String?
   photo            String?
   homepage_url     String?
+  profile_pdf      String?
+  address          String?
+  timetables       Staff_Timetable[]
+  publications     Staff_Publications[]
+  books            Staff_Books[]
+  events           Staff_Events[]
+  patents          Staff_Patents[]
+  grants           Staff_Grants[]
+  achievements     Staff_Achievements[]
+  teachings        Staff_Teachings[]
+  projects         Staff_Projects[]
+}
+
+model Staff_Teachings {
+  id               String @id @default(cuid())
+  staff_email      String
+  academic_year    String
+  semester         String
+  subject_code     String
+  course_url       String?
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+model Staff_Timetable{
+  id               String @id @default(cuid())
+  staff_email      String
+  academic_year    String
+  semester         String
+  tt_softcopy      String
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+model Staff_Publications{
+  id               String @id @default(cuid())
+  staff_email      String
+  description      String
+  seqnum           Int
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+model Staff_Books{
+  id               String @id @default(cuid())
+  staff_email      String
+  description      String
+  seqnum           Int
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+model Staff_Events{
+  id               String @id @default(cuid())
+  staff_email      String
+  description      String
+  seqnum           Int
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+model Staff_Patents{
+  id               String @id @default(cuid())
+  staff_email      String
+  description      String
+  seqnum           Int
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+model Staff_Grants{
+  id               String @id @default(cuid())
+  staff_email      String
+  description      String
+  seqnum           Int
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+model Staff_Achievements{
+  id               String @id @default(cuid())
+  staff_email      String
+  description      String
+  seqnum           Int
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+model Staff_Projects{
+  id               String @id @default(cuid())
+  staff_email      String
+  description      String
+  seqnum           Int
+  staff            Staff @relation(fields: [staff_email], references: [email])
 }
 
 model Converse {

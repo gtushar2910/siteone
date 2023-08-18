@@ -8,6 +8,7 @@ import { columns, users } from "./data";
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Link from "next/link";
 
 const statusColorMap = {
   active: "success",
@@ -37,7 +38,11 @@ const StaffList = () => {
         return (
           <User
             avatarProps={{ radius: "lg", src: staff.photo }}
-            description={staff.email}
+            description={(
+              <Link href={`/Staff/${staff.email}`} size="sm" isExternal>
+                {staff.email}
+              </Link>
+            )}
             name={cellValue}
           >
             {staff.email}

@@ -37,7 +37,7 @@ export const menu_Items = [
       },
       {
         title: 'Infrastructure',
-        url: 'seo',
+        url: '/Staff/StaffPages/TRG',
       }
     ]
   },
@@ -101,7 +101,7 @@ export const menu_Items = [
     submenu: [
       {
         title: 'T&P Data',
-        url: ''
+        url: 'https://docs.google.com/spreadsheets/d/1cT2mOLGMFz_1KXDbimMNzvD58IXe4afwi2dU_RN6PDM/edit?usp=sharing'
       },
       {
         title: 'Industrial Visit',
