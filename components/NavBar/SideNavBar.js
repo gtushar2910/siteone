@@ -2,6 +2,7 @@ import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Disclosure } from "@headlessui/react";
 import { Image } from "@nextui-org/react";
+import Link from 'next/link';
 import {
   MdOutlineSpaceDashboard,
   MdOutlineAnalytics,
@@ -37,7 +38,9 @@ function SideNavbar({ staff }) {
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdOutlineSpaceDashboard className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
-                  Home
+                <Link href={`/Staff/${staff.email}`} size="sm">
+                    Home
+                  </Link>
                 </h3>
               </div>
 
@@ -62,7 +65,9 @@ function SideNavbar({ staff }) {
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <CgProfile className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
-                  Profile
+                  <Link href={`/Staff/profile/${staff.email}`} size="sm">
+                    Profile
+                  </Link>
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">

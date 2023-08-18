@@ -3,17 +3,9 @@ import React from 'react'
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import SideNavbar from '@/components/NavBar/SideNavBar'
-import { Card, CardHeader, CardBody, Image, Avatar } from "@nextui-org/react";
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
-import { useRouter,useSearchParams, usePathname  } from 'next/navigation'
+import { usePathname  } from 'next/navigation'
 
-
-const columnsValues = [
-  { name: "NAME", uid: "name" },
-  { name: "DESIGNATION/EXPERIENCE", uid: "designation" },
-  { name: "QUALIFICATION", uid: "qualification" },
-  { name: "SUBJECTS INVOLVED", uid: "area_of_int" },
-];
 
 
 const StaffHomePage = () => {
