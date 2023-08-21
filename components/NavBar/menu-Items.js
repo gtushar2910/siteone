@@ -58,8 +58,8 @@ export const menu_Items = [
         url: 'https://docs.google.com/spreadsheets/d/1YvcWLhTgHj6P1ByJLTEoRaZmUXg0Wz0sfmh61-P1z8c/'
       },
       {
-        title: 'Syllabus and Practical List',
-        url: ''
+        title: 'Syllabus',
+        url: '/MenuLinks/Academics/Syllabus'
       },
       {
         title: 'Lab Manual',
@@ -83,10 +83,6 @@ export const menu_Items = [
       },
       {
         title: 'Projects',
-        url: ''
-      },
-      {
-        title: 'Design Engineering',
         url: ''
       },
       {

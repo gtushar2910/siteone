@@ -120,4 +120,31 @@ model Converse {
   report_url       String?
 }
 
+model Evaluation_Scheme{
+id               String @id @default(cuid())
+seqnum           Int @unique
+tee              Int
+ca1              Int
+ca2              Int
+tep              Int
+ca3              Int
+total            Int
+subjects         Subject[]
+}
+
+model Subject {
+  id               String @id @default(cuid())
+  eff              String
+  semester         String
+  code             String
+  name             String
+  lpw              Int
+  tpw              Int
+  ppw              Int
+  credit           Int
+  esnum            Int
+  evaluation_Scheme          Evaluation_Scheme @relation(fields: [esnum], references: [seqnum])
+}
+
+
 
