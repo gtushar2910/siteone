@@ -2,7 +2,7 @@
 import React from "react";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Tooltip, Link } from "@nextui-org/react";
-
+import CalTable from "./CalTable";
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -13,16 +13,17 @@ import { AcademicCapIcon, BriefcaseIcon, BuildingLibraryIcon } from "@heroicons/
 const AcademicCalender = () => {
 
   const [list, setList] = useState([])
+  const [selected, setSelected] = React.useState("University");
 
   const getList = async () => {
-    const response = await axios.get("/api/acadcal/getCalenders?ucd=University");
+    const response = await axios.get("/api/acadcal/getCalenders?ucd=" + selected);
     if (response)
       setList(response.data)
   }
 
   useEffect(() => {
     getList()
-  }, [])
+  }, [selected])
 
   const columns = [
     { name: "#", uid: "seqnum" },
@@ -33,7 +34,7 @@ const AcademicCalender = () => {
 
   const renderCell = React.useCallback((listItem, columnKey) => {
     const cellValue = listItem[columnKey];
-   
+
     switch (columnKey) {
       case "semester":
         return (
@@ -41,12 +42,12 @@ const AcademicCalender = () => {
             <p className="font-bold	 text-center text-indigo-700">{cellValue}</p>
           </div>
         );
-        case "academic_year":
-          return (
-            <div className="flex flex-col">
-              <p className="font-bold	 text-center text-indigo-700">{cellValue}</p>
-            </div>
-          );
+      case "academic_year":
+        return (
+          <div className="flex flex-col">
+            <p className="font-bold	 text-center text-indigo-700">{cellValue}</p>
+          </div>
+        );
       case "seqnum":
         return (
           <div className="flex flex-col">
@@ -72,9 +73,10 @@ const AcademicCalender = () => {
     <div className="grid grid-cols-1 grid-flow-col gap-4 px-4 py-4 cardAboutDept">
       <div className="flex flex-col box-border items-center p-4 border-2 px-4" >
         <div className="flex w-full flex-col">
-          <Tabs aria-label="Options" color="secondary" size="lg" variant="shadow">
+          <Tabs aria-label="Options" color="secondary" size="lg" variant="shadow" selectedKey={selected}
+            onSelectionChange={setSelected}>
             <Tab
-              key="uni"
+              key="University"
               title={
                 <div className="flex items-center space-x-2">
                   <AcademicCapIcon className="h-6 w-6 text-blue-500" />
@@ -82,27 +84,10 @@ const AcademicCalender = () => {
                 </div>
               }
             >
-              <Table aria-label="Example table with custom cells">
-                      <TableHeader columns={columns}>
-                        {(column) => (
-                          <TableColumn key={column.uid}>
-                            <p className="text-center text-default-700">{column.name}</p>
-                          </TableColumn>
-                        )}
-                      </TableHeader>
-                      <TableBody items={list}>
-                        {(item) => (
-                          <TableRow key={item.id}>
-                            {(columnKey) => <TableCell>{renderCell(item, columnKey)
-                            }</TableCell>}
-                          </TableRow>
-
-                        )}
-                      </TableBody>
-                    </Table>
+              <CalTable columns={columns} list={list} renderCell={renderCell}/>
             </Tab>
             <Tab
-              key="music"
+              key="College"
               title={
                 <div className="flex items-center space-x-2">
                   <BuildingLibraryIcon className="h-6 w-6 text-blue-500" />
@@ -110,14 +95,10 @@ const AcademicCalender = () => {
                 </div>
               }
             >
-              <Card>
-                <CardBody>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </CardBody>
-              </Card>
+              <CalTable columns={columns} list={list} renderCell={renderCell}/>
             </Tab>
             <Tab
-              key="videos"
+              key="Department"
               title={
                 <div className="flex items-center space-x-2">
                   <BriefcaseIcon className="h-6 w-6 text-blue-500" />
@@ -125,11 +106,7 @@ const AcademicCalender = () => {
                 </div>
               }
             >
-              <Card>
-                <CardBody>
-                  d tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </CardBody>
-              </Card>
+              <CalTable columns={columns} list={list} renderCell={renderCell}/>
             </Tab>
           </Tabs>
         </div>
