@@ -55,7 +55,7 @@ export const menu_Items = [
       },
       {
         title: 'TimeTable',
-        url: 'https://docs.google.com/spreadsheets/d/1YvcWLhTgHj6P1ByJLTEoRaZmUXg0Wz0sfmh61-P1z8c/'
+        url: '/MenuLinks/Academics/TimeTable'
       },
       {
         title: 'Syllabus',

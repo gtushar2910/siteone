@@ -148,5 +148,20 @@ model Subject {
   evaluation_Scheme          Evaluation_Scheme @relation(fields: [esnum], references: [seqnum])
 }
 
+model TimeTable {
+  id               String @id @default(cuid())
+  seqnum           Int @unique
+  semester         String
+  tt_pdf           String
+}
+
+model AcademicCalender {
+  id               String @id @default(cuid())
+  seqnum           Int @unique
+  academic_year    String
+  semester         String
+  ucd              String
+  ac_pdf           String
+}
 
 
