@@ -137,6 +137,7 @@ model Subject {
   eff              String
   semester         String
   code             String
+  syllabus_pdf     String
   name             String
   lpw              Int
   tpw              Int
