@@ -135,7 +135,7 @@ subjects         Subject[]
 model Subject {
   id               String @id @default(cuid())
   eff              String
-  category         String
+  category         String @default("")
   semester         String
   code             String
   syllabus_pdf     String
