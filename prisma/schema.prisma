@@ -164,4 +164,11 @@ model AcademicCalender {
   ac_pdf           String
 }
 
+model PracticalExam {
+  id               String @id @default(cuid())
+  seqnum           Int @unique
+  description      String
+  tt_pdf           String
+}
+
 

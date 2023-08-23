@@ -73,7 +73,7 @@ export const menu_Items = [
       },
       {
         title: 'Practical Exam Time Table',
-        url: ''
+        url: '/MenuLinks/Exams/Practical'
       },
       {
         title: 'Mid Term Exams',
