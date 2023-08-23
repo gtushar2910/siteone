@@ -46,49 +46,39 @@ export const menu_Items = [
     url: '/services',
     submenu: [
       {
-        title: 'Academic Calender',
-        url: '/MenuLinks/Academics/AcadCal'
-      },
-      {
-        title: 'Continous Evaluation Scheme',
-        url: '/docs/ContEvaluation/Norms_2023-24.pdf'
-      },
-      {
-        title: 'TimeTable',
-        url: '/MenuLinks/Academics/TimeTable'
-      },
-      {
         title: 'Syllabus',
         url: '/MenuLinks/Academics/Syllabus'
-      },
-      {
-        title: 'Lab Manual',
-        url: ''
-      },
-      {
-        title: 'GTU Exam Papers',
-        url: ''
-      },
-      {
-        title: 'External Practical Exam Time Table',
-        url: ''
-      },
-      {
-        title: 'GTU Midterm Exam Conduction',
-        url: ''
       },
       {
         title: 'Result Analysis',
         url: ''
       },
       {
-        title: 'Projects',
+        title: 'Academic Calender',
+        url: '/MenuLinks/Academics/AcadCal'
+      },
+      {
+        title: 'Class & Faculty TimeTables',
+        url: '/MenuLinks/Academics/TimeTable'
+      }
+    ]
+  },
+  {
+    title: 'Exams',
+    url: '/services',
+    submenu: [
+      {
+        title: 'Continous Evaluation Scheme',
+        url: '/docs/ContEvaluation/Norms_2023-24.pdf'
+      },
+      {
+        title: 'Practical Exam Time Table',
         url: ''
       },
       {
-        title: 'Online Resources',
+        title: 'Mid Term Exams',
         url: ''
-       },
+      }
     ]
   },
   {
