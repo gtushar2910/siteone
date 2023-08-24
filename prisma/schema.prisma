@@ -171,4 +171,16 @@ model PracticalExam {
   tt_pdf           String
 }
 
+model EWS {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  type             String
+  expert           String @default("")
+  description      String
+  event_dates      String
+  faculty_co       String
+  student_co       String
+  report_url       String?
+}
+
 

@@ -147,7 +147,7 @@ export const menu_Items = [
       },
       {
         title: 'Expert Talks/ Workshops/ STTPs',
-        url: ''
+        url: '/MenuLinks/Events/EWS'
       },
       {
         title: 'IT Olympics',
