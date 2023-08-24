@@ -16,7 +16,7 @@ const ConverseList = () => {
   const [list, setList] = useState([])
 
   const getList = async () => {
-    const response = await axios.get("/api/events/ews/getList");
+    const response = await axios.get("/api/indint/indvisit/getList");
     if (response)
       setList(response.data)
   }
@@ -29,10 +29,10 @@ const ConverseList = () => {
     const cellValue = listItem[columnKey];
 
     switch (columnKey) {
-      case "type":
+      case "place":
         return (
           <div className="flex flex-col">
-            <p className="font-bold	 text-indigo-700">{cellValue}</p>
+            <p className="text-bold text-sm   text-green-700">{cellValue}</p>
           </div>
         );
       case "event_dates":
@@ -45,12 +45,6 @@ const ConverseList = () => {
         return (
           <div className="flex flex-col">
             <p className="text-bold text-sm text-yellow-700">{cellValue}</p>
-          </div>
-        );
-      case "expert":
-        return (
-          <div className="flex flex-col">
-            <p className="text-left  text-orange-700">{cellValue}</p>
           </div>
         );
       case "report":
@@ -69,7 +63,7 @@ const ConverseList = () => {
   return (
     <div className="px-4 cardAboutDept">
       <div className="box-border p-4 border-0 px-4">
-        <h2 class="text-2xl font-extrabold text-default-600 dark:text-white">Expert Talks / Workshops / STTPs</h2>
+        <h2 class="text-2xl font-extrabold text-default-600 dark:text-white">Industrial Visit</h2>
       </div>
       <div className="box-border p-4 border-2 px-4" >
         <Table aria-label="Example table with custom cells">

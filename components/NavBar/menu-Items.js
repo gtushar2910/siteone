@@ -91,7 +91,7 @@ export const menu_Items = [
       },
       {
         title: 'Industrial Visit',
-        url: ''
+        url: '/MenuLinks/IndInt/IndVisit'
       },
       {
         title: 'Industrial Training',

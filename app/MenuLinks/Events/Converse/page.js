@@ -50,7 +50,7 @@ const ConverseList = () => {
       case "student_co":
         return (
           <div className="flex flex-col">
-             <p className="text-left  text-orange-700">{cellValue}</p>
+            <p className="text-left  text-orange-700">{cellValue}</p>
           </div>
         );
       case "report":
@@ -67,7 +67,10 @@ const ConverseList = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 grid-flow-col gap-4 px-4 py-4 cardAboutDept">
+    <div className="px-4 cardAboutDept">
+      <div className="box-border p-4 border-0 px-4">
+        <h2 class="text-2xl font-extrabold text-default-600 dark:text-white">Converse</h2>
+      </div>
       <div className="box-border p-4 border-2 px-4" >
         <Table aria-label="Example table with custom cells">
           <TableHeader columns={columns}>

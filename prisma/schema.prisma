@@ -201,4 +201,12 @@ model ITAthletics {
   report_url       String?
 }
 
+model IndVisit {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  event_dates      String
+  place            String
+  faculty_co       String
+  report_url       String?
+}
 
