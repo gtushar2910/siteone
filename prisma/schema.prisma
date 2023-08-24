@@ -183,4 +183,22 @@ model EWS {
   report_url       String?
 }
 
+model SWIG {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  alumni           String @default("")
+  description      String
+  event_dates      String
+  faculty_co       String
+  report_url       String?
+}
+
+model ITAthletics {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  event_dates      String
+  faculty_co       String
+  report_url       String?
+}
+
 

@@ -150,16 +150,12 @@ export const menu_Items = [
         url: '/MenuLinks/Events/EWS'
       },
       {
-        title: 'IT Olympics',
-        url: ''
-      },
-      {
-        title: 'E-Magazines',
-        url: ''
+        title: 'IT Athletics',
+        url: '/MenuLinks/Events/ITAthletics'
       },
       {
         title: 'Alumni Talk',
-        url: ''
+        url: '/MenuLinks/Events/SWIG'
       },
       {
         title: 'Media Coverage',
