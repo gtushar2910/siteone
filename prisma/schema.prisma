@@ -210,3 +210,11 @@ model IndVisit {
   report_url       String?
 }
 
+model ResAna {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  academic_year    String
+  semester         String
+  file_url         String?
+}
+

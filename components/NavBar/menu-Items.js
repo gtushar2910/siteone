@@ -51,7 +51,7 @@ export const menu_Items = [
       },
       {
         title: 'Result Analysis',
-        url: ''
+        url: '/MenuLinks/Academics/ResAna'
       },
       {
         title: 'Academic Calender',
