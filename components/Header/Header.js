@@ -18,11 +18,12 @@ const Header = () => {
                     <div className="logoright">
                         <img src='/SUlogo.jpg' width={85} />
                     </div>
-
                 </div>
-
             </div>
-          <SiteNavBar />
+            <div className='w-screen'>
+                <SiteNavBar />
+            </div>
+
         </>
     )
 }

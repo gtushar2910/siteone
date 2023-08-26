@@ -19,6 +19,7 @@ model Staff {
   experience       String
   area_of_int      String
   email            String @unique
+  password         String @default("Admin@2023")
   contact          String?
   photo            String?
   homepage_url     String?

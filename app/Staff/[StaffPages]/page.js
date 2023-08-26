@@ -31,6 +31,9 @@ const StaffHomePage = () => {
       <div>
         <SideNavbar staff={staff}/>
       </div>
+      <div>
+        
+      </div>
       {/* <div className="flex items-center w-64">
         <Card className="px-4 py-4 bg-green">
 
