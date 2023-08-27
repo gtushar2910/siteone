@@ -27,11 +27,7 @@ model Staff {
   address          String?
   timetables       Staff_Timetable[]
   publications     Staff_Publications[]
-  books            Staff_Books[]
-  events           Staff_Events[]
-  patents          Staff_Patents[]
-  grants           Staff_Grants[]
-  achievements     Staff_Achievements[]
+  profile          Staff_Profile[]
   teachings        Staff_Teachings[]
   projects         Staff_Projects[]
 }
@@ -43,6 +39,10 @@ model Staff_Teachings {
   semester         String
   subject_code     String
   course_url       String?
+  midterm_url      String?
+  tutorial_url     String?
+  attendance_url   String?
+  materials_url    String?
   staff            Staff @relation(fields: [staff_email], references: [email])
 }
 
@@ -57,50 +57,43 @@ model Staff_Timetable{
 
 model Staff_Publications{
   id               String @id @default(cuid())
+  type             PublicationsType @default(JOURNAL)
+  level            PublicationsLevel @default(NATIONAL)
   staff_email      String
   description      String
   seqnum           Int
   staff            Staff @relation(fields: [staff_email], references: [email])
 }
 
-model Staff_Books{
+enum PublicationsType {
+  BOOK
+  JOURNAL
+  CONFERENCE
+}
+
+enum PublicationsLevel {
+  NATIONAL
+  INTERNATIONAL
+  STATE
+  COLLEGE
+}
+
+model Staff_Profile {
   id               String @id @default(cuid())
   staff_email      String
+  type             StaffProfileType @default(WORKSHOP_SEMINAR_STTP)
   description      String
   seqnum           Int
   staff            Staff @relation(fields: [staff_email], references: [email])
 }
 
-model Staff_Events{
-  id               String @id @default(cuid())
-  staff_email      String
-  description      String
-  seqnum           Int
-  staff            Staff @relation(fields: [staff_email], references: [email])
-}
-
-model Staff_Patents{
-  id               String @id @default(cuid())
-  staff_email      String
-  description      String
-  seqnum           Int
-  staff            Staff @relation(fields: [staff_email], references: [email])
-}
-
-model Staff_Grants{
-  id               String @id @default(cuid())
-  staff_email      String
-  description      String
-  seqnum           Int
-  staff            Staff @relation(fields: [staff_email], references: [email])
-}
-
-model Staff_Achievements{
-  id               String @id @default(cuid())
-  staff_email      String
-  description      String
-  seqnum           Int
-  staff            Staff @relation(fields: [staff_email], references: [email])
+enum StaffProfileType {
+  EXPERT_LECTURES_DELIVERED
+  ACHIEVEMENTS_AWARDS
+  ADMINISTRATIVE_DUTIES
+  MEMBERSHIPS
+  WORKSHOP_SEMINAR_STTP
+  OTHER
 }
 
 model Staff_Projects{

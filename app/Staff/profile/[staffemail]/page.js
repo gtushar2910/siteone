@@ -3,16 +3,33 @@ import React from 'react'
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import SideNavbar from '@/components/NavBar/SideNavBar'
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
 import { usePathname } from 'next/navigation'
+import UnAuthorizedPage from './UnAuthorizedPage';
+import { useSession } from 'next-auth/react';
+import AuthorizedPage from './AuthorizedPage';
+import { Chip, Tooltip, useDisclosure } from '@nextui-org/react';
+import { EditIcon } from './icons/EditIcon';
+import { TrashIcon } from '@heroicons/react/24/solid';
+import AddEdit from './AddEdit';
+
+const statusColorMap = {
+  JOURNAL: "primary",
+  BOOK: "secondary",
+  CONFERENCE: "warning",
+};
 
 
 const StaffPublications = () => {
 
+  const { data: session, status } = useSession();
+  const user = session?.user;
+  const isLoadingUser = status === 'loading';
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const pathname = usePathname()
-
   const [staff, setStaff] = useState([])
   const [publications, setPublications] = useState([])
+  const [publication, setPublication] = useState()
+  const [selectedId, setSelectedId] = useState("")
 
   const getStaffData = async () => {
     let email = pathname.slice(pathname.lastIndexOf('/') + 1)
@@ -27,16 +44,67 @@ const StaffPublications = () => {
 
   const columns = [
     { name: "#", uid: "seqnum" },
+    { name: "TYPE", uid: "type" },
+    { name: "LEVEL", uid: "level" },
     { name: "Publications", uid: "description" },
   ];
 
+  const addRow = async (
+    id = null,
+  ) => {
+    if (confirm("Confirm Add?")) {
+      setSelectedId("New")
+      onOpen()
+    }
+  };
+
+  const deleteRow = async (
+    id = null,
+  ) => {
+    if (confirm("Confirm Delete?")) {
+      const response = await axios.put("/api/staff/crud/d/deletePublication?id=" + id);
+    }
+  };
+
+  const editRow = async (
+    listItem = null,
+  ) => {
+    if (confirm("Confirm Edit?")) {
+      setSelectedId("Edit")
+      setPublication(listItem)
+      onOpen()
+    }
+  };
+
   const renderCell = React.useCallback((listItem, columnKey) => {
     const cellValue = listItem[columnKey];
-    return (
-      <div className="flex flex-col">
-        <p className="font-bold	 text-left text-zinc-700">{cellValue}</p>
-      </div>
-    );
+
+    switch (columnKey) {
+      case "type":
+        return (
+          <Chip className="capitalize" color={statusColorMap[listItem.type]} size="sm" variant="flat">
+            {cellValue}
+          </Chip>
+        );
+      case "actions":
+        return (
+          <div className="relative flex items-center gap-2">
+            <Tooltip content="Edit">
+              <span className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => editRow(listItem)}>
+                <EditIcon />
+              </span>
+            </Tooltip>
+            <Tooltip content="Delete">
+              <span onClick={() => deleteRow(listItem.id)} className="h-6 w-6 text-red-500">
+                <TrashIcon />
+              </span>
+            </Tooltip>
+
+          </div>
+        );
+      default:
+        return cellValue;
+    }
   }, []);
 
   useEffect(() => {
@@ -49,27 +117,9 @@ const StaffPublications = () => {
       <div>
         <SideNavbar staff={staff} />
       </div>
-      <div className="grid grid-cols-1 grid-flow-col gap-4 px-4 py-4 cardAboutDept">
-        <div className="box-border p-4 border-2 px-4" >
-          <Table aria-label="Example table with custom cells">
-            <TableHeader columns={columns}>
-              {(column) => (
-                <TableColumn key={column.uid}>
-                  <p className="text-center text-default-700">{column.name}</p>
-                </TableColumn>
-              )}
-            </TableHeader>
-            <TableBody items={publications}>
-              {(item) => (
-                <TableRow key={item.id}>
-                  {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </div>
-      </div>
 
+      {user ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} publications={publications} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns} publications={publications} renderCell={renderCell} /></>)}
+      <AddEdit id={selectedId} publication={publication} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} />
     </div>
   )
 }
