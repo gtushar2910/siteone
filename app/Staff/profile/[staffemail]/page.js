@@ -24,7 +24,7 @@ const StaffPublications = () => {
   const { data: session, status } = useSession();
   const user = session?.user;
   const isLoadingUser = status === 'loading';
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange,onClose } = useDisclosure();
   const pathname = usePathname()
   const [staff, setStaff] = useState([])
   const [publications, setPublications] = useState([])
@@ -119,7 +119,7 @@ const StaffPublications = () => {
       </div>
 
       {user ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} publications={publications} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns} publications={publications} renderCell={renderCell} /></>)}
-      <AddEdit id={selectedId} publication={publication} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} />
+      <AddEdit id={selectedId} onClose={onClose} publication={publication} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} staff_email={pathname.slice(pathname.lastIndexOf('/') + 1)}/>
     </div>
   )
 }

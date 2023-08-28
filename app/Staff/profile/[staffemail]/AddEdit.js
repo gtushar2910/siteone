@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Input, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Spacer, Textarea } from "@nextui-org/react";
-import { useState } from "react";
+import axios from "axios";
 
-export default function AddEdit({ id, isOpen, onOpen, onOpenChange, publication }) {
+export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, publication, staff_email }) {
 
     const [selectedKeysType, setSelectedKeysType] = React.useState(new Set(["JOURNAL"]));
     const [selectedKeysLevel, setSelectedKeysLevel] = React.useState(new Set(["NATIONAL"]));
     const [seqNum, setSeqNum] = React.useState(0)
     const [description, setDescription] = React.useState("")
 
-    const selectedValueType = React.useMemo(
-        () => Array.from(selectedKeysType).join(", ").replaceAll("_", " "),
-        [selectedKeysType]
-    );
-    const selectedValueLevel = React.useMemo(
-        () => Array.from(selectedKeysLevel).join(", ").replaceAll("_", " "),
-        [selectedKeysLevel]
-    );
+    // const selectedValueType = React.useMemo(
+    //     () => Array.from(selectedKeysType).join(", ").replaceAll("_", " "),
+    //     [selectedKeysType]
+    // );
+    // const selectedValueLevel = React.useMemo(
+    //     () => Array.from(selectedKeysLevel).join(", ").replaceAll("_", " "),
+    //     [selectedKeysLevel]
+    // );
 
     useEffect(() => {
         if (id == "New") {
@@ -34,17 +34,39 @@ export default function AddEdit({ id, isOpen, onOpen, onOpenChange, publication 
         }
     }, [publication, id]);
 
-    const saveChanges = async (    
-      ) => {
-        // if (confirm("Confirm Delete?")) {
-        //   const response = await axios.put("/api/staff/crud/d/deletePublication?id=" + id);
-        // }
-        console.log(selectedKeysLevel)
-        console.log(selectedKeysType)
-        console.log(seqNum)
-        console.log(description)
-        
-      };
+    const saveChanges = async (
+    ) => {
+        if (description == "") {
+            alert("Description Can not be null!");
+        } else {
+            let level = "NATIONAL";
+            let type = "JOURNAL";
+            if (selectedKeysLevel.currentKey)
+                level = selectedKeysLevel.currentKey
+            if (selectedKeysType.currentKey)
+                type = selectedKeysType.currentKey
+
+            if (id == "Edit") {
+                const response = await axios.post('/api/staff/crud/u/updatePublication', {
+                    level: level,
+                    type: type,
+                    seqNum: seqNum,
+                    description: description,
+                    id: publication.id
+                });
+            } else if (id == "New") {
+                const response = await axios.post('/api/staff/crud/c/createPublication', {
+                    level: level,
+                    type: type,
+                    seqNum: Number(seqNum),
+                    description: description,
+                    staff_email: staff_email
+                });
+            }
+            onClose()
+        }
+    };
+
 
     return (
         <>
@@ -54,7 +76,6 @@ export default function AddEdit({ id, isOpen, onOpen, onOpenChange, publication 
                         <>
                             <ModalHeader className="flex flex-col gap-1">Add/Edit Publications</ModalHeader>
                             <ModalBody>
-
                                 <Input
                                     isDisabled
                                     type="text"
