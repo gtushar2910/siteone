@@ -37,7 +37,10 @@ model Staff_Teachings {
   staff_email      String
   academic_year    String
   semester         String
+  subject_name     String @default("XYZ")
   subject_code     String
+  syllabus_url     String?
+  classname        String?
   course_url       String?
   midterm_url      String?
   tutorial_url     String?
