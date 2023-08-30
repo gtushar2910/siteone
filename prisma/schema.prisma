@@ -168,6 +168,23 @@ model PracticalExam {
   tt_pdf           String
 }
 
+model ExamTimeTable {
+  id               String @id @default(cuid())
+  seqnum           Int @unique
+  type             ExamTimeTableType
+  academic_year    String
+  semester         String
+  classname        String?
+  tt_pdf           String
+  seating_arrangement String?
+}
+
+enum ExamTimeTableType {
+  INTERNAL
+  EXTERNAL
+  MIDTERM
+}
+
 model EWS {
   id               String @id @default(cuid())
   seqnum           Int @default(0)

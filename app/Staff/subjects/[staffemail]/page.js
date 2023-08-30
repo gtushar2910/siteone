@@ -23,7 +23,7 @@ const statusColorMap = {
 };
 
 
-const StaffPublications = () => {
+const StaffTeachings = () => {
 
   const { data: session, status } = useSession();
   const user = session?.user;
@@ -47,6 +47,11 @@ const StaffPublications = () => {
 
   }
 
+  const AddEditClose = async () => {
+    getStaffTeachings()
+    onClose()
+  }
+
   const columns = [
     { name: "ACADEMIC YEAR", uid: "academic_year" },
     { name: "SEMESTER", uid: "semester" },
@@ -54,6 +59,7 @@ const StaffPublications = () => {
     { name: "SUBJECT", uid: "subject_name" },
     { name: "SUBJECT CODE", uid: "subject_code" },
     { name: "COURSE DATA", uid: "actions" },
+    { name: "EDIT", uid: "edit" },
   ];
 
   const addRow = async (
@@ -69,7 +75,8 @@ const StaffPublications = () => {
     id = null,
   ) => {
     if (confirm("Confirm Delete?")) {
-      const response = await axios.put("/api/staff/crud/d/deletePublication?id=" + id);
+      const response = await axios.put("/api/staff/crud/d/deleteTeaching?id=" + id);
+      getStaffTeachings()
     }
   };
 
@@ -90,10 +97,10 @@ const StaffPublications = () => {
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
-             <Tooltip content="View Syllabus"  >
-            <Link href={listItem['syllabus_url']} target="_blank" color="primary"><DocumentTextIcon className="h-6 w-6 text-yellow-500" /></Link>
-          </Tooltip>
-          <Tooltip content="Course URL"  >
+            <Tooltip content="View Syllabus"  >
+              <Link href={listItem['syllabus_url']} target="_blank" color="primary"><DocumentTextIcon className="h-6 w-6 text-yellow-500" /></Link>
+            </Tooltip>
+            <Tooltip content="Course URL"  >
               <Link href={listItem['course_url']} target="_blank" color="primary"><LinkIcon className="h-6 w-6 text-purple-500" /></Link>
             </Tooltip>
             <Tooltip content="MATERIALS"  >
@@ -105,6 +112,22 @@ const StaffPublications = () => {
             <Tooltip content="TUTORIAL"  >
               <Link href={listItem['tutorial_url']} target="_blank" color="primary"><BookOpenIcon className="h-6 w-6 text-zinc-500" /></Link>
             </Tooltip>
+          </div>
+        );
+      case "edit":
+        return (
+          <div className="relative flex items-center gap-2">
+            <Tooltip content="Edit">
+              <span className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => editRow(listItem)}>
+                <EditIcon />
+              </span>
+            </Tooltip>
+            <Tooltip content="Delete">
+              <span onClick={() => deleteRow(listItem.id)} className="h-6 w-6 text-red-500">
+                <TrashIcon />
+              </span>
+            </Tooltip>
+
           </div>
         );
       default:
@@ -126,11 +149,12 @@ const StaffPublications = () => {
       <div>
         <SideNavbar staff={staff} />
       </div>
-      {user ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} teachings={teachings} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns} teachings={teachings} renderCell={renderCell} /></>)}
-      {/* {user ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} teachings={teachings} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns} teachings={teachings} renderCell={renderCell} /></>)}
-      <AddEdit id={selectedId} onClose={onClose} teaching={teaching} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} staff_email={pathname.slice(pathname.lastIndexOf('/') + 1)}/> */}
+      {user ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} teachings={teachings} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns.filter(function (column) {
+        return column.name !== "EDIT";
+      })} teachings={teachings} renderCell={renderCell} /></>)}
+      <AddEdit id={selectedId} onClose={AddEditClose} teaching={teaching} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} staff_email={pathname.slice(pathname.lastIndexOf('/') + 1)} />
     </div>
   )
 }
 
-export default StaffPublications
+export default StaffTeachings

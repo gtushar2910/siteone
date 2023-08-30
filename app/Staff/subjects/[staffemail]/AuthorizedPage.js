@@ -18,7 +18,7 @@ import { ChevronDownIcon } from "./icons/ChevronDownIcon";
 import { columns, statusOptions } from "./data";
 import { capitalize } from "./utils";
 
-const INITIAL_VISIBLE_COLUMNS = ["type", "level", "description", "seqnum","actions"];
+const INITIAL_VISIBLE_COLUMNS = ["academic_year", "semester", "classname", "subject_name","subject_code","actions","edit"];
 
 export default function AuthorizedPage({ addRow, user, teachings, renderCell }) {
   const [filterValue, setFilterValue] = React.useState("");
@@ -27,7 +27,7 @@ export default function AuthorizedPage({ addRow, user, teachings, renderCell }) 
   const [statusFilter, setStatusFilter] = React.useState("all");
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [sortDescriptor, setSortDescriptor] = React.useState({
-    column: "seqnum",
+    column: "academic_year",
     direction: "ascending",
   });
   const [page, setPage] = React.useState(1);
@@ -48,7 +48,7 @@ export default function AuthorizedPage({ addRow, user, teachings, renderCell }) 
     }
     if (statusFilter !== "all" && Array.from(statusFilter).length !== statusOptions.length) {
       filteredUsers = filteredUsers.filter((user) =>
-        Array.from(statusFilter).includes(user.type),
+        Array.from(statusFilter).includes(user.academic_year),
       );
     }
     return filteredUsers;
@@ -101,7 +101,7 @@ export default function AuthorizedPage({ addRow, user, teachings, renderCell }) 
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
                 <Button endContent={<ChevronDownIcon className="text-small" />} variant="flat">
-                  Type
+                  Academic Year
                 </Button>
               </DropdownTrigger>
               <DropdownMenu
@@ -146,7 +146,7 @@ export default function AuthorizedPage({ addRow, user, teachings, renderCell }) 
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-default-400 text-small">Total {teachings.length} Teachings</span>
+          <span className="text-default-400 text-small">Total {teachings.length} teachings</span>
           <label className="flex items-center text-default-400 text-small">
             Rows per page:
             <select
@@ -227,7 +227,7 @@ export default function AuthorizedPage({ addRow, user, teachings, renderCell }) 
             </TableColumn>
           )}
         </TableHeader>
-        <TableBody emptyContent={"No Publications found"} items={sortedItems}>
+        <TableBody emptyContent={"No teachings found"} items={sortedItems}>
           {(item) => (
             <TableRow key={item.id}>
               {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}

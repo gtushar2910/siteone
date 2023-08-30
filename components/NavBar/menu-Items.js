@@ -72,12 +72,8 @@ export const menu_Items = [
         url: '/docs/ContEvaluation/Norms_2023-24.pdf'
       },
       {
-        title: 'Practical Exam Time Table',
-        url: '/MenuLinks/Exams/Practical'
-      },
-      {
-        title: 'Mid Term Exams',
-        url: ''
+        title: 'Schedules',
+        url: '/MenuLinks/Exams/Schedules'
       }
     ]
   },

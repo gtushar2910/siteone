@@ -74,7 +74,7 @@ const StaffHomePage = () => {
             </div>
             <div>
                 <div className='p-4'>
-                    <h2 class="text-2xl font-extrabold dark:text-white">Faculty Time Table : {staff.name}</h2>
+                    <h2 className="text-2xl font-extrabold dark:text-white">Faculty Time Table : {staff.name}</h2>
                 </div>
 
 
