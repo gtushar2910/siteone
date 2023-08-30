@@ -6,6 +6,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --background-color: #fbe8a6;
+  --foreground-color: black;
+  --menu-foreground-color: #defdff;
+  --menu-background-color: #303c6c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,13 +17,74 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --background-color: #aee9e0;
+
   }
 }
 
 body {
-   background: #aee9e0
+   background: var(--background-color);
+   color: var(--foreground-color)
 }
 
 .cardAboutDept {
-  background: #aee9e0
+  background: var(--background-color)
+  
+}
+
+.header {
+  background: var(--background-color);
+  color: var(--foreground-color);
+  display: flex;
+}
+
+.heading-1 {
+  color: var(--foreground-color);
+  font-size:2.5vw;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: solid;
+} 
+
+.heading-2 {
+  color: var(--foreground-color);
+  font-size:1vw;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.container {
+  display: flex;
+  background: var(--background-color)
+  
+}
+
+ .navbar {
+  background: var(--menu-background-color);
+  vertical-align: middle;
+  color: var(--menu-foreground-color)
+} 
+
+
+.logoright {
+  align-self: flex-end;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  
+}
+img{
+  border-radius: 50%;
+}
+
+.logoleft {
+  align-self: flex-start;
+  margin-left: 25px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.headercontent{
+  align-self: center;
+  flex-grow: 4;
 }

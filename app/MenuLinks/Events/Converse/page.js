@@ -32,25 +32,25 @@ const ConverseList = () => {
       case "name":
         return (
           <div className="flex flex-col">
-            <p className="font-bold	 text-center text-indigo-700">{cellValue}</p>
+            <p className="font-bold	 text-center ">{cellValue}</p>
           </div>
         );
       case "event_dates":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm  text-center text-green-700">{cellValue}</p>
+            <p className="text-bold  text-center ">{cellValue}</p>
           </div>
         );
       case "faculty_co":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm text-yellow-700">{cellValue}</p>
+            <p className="text-bold">{cellValue}</p>
           </div>
         );
       case "student_co":
         return (
           <div className="flex flex-col">
-            <p className="text-left  text-orange-700">{cellValue}</p>
+            <p className="text-left  ">{cellValue}</p>
           </div>
         );
       case "report":
@@ -66,17 +66,40 @@ const ConverseList = () => {
     }
   }, []);
 
+
+  const classNames = React.useMemo(
+    () => ({
+      th: ["bg-orange-200","font-sans","font-bold"],
+      td: [
+        // changing the rows border radius
+        // first
+        "group-data-[first=true]:first:before:rounded-none",
+        "group-data-[first=true]:last:before:rounded-none",
+        // middle
+        "group-data-[middle=true]:before:rounded-none",
+        // last
+        "group-data-[last=true]:first:before:rounded-none",
+        "group-data-[last=true]:last:before:rounded-none",
+        "bg-amber-50",
+        "text-zinc-700",
+        "font-sans",
+        "font-medium"
+      ],
+    }),
+    [],
+  );
+
   return (
     <div className="px-4 cardAboutDept">
       <div className="box-border p-4 border-0 px-4">
-        <h2 class="text-2xl font-extrabold text-default-600 dark:text-white">Converse</h2>
+        <h1 class="font-sans text-4xl text-zinc-700 font-black uppercase text-center"> ----- Converse -----</h1>
       </div>
       <div className="box-border p-4 border-2 px-4" >
-        <Table aria-label="Example table with custom cells">
+        <Table aria-label="Example table with custom cells" classNames={classNames}>
           <TableHeader columns={columns}>
             {(column) => (
               <TableColumn key={column.uid}>
-                <p className="text-center text-default-700">{column.name}</p>
+                <p className="text-center">{column.name}</p>
               </TableColumn>
             )}
           </TableHeader>

@@ -6,7 +6,7 @@ import { Spacer } from "@nextui-org/react";
 
 export default function AboutDept() {
   return (
-    <div className="px-4 py-4 cardAboutDept">
+    <div className="px-4 py-4 cardAboutDept font-sans">
       <div className="box-border p-4 border-2 px-4 ">
         <p className="text-lg font-bold"> About Department of Information Technology </p>
         <Divider className="my-4" />
