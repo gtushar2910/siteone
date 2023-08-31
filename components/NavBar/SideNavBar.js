@@ -15,6 +15,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaRegComments } from "react-icons/fa";
 import { BiMessageSquareDots } from "react-icons/bi";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { ArrowRightCircleIcon, ArrowRightOnRectangleIcon, HomeIcon, PencilIcon, PhoneIcon, Square3Stack3DIcon, TableCellsIcon } from "@heroicons/react/24/solid";
 
 function SideNavbar({ staff }) {
 
@@ -42,7 +43,7 @@ function SideNavbar({ staff }) {
             </div>
             <div className=" my-4 border-b border-gray-100 pb-4">
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MdOutlineSpaceDashboard className="text-2xl text-gray-600 group-hover:text-white " />
+                <HomeIcon className="h-6 w-6 text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
                   <Link href={`/Staff/${staff.email}`} size="sm">
                     Home
@@ -51,7 +52,7 @@ function SideNavbar({ staff }) {
               </div>
 
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <FaRegComments className="text-2xl text-gray-600 group-hover:text-white " />
+                <Square3Stack3DIcon className="h-6 w-6 text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
                 <Link href={`/Staff/subjects/${staff.email}`} size="sm">
                   Subjects
@@ -59,7 +60,7 @@ function SideNavbar({ staff }) {
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MdOutlineAnalytics className="text-2xl text-gray-600 group-hover:text-white " />
+                <TableCellsIcon className="h-6 w-6 text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
                 <Link href={`/Staff/timetables/${staff.email}`} size="sm">
                   Time Tables
@@ -67,21 +68,15 @@ function SideNavbar({ staff }) {
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <BiMessageSquareDots className="text-2xl text-gray-600 group-hover:text-white " />
-                <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
-                  Projects
-                </h3>
-              </div>
-              <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <CgProfile className="text-2xl text-gray-600 group-hover:text-white " />
+                <PencilIcon className="h-6 w-6 text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
                   <Link href={`/Staff/profile/${staff.email}`} size="sm">
-                    Profile
+                    Publications
                   </Link>
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MdOutlineIntegrationInstructions className="text-2xl text-gray-600 group-hover:text-white " />
+                <PhoneIcon className="h-6 w-6 text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
                 <Link href={`/Staff/contact/${staff.email}`} size="sm">
                   Contact
@@ -89,12 +84,12 @@ function SideNavbar({ staff }) {
                 </h3>
               </div>
               {user ? (<> <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MdOutlineIntegrationInstructions className="text-2xl text-gray-600 group-hover:text-white " />
+                <ArrowRightOnRectangleIcon className="h-6 w-6 text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold" onClick={signOut}>
                   Sign Out
                 </h3>
               </div></>) : (<> <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MdOutlineIntegrationInstructions className="text-2xl text-gray-600 group-hover:text-white " />
+                <ArrowRightCircleIcon className="h-6 w-6 text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold " onClick={signIn}>
                   Sign In
                 </h3>

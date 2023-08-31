@@ -76,8 +76,6 @@ const StaffHomePage = () => {
                 <div className='p-4'>
                     <h2 className="text-2xl font-extrabold dark:text-white">Faculty Time Table : {staff.name}</h2>
                 </div>
-
-
                 <div className="box-border p-4 border-2 px-4" >
                     <Table aria-label="Example table with custom cells">
                         <TableHeader columns={columns}>

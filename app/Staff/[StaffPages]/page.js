@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import SideNavbar from '@/components/NavBar/SideNavBar'
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
-import { usePathname  } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import classNames from '@/lib/tableClassNames';
 
 
@@ -15,7 +15,7 @@ const StaffHomePage = () => {
   const [staff, setStaff] = useState([])
 
   const getStaff = async () => {
-     let email = pathname.slice(pathname.lastIndexOf('/') + 1)
+    let email = pathname.slice(pathname.lastIndexOf('/') + 1)
     const response = await axios.get("/api/staff/getSingleStaffData?email=" + email);
     if (response)
       setStaff(response.data)
@@ -27,14 +27,14 @@ const StaffHomePage = () => {
 
 
   return (
-    <div className="flex flex-cols content-center px-4 py-4 cardAboutDept">
-      <div>
-        <SideNavbar staff={staff}/>
-      </div>
-      <div>
-        
-      </div>
-      {/* <div className="flex items-center w-64">
+      <div className="flex flex-cols content-center px-4 py-4 cardAboutDept">
+        <div>
+          <SideNavbar staff={staff} />
+        </div>
+        <div>
+
+        </div>
+        {/* <div className="flex items-center w-64">
         <Card className="px-4 py-4 bg-green">
 
           <CardBody className="overflow-visible py-2">
@@ -54,7 +54,7 @@ const StaffHomePage = () => {
               <TableColumn>ROLE</TableColumn>
             </TableHeader>
             <TableBody>
-            <TableRow key="0">
+              <TableRow key="0">
                 <TableCell> <p className="font-bold	 text-left text-zinc-700">Name</p></TableCell>
                 <TableCell>{staff.name}</TableCell>
               </TableRow>
@@ -85,7 +85,8 @@ const StaffHomePage = () => {
             </TableBody>
           </Table>
         </div>
-    </div>
+      </div>
+
   )
 }
 

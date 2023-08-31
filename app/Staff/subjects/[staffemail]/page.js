@@ -16,12 +16,6 @@ import { BookOpenIcon } from '@heroicons/react/24/solid'
 import { DocumentTextIcon } from '@heroicons/react/24/solid'
 import { LinkIcon } from '@heroicons/react/24/solid'
 
-const statusColorMap = {
-  JOURNAL: "primary",
-  BOOK: "secondary",
-  CONFERENCE: "warning",
-};
-
 
 const StaffTeachings = () => {
 
