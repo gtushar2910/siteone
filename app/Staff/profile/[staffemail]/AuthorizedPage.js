@@ -17,6 +17,7 @@ import { PlusIcon } from "./icons/PlusIcon";
 import { ChevronDownIcon } from "./icons/ChevronDownIcon";
 import { columns, statusOptions } from "./data";
 import { capitalize } from "./utils";
+import classNames from "@/lib/tableClassNames";
 
 const INITIAL_VISIBLE_COLUMNS = ["type", "level", "description", "seqnum","actions"];
 
@@ -205,9 +206,7 @@ export default function AuthorizedPage({ addRow, user, publications, renderCell 
         isHeaderSticky
         bottomContent={bottomContent}
         bottomContentPlacement="outside"
-        classNames={{
-          wrapper: "max-h-[382px]",
-        }}
+        classNames={classNames}
         selectedKeys={selectedKeys}
         selectionMode="single"
         sortDescriptor={sortDescriptor}

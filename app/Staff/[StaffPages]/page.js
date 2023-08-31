@@ -5,7 +5,7 @@ import axios from 'axios';
 import SideNavbar from '@/components/NavBar/SideNavBar'
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
 import { usePathname  } from 'next/navigation'
-
+import classNames from '@/lib/tableClassNames';
 
 
 const StaffHomePage = () => {
@@ -48,7 +48,7 @@ const StaffHomePage = () => {
         </Card>
       </div> */}
         <div className="box-border p-4 border-2 px-4" >
-          <Table hideHeader isStriped color="success" fullWidth aria-label="Example static collection table">
+          <Table hideHeader isStriped color="success" classNames={classNames} fullWidth aria-label="Example static collection table">
             <TableHeader>
               <TableColumn>NAME</TableColumn>
               <TableColumn>ROLE</TableColumn>

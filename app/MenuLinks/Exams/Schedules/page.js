@@ -53,19 +53,19 @@ const ExamSchedules = () => {
       case "semester":
         return (
           <div className="flex flex-col">
-            <p className="font-bold	 text-center text-indigo-700">{cellValue}</p>
+            <p className="font-bold	 text-center ">{cellValue}</p>
           </div>
         );
       case "academic_year":
         return (
           <div className="flex flex-col">
-            <p className="font-bold	 text-center text-indigo-700">{cellValue}</p>
+            <p className="font-bold	 text-center ">{cellValue}</p>
           </div>
         );
       case "type":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm  text-center text-green-700">{cellValue}</p>
+            <p className="text-bold text-sm  text-center ">{cellValue}</p>
           </div>
         );
       case "schedule":
@@ -87,7 +87,7 @@ const ExamSchedules = () => {
       default:
         return (
           <div className="flex flex-col">
-            <p className="font-bold	 text-center text-default-700">{cellValue}</p>
+            <p className="font-bold	text-center">{cellValue}</p>
           </div>
         );
     }
@@ -96,7 +96,7 @@ const ExamSchedules = () => {
 
 
   return (
-    <div className="grid grid-cols-1 grid-flow-col gap-4 px-4 py-4 cardAboutDept">
+    <div className="grid grid-cols-1 grid-flow-col gap-4 px-4 py-4 cardAboutDept font-sans">
       <div className="flex flex-col box-border items-center p-4 border-2 px-4" >
         <div className="flex w-full flex-col">
           <Tabs aria-label="Options" color="secondary" size="lg" variant="shadow" selectedKey={selected}

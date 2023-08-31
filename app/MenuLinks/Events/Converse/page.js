@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Tooltip, Link } from "@nextui-org/react";
-
+import classNames from "@/lib/tableClassNames";
 import { columns } from "./data";
 import axios from 'axios';
 import { useEffect } from 'react';
@@ -67,32 +67,11 @@ const ConverseList = () => {
   }, []);
 
 
-  const classNames = React.useMemo(
-    () => ({
-      th: ["bg-orange-200","font-sans","font-bold"],
-      td: [
-        // changing the rows border radius
-        // first
-        "group-data-[first=true]:first:before:rounded-none",
-        "group-data-[first=true]:last:before:rounded-none",
-        // middle
-        "group-data-[middle=true]:before:rounded-none",
-        // last
-        "group-data-[last=true]:first:before:rounded-none",
-        "group-data-[last=true]:last:before:rounded-none",
-        "bg-amber-50",
-        "text-zinc-700",
-        "font-sans",
-        "font-medium"
-      ],
-    }),
-    [],
-  );
 
   return (
     <div className="px-4 cardAboutDept">
       <div className="box-border p-4 border-0 px-4">
-        <h1 class="font-sans text-4xl text-zinc-700 font-black uppercase text-center"> ----- Converse -----</h1>
+        <h1 className="font-sans text-4xl text-zinc-700 font-black uppercase text-center"> ----- Converse -----</h1>
       </div>
       <div className="box-border p-4 border-2 px-4" >
         <Table aria-label="Example table with custom cells" classNames={classNames}>
