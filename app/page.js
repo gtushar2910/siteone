@@ -1,6 +1,6 @@
 
 "use client"
-import Carousel from "@/components/HomeSlider/page"
+import Carousel from "../components/HomeSlider/page"
 
 export default function Home() {
   return (

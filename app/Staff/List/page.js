@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Link from "next/link";
-import classNames from "@/lib/tableClassNames";
+import classNames from "../../../lib/tableClassNames";
 
 const statusColorMap = {
   active: "success",

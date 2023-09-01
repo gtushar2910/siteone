@@ -2,10 +2,10 @@
 import React from 'react'
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import SideNavbar from '@/components/NavBar/SideNavBar'
+import SideNavbar from "../../../components/NavBar/SideNavBar"
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
 import { usePathname } from 'next/navigation'
-import classNames from '@/lib/tableClassNames';
+import classNames from "../../../lib/tableClassNames"
 
 
 const StaffHomePage = () => {
