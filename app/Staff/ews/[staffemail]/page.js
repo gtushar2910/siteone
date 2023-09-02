@@ -19,7 +19,7 @@ const statusColorMap = {
 };
 
 
-const StaffPublications = () => {
+const StaffProfile = () => {
 
   const { data: session, status } = useSession();
   const user = session?.user;
@@ -27,17 +27,17 @@ const StaffPublications = () => {
   const { isOpen, onOpen, onOpenChange,onClose } = useDisclosure();
   const pathname = usePathname()
   const [staff, setStaff] = useState([])
-  const [publications, setPublications] = useState([])
-  const [publication, setPublication] = useState()
+  const [profiles, setProfiles] = useState([])
+  const [profile, setProfile] = useState()
   const [selectedId, setSelectedId] = useState("")
 
   const getStaffData = async () => {
     let email = pathname.slice(pathname.lastIndexOf('/') + 1)
-    const response = await axios.get("/api/staff/getStaffPublications?email=" + email);
+    const response = await axios.get("/api/staff/crud/r/getProfiles?email=" + email);
     if (response) {
       const data = response.data
       setStaff(data[0].staff)
-      setPublications(data[1].publications)
+      setProfiles(data[1].profiles)
     }
 
   }
@@ -45,8 +45,7 @@ const StaffPublications = () => {
   const columns = [
     { name: "#", uid: "seqnum" },
     { name: "TYPE", uid: "type" },
-    { name: "LEVEL", uid: "level" },
-    { name: "Publications", uid: "description" },
+    { name: "DESCRIPTION", uid: "description" },
   ];
 
   const addRow = async (
@@ -62,7 +61,7 @@ const StaffPublications = () => {
     id = null,
   ) => {
     if (confirm("Confirm Delete?")) {
-      const response = await axios.put("/api/staff/crud/d/deletePublication?id=" + id);
+      const response = await axios.put("/api/staff/crud/d/deleteProfile?id=" + id);
     }
   };
 
@@ -71,7 +70,7 @@ const StaffPublications = () => {
   ) => {
     if (confirm("Confirm Edit?")) {
       setSelectedId("Edit")
-      setPublication(listItem)
+      setProfile(listItem)
       onOpen()
     }
   };
@@ -117,11 +116,13 @@ const StaffPublications = () => {
       <div>
         <SideNavbar staff={staff} />
       </div>
-
-      {user ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} publications={publications} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns} publications={publications} renderCell={renderCell} /></>)}
-      <AddEdit id={selectedId} onClose={onClose} publication={publication} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} staff_email={pathname.slice(pathname.lastIndexOf('/') + 1)}/>
+      {/* <AuthorizedPage addRow={addRow} columns={columns} user={user} profiles={profiles} renderCell={renderCell} /> */}
+      {/* <UnAuthorizedPage columns={columns} profiles={profiles} renderCell={renderCell} /> */}
+      {/* <AddEdit id={selectedId} onClose={onClose} profile={profile} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} staff_email={pathname.slice(pathname.lastIndexOf('/') + 1)}/> */}
+      {user ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} profiles={profiles} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns} profiles={profiles} renderCell={renderCell} /></>)}
+      <AddEdit id={selectedId} onClose={onClose} profile={profile} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} staff_email={pathname.slice(pathname.lastIndexOf('/') + 1)}/>
     </div>
   )
 }
 
-export default StaffPublications
+export default StaffProfile
