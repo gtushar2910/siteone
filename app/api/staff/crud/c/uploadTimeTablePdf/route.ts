@@ -22,7 +22,6 @@ export async function POST(request: NextRequest) {
   // For this, we'll just write it to the filesystem in a new location
   const path = `./public/docs/staff/tt/${result}`
   await writeFile(path, buffer)
-  console.log(`open ${path} to see the uploaded file`)
   const returnData = {
     "result": result,
     "status": "ok"
