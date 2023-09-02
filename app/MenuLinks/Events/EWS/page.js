@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { DocumentIcon } from '@heroicons/react/24/solid'
-import classNames from "@/lib/tableClassNames";
+import classNames from "../../../../lib/tableClassNames";
 
 
 

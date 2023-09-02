@@ -7,7 +7,7 @@ import {
   TableRow,
   TableCell,
 } from "@nextui-org/react";
-import classNames from "@/lib/tableClassNames";
+import classNames from "../../../../lib/tableClassNames";
 export default function UnAuthorizedPage({columns, teachings, renderCell}) {
 
   return (

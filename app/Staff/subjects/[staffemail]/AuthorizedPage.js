@@ -17,7 +17,7 @@ import { PlusIcon } from "./icons/PlusIcon";
 import { ChevronDownIcon } from "./icons/ChevronDownIcon";
 import { columns, statusOptions } from "./data";
 import { capitalize } from "./utils";
-import classNames from "@/lib/tableClassNames";
+import classNames from "../../../../lib/tableClassNames";
 
 const INITIAL_VISIBLE_COLUMNS = ["academic_year", "semester", "classname", "subject_name","subject_code","actions","edit"];
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Tooltip, Link } from "@nextui-org/react";
-import classNames from '@/lib/tableClassNames';
+import classNames from '../../../../lib/prisma';
 const CalTable = ({columns, list, renderCell}) => {
   return (
       <Table aria-label="Example table with custom cells" classNames={classNames}>
