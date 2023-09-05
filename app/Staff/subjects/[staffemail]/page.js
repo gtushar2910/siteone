@@ -2,7 +2,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import SideNavbar from '@/components/NavBar/SideNavBar'
+import SideNavbar from '../../../../components/NavBar/SideNavBar'
 import { usePathname } from 'next/navigation'
 import UnAuthorizedPage from './UnAuthorizedPage';
 import { useSession } from 'next-auth/react';

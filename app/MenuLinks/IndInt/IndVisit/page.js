@@ -7,9 +7,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { DocumentIcon } from '@heroicons/react/24/solid'
-
-
-
+import classNames from "../../../../lib/tableClassNames";
 
 const ConverseList = () => {
 
@@ -32,19 +30,19 @@ const ConverseList = () => {
       case "place":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm   text-green-700">{cellValue}</p>
+            <p className="text-bold text-sm   ">{cellValue}</p>
           </div>
         );
       case "event_dates":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm   text-green-700">{cellValue}</p>
+            <p className="text-bold text-sm   ">{cellValue}</p>
           </div>
         );
       case "faculty_co":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm text-yellow-700">{cellValue}</p>
+            <p className="text-bold text-sm ">{cellValue}</p>
           </div>
         );
       case "report":
@@ -63,14 +61,14 @@ const ConverseList = () => {
   return (
     <div className="px-4 cardAboutDept">
       <div className="box-border p-4 border-0 px-4">
-        <h2 class="text-2xl font-extrabold text-default-600 dark:text-white">Industrial Visit</h2>
+        <h1 className="font-sans text-4xl text-zinc-700 font-black uppercase text-center"> ----- Industrial Visit -----</h1>
       </div>
       <div className="box-border p-4 border-2 px-4" >
-        <Table aria-label="Example table with custom cells">
+        <Table aria-label="Example table with custom cells" classNames={classNames}>
           <TableHeader columns={columns}>
             {(column) => (
               <TableColumn key={column.uid}>
-                <p className="text-left text-default-700">{column.name}</p>
+                <p className="text-left ">{column.name}</p>
               </TableColumn>
             )}
           </TableHeader>
