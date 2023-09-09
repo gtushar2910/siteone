@@ -15,7 +15,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaRegComments } from "react-icons/fa";
 import { BiMessageSquareDots } from "react-icons/bi";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { ArrowRightCircleIcon, ArrowRightOnRectangleIcon, HomeIcon, NewspaperIcon, PencilIcon, PhoneIcon, PresentationChartBarIcon, SparklesIcon, Square3Stack3DIcon, TableCellsIcon, TrophyIcon } from "@heroicons/react/24/solid";
+import { ArrowRightCircleIcon, ArrowRightOnRectangleIcon, HomeIcon, KeyIcon, NewspaperIcon, PencilIcon, PhoneIcon, PresentationChartBarIcon, SparklesIcon, Square3Stack3DIcon, TableCellsIcon, TrophyIcon } from "@heroicons/react/24/solid";
 
 function SideNavbar({ staff }) {
 
@@ -91,6 +91,14 @@ function SideNavbar({ staff }) {
                   </Link>
                 </h3>
               </div>
+              {user ? (<> <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                <KeyIcon className="h-6 w-6 text-2xl text-gray-600 group-hover:text-white " />
+                <h3 className="text-base text-gray-800 group-hover:text-white font-semibold">
+                <Link href={`/Staff/changepwd`} size="sm">
+                  Change Password
+                  </Link>
+                </h3>
+              </div></>) : (<></>)}
               {user ? (<> <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <ArrowRightOnRectangleIcon className="h-6 w-6 text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold" onClick={signOut}>

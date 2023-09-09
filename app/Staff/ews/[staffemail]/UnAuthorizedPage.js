@@ -13,7 +13,6 @@ import {
   DropdownItem,
   Pagination,
 } from "@nextui-org/react";
-import { PlusIcon } from "./icons/PlusIcon";
 import { ChevronDownIcon } from "./icons/ChevronDownIcon";
 import { statusOptions } from "./data";
 import { capitalize } from "./utils";

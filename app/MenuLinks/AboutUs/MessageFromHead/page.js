@@ -7,7 +7,7 @@ const MessageFromHead = () => {
 
         <Card className="py-4 cardAboutDept">
             <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
-                <h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Message From Head</h1>
+                <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Message From Head</h1>
 
             </CardHeader>
             <CardBody className="overflow-visible py-2 items-center">

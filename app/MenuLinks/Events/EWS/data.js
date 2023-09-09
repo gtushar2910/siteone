@@ -8,4 +8,10 @@ const columns = [
   {name: "REPORT", uid: "report"},
 ];
 
-export {columns};
+const statusOptions = [
+  {name: "EXPERT_TALK", uid: "Expert Talk"},
+  {name: "WORKSHOP", uid: "WorkShop"},
+  {name: "STTP", uid: "STTP"},
+];
+
+export {columns, statusOptions};
