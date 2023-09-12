@@ -12,6 +12,7 @@ const statusOptions = [
   {name: "EXPERT_TALK", uid: "Expert Talk"},
   {name: "WORKSHOP", uid: "WorkShop"},
   {name: "STTP", uid: "STTP"},
+  {name: "National Conference", uid: "National Conference"},
 ];
 
 export {columns, statusOptions};
