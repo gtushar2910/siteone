@@ -12,7 +12,7 @@ import {
     Checkbox,
 } from "@nextui-org/react";
 
-const page = () => {
+const SignIn = () => {
 
   const [error, setError] = useState(false)
   const [email, setEmail] = useState('');
@@ -112,4 +112,4 @@ const page = () => {
     )
 }
 
-export default page
+export default SignIn

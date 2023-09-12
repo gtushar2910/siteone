@@ -15,7 +15,7 @@ const ChangePassword = () => {
     const [error, setError] = useState(false)
     const [password, setPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('');
     const { data: session } = useSession();
     const router = useRouter();
 
