@@ -14,7 +14,7 @@ import {
 
 const SignIn = () => {
 
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { data: session } = useSession();
