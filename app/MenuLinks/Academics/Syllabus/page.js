@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Spacer } from '@nextui-org/react';
 import { DocumentIcon } from '@heroicons/react/24/solid'
+import classNames from "../../../../lib/tableClassNames"
+
 const SyllabusHome = () => {
 
   const [subjects, setSubjects] = useState([])
@@ -36,6 +38,7 @@ const SyllabusHome = () => {
   const columns = [
     { name: "SUBCODE", uid: "code" },
     { name: "NAME", uid: "name" },
+    { name: "CATEGORY", uid: "category" },
     { name: "EFF FROM", uid: "eff" },
     { name: "L", uid: "lpw" },
     { name: "T", uid: "tpw" },
@@ -86,14 +89,14 @@ const SyllabusHome = () => {
       case "name":
         return (
           <div className="flex flex-col">
-            <p className="font-bold	 text-left text-indigo-700">{cellValue}</p>
+            <p className="font-bold	 text-left ">{cellValue}</p>
           </div>
         );
       case "syllabus":
         return (
           <div className="flex flex-col ">
             <Tooltip content="View Syllabus"  >
-              <Link href={listItem['syllabus_pdf']} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-blue-500" /></Link>
+              <Link href={listItem['syllabus_pdf']} target="_blank" ><DocumentIcon className="h-6 w-6 text-amber-500" /></Link>
             </Tooltip>
           </div>
         );
@@ -132,7 +135,7 @@ const SyllabusHome = () => {
         <div className="flex flex-col p-4  px-4 ">
         <Spacer y={5} />
 
-        <Table aria-label="Example table with custom cells">
+        <Table aria-label="Example table with custom cells" classNames={classNames}>
           <TableHeader columns={columns}>
             {(column) => (
               <TableColumn key={column.uid}>
