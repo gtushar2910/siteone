@@ -1,13 +1,13 @@
 
 "use client"
 import Carousel from "../components/HomeSlider/page"
-
+import SideInfo from "../components/HomePage/SideInfo"
 export default function Home() {
   return (
     <>
       <div className="grid grid-cols-2 grid-flow-col gap-4 px-4 py-4 cardAboutDept">
         <div className="box-border p-4 border-2 px-4" >
-
+          <SideInfo />
         </div>
         <div className="box-border p-4 border-2 px-4 ">
           <Carousel />

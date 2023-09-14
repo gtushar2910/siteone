@@ -26,7 +26,6 @@ const AcademicCalender = () => {
   }, [selected])
 
   const columns = [
-    { name: "#", uid: "seqnum" },
     { name: "ACADEMIC YEAR", uid: "academic_year" },
     { name: "SEMESTER", uid: "semester" },
     { name: "VIEW", uid: "view" },
@@ -57,7 +56,7 @@ const AcademicCalender = () => {
       case "view":
         return (
           <div className="flex flex-col items-center">
-            <Tooltip content="View Time Tables"  >
+            <Tooltip content="View Calender"  >
               <Link href={listItem['ac_pdf']} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-blue-500" /></Link>
             </Tooltip>
           </div>
