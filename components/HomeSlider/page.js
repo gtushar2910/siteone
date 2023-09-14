@@ -15,37 +15,37 @@ const imagesSlider = [
     {
         id: "1",
         src: "/images/slider/home/1.jpg",
-        alt: "Vivaksha"
+        alt: "1"
     },
     {
         id: "2",
         src: "/images/slider/home/2.jpg",
-        alt: "Vivaksha"
+        alt: "2"
     },
     {
         id: "3",
         src: "/images/slider/home/3-1.jpg",
-        alt: "Vivaksha"
+        alt: "3"
     },
     {
         id: "4",
         src: "/images/slider/home/4.jpg",
-        alt: "Vivaksha"
+        alt: "4"
     },
     {
       id: "5",
       src: "/images/slider/home/5.jpg",
-      alt: "Vivaksha"
+      alt: "5"
   },
   {
     id: "6",
     src: "/images/slider/home/6.jpg",
-    alt: "Vivaksha"
+    alt: "6"
 },
 {
   id: "7",
   src: "/images/slider/home/7.jpg",
-  alt: "Vivaksha"
+  alt: "7"
 },
 ]
 
