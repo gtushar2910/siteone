@@ -57,7 +57,7 @@ const ConverseList = () => {
         return (
           <div className="flex flex-col items-center">
             <Tooltip content="View Report"  >
-              <Link href={listItem['report_url']} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-blue-500" /></Link>
+              <Link href={listItem['report_url']} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-amber-500" /></Link>
             </Tooltip>
           </div>
         );

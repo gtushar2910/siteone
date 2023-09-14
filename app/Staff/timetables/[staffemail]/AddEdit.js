@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, timetable, staff_email }) {
 
+    const [seqnum, setSeqnum] = React.useState(0)
     const [academic_year, setAcademicYear] = React.useState("")
     const [semester, setSemester] = React.useState("")
     const [tt_softcopy, setTimeTablePdf] = React.useState("")
@@ -55,6 +56,7 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
             return;
         }
         if (timetable) {
+            setSeqnum(timetable.seqnum)
             setAcademicYear(timetable.academic_year)
             setSemester(timetable.semester)
             setTimeTablePdf(timetable.tt_softcopy)
@@ -69,6 +71,7 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
 
             if (id == "Edit") {
                 const response = await axios.post('/api/staff/crud/u/updateTimeTable', {
+                    seqnum: Number(seqnum),
                     academic_year: academic_year,
                     semester: semester,
                     tt_softcopy: tt_softcopy,
@@ -76,6 +79,7 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
                 });
             } else if (id == "New") {
                 const response = await axios.post('/api/staff/crud/c/createTimeTable', {
+                    seqnum:  Number(seqnum),
                     academic_year: academic_year,
                     semester: semester,
                     tt_softcopy: tt_softcopy,
@@ -104,6 +108,8 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
                                     defaultValue={id == "New" ? "New" : timetable.id}
                                     className="max-w-xs"
                                 />
+                                <Spacer y={1} />
+                                <Input type="text" isRequired placeholder="Enter Sequence Number" value={seqnum} onValueChange={setSeqnum} />
                                 <Spacer y={1} />
                                 <Input type="text" isRequired placeholder="Enter Academic Year" value={academic_year} onValueChange={setAcademicYear} />
                                 <Spacer y={1} />

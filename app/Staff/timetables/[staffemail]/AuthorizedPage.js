@@ -19,7 +19,7 @@ import { columns, statusOptions } from "./data";
 import { capitalize } from "./utils";
 import classNames from "../../../../lib/tableClassNames";
 
-const INITIAL_VISIBLE_COLUMNS = ["academic_year", "semester", "view", "actions"];
+const INITIAL_VISIBLE_COLUMNS = ["seqnum","academic_year", "semester", "view", "actions"];
 
 export default function AuthorizedPage({ addRow, user, timetables, renderCell }) {
   const [filterValue, setFilterValue] = React.useState("");

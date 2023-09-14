@@ -1,4 +1,5 @@
 const columns = [
+  { name: "#", uid: "seqnum" , sortable: true},
   { name: "ACADEMIC YEAR", uid: "academic_year", sortable: true },
   { name: "SEMESTER", uid: "semester", sortable: true },
   { name: "VIEW", uid: "view" },

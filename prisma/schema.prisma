@@ -52,6 +52,7 @@ model Staff_Teachings {
 model Staff_Timetable{
   id               String @id @default(cuid())
   staff_email      String
+  seqnum           Int @default(0)
   academic_year    String
   semester         String
   tt_softcopy      String

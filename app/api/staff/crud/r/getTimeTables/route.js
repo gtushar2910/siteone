@@ -15,10 +15,9 @@ export async function GET(request) {
       staff_email: email,
     },
     orderBy: {
-      academic_year: "desc"
+      seqnum: 'asc'
     }
   })
-
 
   const data = [
     {'staff' : staff},

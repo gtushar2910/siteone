@@ -26,6 +26,7 @@ const StaffHomePage = () => {
     const [selectedId, setSelectedId] = useState("")
 
     const columns = [
+        { name: "#", uid: "seqnum" },
         { name: "ACADEMIC YEAR", uid: "academic_year" },
         { name: "SEMESTER", uid: "semester" },
         { name: "VIEW", uid: "view" },
@@ -73,7 +74,7 @@ const StaffHomePage = () => {
             case "semester":
                 return (
                     <div className="flex flex-col">
-                        <p className="font-bold	 text-center text-indigo-700">{cellValue}</p>
+                        <p className="font-normal	 text-center ">{cellValue}</p>
                     </div>
                 );
             case "seqnum":
@@ -86,7 +87,7 @@ const StaffHomePage = () => {
                 return (
                     <div className="flex flex-col items-center">
                         <Tooltip content="View"  >
-                            <Link href={listItem['tt_softcopy']} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-blue-500" /></Link>
+                            <Link href={listItem['tt_softcopy']} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-amber-500" /></Link>
                         </Tooltip>
                     </div>
 
@@ -108,7 +109,11 @@ const StaffHomePage = () => {
                       </div>
                     );
             default:
-                return cellValue;
+              return (
+                <div className="flex flex-col">
+                    <p className="font-sans font-bold	text-zinc-700 text-center ">{cellValue}</p>
+                </div>
+            );
         }
     }, []);
 
