@@ -14,24 +14,39 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 const imagesSlider = [
     {
         id: "1",
-        src: "/images/slider/home/one.jpg",
+        src: "/images/slider/home/1.jpg",
         alt: "Vivaksha"
     },
     {
         id: "2",
-        src: "/images/slider/home/two.jpg",
+        src: "/images/slider/home/2.jpg",
         alt: "Vivaksha"
     },
     {
         id: "3",
-        src: "/images/slider/home/three.jpg",
+        src: "/images/slider/home/3-1.jpg",
         alt: "Vivaksha"
     },
     {
         id: "4",
-        src: "/images/slider/home/four.jpg",
+        src: "/images/slider/home/4.jpg",
         alt: "Vivaksha"
-    }
+    },
+    {
+      id: "5",
+      src: "/images/slider/home/5.jpg",
+      alt: "Vivaksha"
+  },
+  {
+    id: "6",
+    src: "/images/slider/home/6.jpg",
+    alt: "Vivaksha"
+},
+{
+  id: "7",
+  src: "/images/slider/home/7.jpg",
+  alt: "Vivaksha"
+},
 ]
 
 export default function Carousel({ images = imagesSlider }) {
