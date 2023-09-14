@@ -35,10 +35,7 @@ export const menu_Items = [
         title: 'Staff Information',
         url: '/Staff/List',
       },
-      {
-        title: 'Infrastructure',
-        url: '/Staff/StaffPages/TRG',
-      }
+     
     ]
   },
   {
@@ -89,18 +86,7 @@ export const menu_Items = [
         title: 'Industrial Visit',
         url: '/MenuLinks/IndInt/IndVisit'
       },
-      {
-        title: 'Industrial Training',
-        url: ''
-      },
-      {
-        title: 'Internship (Final Semester)',
-        url: ''
-      },
-      {
-        title: 'Company MOUs',
-        url: ''
-      },
+    
     ]
   },
   {
@@ -152,14 +138,6 @@ export const menu_Items = [
       {
         title: 'Alumni Talk',
         url: '/MenuLinks/Events/SWIG'
-      },
-      {
-        title: 'Media Coverage',
-        url: ''
-      },
-      {
-        title: 'CSI Chapter',
-        url: ''
       },
     ]
   },
