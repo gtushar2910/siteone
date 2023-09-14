@@ -34,7 +34,7 @@ export default function App() {
             </CardHeader>
             <CardBody className="overflow-visible py-2 items-center">
             <p className="text-lg font-medium text-[#243c5a] italic "> 
-                "To evolve as a global center of excellence in the field of Information Technology imparting technical education and professional ethics to thrive in an era of globalization."
+            &quot; To evolve as a global center of excellence in the field of Information Technology imparting technical education and professional ethics to thrive in an era of globalization.&quot;
                 </p>
             </CardBody>
         </Card>
