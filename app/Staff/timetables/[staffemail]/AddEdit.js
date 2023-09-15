@@ -3,9 +3,11 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Input
 import axios from "axios";
 import { useRouter } from 'next/navigation';
 import { useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, timetable, staff_email }) {
-
+    const [disableSaveChanges, setDisableSaveChanges] = React.useState(false)
     const [seqnum, setSeqnum] = React.useState(0)
     const [academic_year, setAcademicYear] = React.useState("")
     const [semester, setSemester] = React.useState("")
@@ -13,7 +15,7 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
     const router = useRouter();
     const [uploading, setUploading] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null);
-    
+
 
 
     // const handleUpload = async () => {
@@ -28,9 +30,8 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
 
     const onSubmit = async (e) => {
         // e.preventDefault()
-
+        setDisableSaveChanges(true)
         if (selectedFile == null) return
-        
         const data = new FormData()
         data.set('file', selectedFile)
 
@@ -43,6 +44,8 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
 
         setSelectedFile(null)
         setTimeTablePdf('/docs/staff/tt/' + response.data.result)
+        alert("File Uploaded !!!")
+        setDisableSaveChanges(false)
         //setTimeTablePdf(res.data.result)
     }
 
@@ -79,7 +82,7 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
                 });
             } else if (id == "New") {
                 const response = await axios.post('/api/staff/crud/c/createTimeTable', {
-                    seqnum:  Number(seqnum),
+                    seqnum: Number(seqnum),
                     academic_year: academic_year,
                     semester: semester,
                     tt_softcopy: tt_softcopy,
@@ -123,8 +126,9 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
                                         required
                                     />
 
-                                    <input type="button" value="Upload" disabled={selectedFile == null} onClick={onSubmit} />
-
+                                    {/* <input type="button" value="Upload" disabled={selectedFile == null} onClick={onSubmit} /> */}
+                                    <button
+                                        class="px-6 py-2 font-sans font-semibold text-white transition duration-300 ease-in-out delay-300 skew-y-6 bg-purple-600 border-b-4 border-purple-800 rounded shadow-lg shadow-purple-600/50 hover:transform-none hover:border-purple-600" disabled={tt_softcopy == ""} onClick={onSubmit}>Upload</button>
 
                                     {/* <form onSubmit={onSubmit}>
                                         <input
@@ -140,12 +144,15 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
 
                             </ModalBody>
                             <ModalFooter>
-                                <Button color="danger" variant="light" onPress={onClose}>
+                                {/* <Button color="danger" variant="light" onPress={onClose}>
                                     Close
-                                </Button>
-                                <Button color="primary" onPress={saveChanges}>
-                                    Save Changes
-                                </Button>
+                                </Button> */}
+                                <button
+                                        class="px-6 py-2 font-sans font-semibold text-white transition duration-300 ease-in-out delay-300 skew-y-6 bg-blue-600 border-b-4 border-blue-800 rounded shadow-lg shadow-blue-600/50 hover:transform-none hover:border-blue-600" disabled={disableSaveChanges} onClick={saveChanges}>Save Changes</button>
+                                 <button
+                                        class="px-4 py-2 font-sans font-semibold text-white transition duration-300 ease-in-out delay-300 skew-y-6 bg-red-600 border-b-4 border-red-800 rounded shadow-lg shadow-red-600/50 hover:transform-none hover:border-red-600" onClick={onClose}>Close</button>
+                                {/* <button type="button" class="px-8 py-3 text-white bg-blue-600 rounded focus:outline-none disabled:opacity-100"
+                                    onClick={saveChanges} disabled={disableSaveChanges}>Save Changes</button> */}
                             </ModalFooter>
                         </>
                     )}
