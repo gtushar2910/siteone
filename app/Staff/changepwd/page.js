@@ -125,7 +125,7 @@ const ChangePassword = () => {
             </div>
 
         </>) : (<>
-            {router.back()}
+           Not AuthorizedPage
         
         </>)}
 
