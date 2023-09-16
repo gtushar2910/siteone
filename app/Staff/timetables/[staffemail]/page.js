@@ -24,6 +24,7 @@ const StaffHomePage = () => {
     const [timetable, setTimeTable] = useState()
     const [staff, setStaff] = useState([])
     const [selectedId, setSelectedId] = useState("")
+    const [pathEmail, setPathEmail] = useState("")
 
     const columns = [
         { name: "#", uid: "seqnum" },
@@ -119,6 +120,7 @@ const StaffHomePage = () => {
 
     const getTimeTables = async () => {
         let email = pathname.slice(pathname.lastIndexOf('/') + 1)
+        setPathEmail(email)
         const response = await axios.get("/api/staff/crud/r/getTimeTables?email=" + email);
         if (response) {
             const data = response.data
@@ -170,7 +172,7 @@ const StaffHomePage = () => {
           <div>
             <SideNavbar staff={staff} />
           </div>
-          {user ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} timetables={timetables} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns.filter(function (column) {
+          {user && user.email == pathEmail ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} timetables={timetables} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns.filter(function (column) {
             return column.name !== "ACTIONS";
           })} timetables={timetables} renderCell={renderCell} /></>)}
           <AddEdit id={selectedId} onClose={AddEditClose} timetable={timetable} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} staff_email={pathname.slice(pathname.lastIndexOf('/') + 1)} />

@@ -28,10 +28,11 @@ const StaffTeachings = () => {
   const [teachings, setTeachings] = useState([])
   const [teaching, setTeaching] = useState()
   const [selectedId, setSelectedId] = useState("")
-
+  const [pathEmail, setPathEmail] = useState("")
 
   const getStaffTeachings = async () => {
     let email = pathname.slice(pathname.lastIndexOf('/') + 1)
+    setPathEmail(email)
     const response = await axios.get("/api/staff/crud/r/getTeachings?email=" + email);
     if (response) {
       const data = response.data
@@ -143,7 +144,7 @@ const StaffTeachings = () => {
       <div>
         <SideNavbar staff={staff} />
       </div>
-      {user ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} teachings={teachings} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns.filter(function (column) {
+      {user && user.email == pathEmail ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} teachings={teachings} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns.filter(function (column) {
         return column.name !== "EDIT";
       })} teachings={teachings} renderCell={renderCell} /></>)}
       <AddEdit id={selectedId} onClose={AddEditClose} teaching={teaching} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} staff_email={pathname.slice(pathname.lastIndexOf('/') + 1)} />

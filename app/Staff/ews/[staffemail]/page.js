@@ -30,9 +30,11 @@ const StaffProfile = () => {
   const [profiles, setProfiles] = useState([])
   const [profile, setProfile] = useState()
   const [selectedId, setSelectedId] = useState("")
+  const [pathEmail, setPathEmail] = useState("")
 
   const getStaffData = async () => {
     let email = pathname.slice(pathname.lastIndexOf('/') + 1)
+    setPathEmail(email)
     const response = await axios.get("/api/staff/crud/r/getProfiles?email=" + email);
     if (response) {
       const data = response.data
@@ -119,7 +121,7 @@ const StaffProfile = () => {
       {/* <AuthorizedPage addRow={addRow} columns={columns} user={user} profiles={profiles} renderCell={renderCell} /> */}
       {/* <UnAuthorizedPage columns={columns} profiles={profiles} renderCell={renderCell} /> */}
       {/* <AddEdit id={selectedId} onClose={onClose} profile={profile} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} staff_email={pathname.slice(pathname.lastIndexOf('/') + 1)}/> */}
-      {user ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} profiles={profiles} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns} profiles={profiles} renderCell={renderCell} /></>)}
+      {user && user.email == pathEmail ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} profiles={profiles} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns} profiles={profiles} renderCell={renderCell} /></>)}
       <AddEdit id={selectedId} onClose={onClose} profile={profile} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} staff_email={pathname.slice(pathname.lastIndexOf('/') + 1)}/>
     </div>
   )

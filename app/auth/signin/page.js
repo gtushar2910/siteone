@@ -96,7 +96,7 @@ const SignIn = () => {
                 </Checkbox> */}
                 <Spacer x={1} />
                 <Spacer x={1} />
-                <p className="flex font-sans justify-right text-md text-red-700 font-bold"> Forgot password </p>
+                {/* <p className="flex font-sans justify-right text-md text-red-700 font-bold"> Forgot password </p> */}
                 </div>
                 <div className='flex items-center justify-center'>
                 <Button color="primary" onPress={handleSignIn}>Sign in</Button>

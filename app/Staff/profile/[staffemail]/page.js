@@ -30,9 +30,12 @@ const StaffPublications = () => {
   const [publications, setPublications] = useState([])
   const [publication, setPublication] = useState()
   const [selectedId, setSelectedId] = useState("")
+  const [pathEmail, setPathEmail] = useState("")
+
 
   const getStaffData = async () => {
     let email = pathname.slice(pathname.lastIndexOf('/') + 1)
+    setPathEmail(email)
     const response = await axios.get("/api/staff/getStaffPublications?email=" + email);
     if (response) {
       const data = response.data
@@ -118,7 +121,7 @@ const StaffPublications = () => {
         <SideNavbar staff={staff} />
       </div>
 
-      {user ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} publications={publications} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns} publications={publications} renderCell={renderCell} /></>)}
+      {user && user.email == pathEmail ? (<><AuthorizedPage addRow={addRow} columns={columns} user={user} publications={publications} renderCell={renderCell} /></>) : (<><UnAuthorizedPage columns={columns} publications={publications} renderCell={renderCell} /></>)}
       <AddEdit id={selectedId} onClose={onClose} publication={publication} isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} staff_email={pathname.slice(pathname.lastIndexOf('/') + 1)}/>
     </div>
   )
