@@ -30,6 +30,7 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
 
     const onSubmit = async (e) => {
         // e.preventDefault()
+        alert('Hi')
         setDisableSaveChanges(true)
         if (selectedFile == null) return
         const data = new FormData()
@@ -128,7 +129,7 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
 
                                     {/* <input type="button" value="Upload" disabled={selectedFile == null} onClick={onSubmit} /> */}
                                     <button
-                                        class="px-6 py-2 font-sans font-semibold text-white transition duration-300 ease-in-out delay-300 skew-y-6 bg-purple-600 border-b-4 border-purple-800 rounded shadow-lg shadow-purple-600/50 hover:transform-none hover:border-purple-600" disabled={tt_softcopy == ""} onClick={onSubmit}>Upload</button>
+                                        class="px-6 py-2 font-sans font-semibold text-white transition duration-300 ease-in-out delay-300 skew-y-6 bg-purple-600 border-b-4 border-purple-800 rounded shadow-lg shadow-purple-600/50 hover:transform-none hover:border-purple-600" onClick={onSubmit}>Upload</button>
 
                                     {/* <form onSubmit={onSubmit}>
                                         <input

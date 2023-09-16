@@ -175,7 +175,8 @@ export default function UnAuthorizedPage({columns, profiles, renderCell}) {
            sortDescriptor={sortDescriptor}
            topContent={topContent}
            topContentPlacement="outside"
-           onSortChange={setSortDescriptor}
+          //  onSortChange={setSortDescriptor}
+           aria-labelledby="xyz"
           >
             <TableHeader columns={columns}>
               {(column) => (
