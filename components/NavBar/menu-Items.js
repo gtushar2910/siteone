@@ -95,7 +95,7 @@ export const menu_Items = [
     submenu: [
       {
         title: 'Student Information',
-        url: ''
+        url: '/Students/List'
       },
       {
         title: 'Student Achievements',

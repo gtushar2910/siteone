@@ -233,3 +233,21 @@ model ResAna {
   file_url         String?
 }
 
+model Student {
+  id               String @id @default(cuid())
+  enrollment_no    String @unique
+  roll_no          String?
+  name             String
+  gender           String
+  dob              String?
+  mobile           String?
+  parent_mobile    String?
+  student_email    String?
+  parent_email     String?
+  aadhar_no        String?
+  address          String?
+  branch           String?
+  addmision_year   String?
+  cohort           String?
+}
+

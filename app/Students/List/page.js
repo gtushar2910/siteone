@@ -6,73 +6,56 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Spacer } from '@nextui-org/react';
 import { DocumentIcon } from '@heroicons/react/24/solid'
-import classNames from "../../../../lib/tableClassNames"
+import classNames from "../../../lib/tableClassNames"
 
-const SyllabusHome = () => {
+const StudentList = () => {
 
-  const [subjects, setSubjects] = useState([])
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Select Semester"]));
+  const [students, setStudents] = useState([])
+  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Select Cohort"]));
 
   const selectedValue = React.useMemo(
     () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
     [selectedKeys]
   );
 
-  const getSubjects = async () => {
-    const response = await axios.get("/api/subjects/getSemesterSubjects?semester=" + selectedValue);
+  const getStudents = async () => {
+    const response = await axios.get("/api/students/crud/r/getStudentsList?cohort=" + selectedValue);
     if (response)
-      setSubjects(response.data)
+      setStudents(response.data)
   }
 
   useEffect(() => {
-    getSubjects()
+    getStudents()
   },[selectedKeys])
 
   const columns = [
-    { name: "SUBCODE", uid: "code" },
+    { name: "ENROLLMENT NO", uid: "enrollment_no" },
     { name: "NAME", uid: "name" },
-    { name: "CATEGORY", uid: "category" },
-    { name: "EFF FROM", uid: "eff" },
-    { name: "L", uid: "lpw" },
-    { name: "T", uid: "tpw" },
-    { name: "P", uid: "ppw" },
-    { name: "CREDIT", uid: "credit" },
-    { name: "SYLLABUS", uid: "syllabus" },
+    {name: "EMAIL ID", uid: "student_email"}
   ];
 
   const dropdownItems = [
     {
-      key: "1",
-      label: "Sem I",
+      key: "s20it",
+      label: "s20it",
     },
     {
-      key: "2",
-      label: "Sem II",
+      key: "s21it",
+      label: "s21it",
     },
     {
-      key: "3",
-      label: "Sem III",
+        key: "s21ai",
+        label: "s21ai",
+      },
+    {
+      key: "s22it",
+      label: "s22it",
     },
     {
-      key: "4",
-      label: "Sem IV",
+      key: "s23it",
+      label: "s23it",
     },
-    {
-      key: "5",
-      label: "Sem V",
-    },
-    {
-      key: "6",
-      label: "Sem VI",
-    },
-    {
-      key: "7",
-      label: "Sem VII",
-    },
-    {
-      key: "8",
-      label: "Sem VIII",
-    }
+    
   ];
 
   const renderCell = React.useCallback((listItem, columnKey) => {
@@ -82,19 +65,16 @@ const SyllabusHome = () => {
       case "name":
         return (
           <div className="flex flex-col">
-            <p className="font-bold	 text-left ">{cellValue}</p>
+            <p className="text-left ">{cellValue}</p>
           </div>
         );
-      case "syllabus":
-        return (
-          <div className="flex flex-col ">
-            <Tooltip content="View Syllabus"  >
-              <Link href={listItem['syllabus_pdf']} target="_blank" ><DocumentIcon className="h-6 w-6 text-amber-500" /></Link>
-            </Tooltip>
-          </div>
-        );
+      
       default:
-        return cellValue;
+        return (
+            <div className="flex flex-col">
+              <p className=" text-left ">{cellValue}</p>
+            </div>
+          );
     }
   }, []);
 
@@ -136,7 +116,7 @@ const SyllabusHome = () => {
               </TableColumn>
             )}
           </TableHeader>
-          <TableBody items={subjects}>
+          <TableBody items={students}>
             {(item) => (
               <TableRow key={item.id}>
                 {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
@@ -149,4 +129,4 @@ const SyllabusHome = () => {
   )
 }
 
-export default SyllabusHome
+export default StudentList
