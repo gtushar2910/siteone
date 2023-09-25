@@ -247,7 +247,7 @@ model Student {
   aadhar_no        String?
   address          String?
   branch           String?
-  addmision_year   String?
+  addmission_year   String?
   cohort           String?
 }
 
