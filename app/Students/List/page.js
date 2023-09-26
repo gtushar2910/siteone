@@ -48,12 +48,28 @@ const StudentList = () => {
         label: "s21ai",
       },
     {
-      key: "s22it",
-      label: "s22it",
+      key: "s22itd1",
+      label: "s22itd1",
     },
     {
-      key: "s23it",
-      label: "s23it",
+      key: "s22itd2",
+      label: "s22itd2",
+    },
+    {
+      key: "s22ai",
+      label: "s22ai",
+    },
+    {
+      key: "s23itd1",
+      label: "s23itd1",
+    },
+    {
+      key: "s23itd2",
+      label: "s23itd2",
+    },
+    {
+      key: "s23ai",
+      label: "s23ai",
     },
     
   ];
