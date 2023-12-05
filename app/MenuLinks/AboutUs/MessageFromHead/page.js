@@ -17,9 +17,7 @@ const MessageFromHead = () => {
                     src="\VJ.jpg"
                 />
                 <br></br>
-                <p>asdfasdfasdf
-                    asdfasdfasdfasdf
-                    asdfadf
+                <p>I am very pleased...
                 </p>
             </CardBody>
         </Card>
