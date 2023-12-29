@@ -14,67 +14,42 @@ const Carousel1 = () => (
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/con2023/CODATHON.png" />
+        "/images/slidernew/01.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/con2023/ITQuiz.png" />
+        "/images/slidernew/02.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/con2023/BugBuzz.png" />
+        "/images/slidernew/03.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/con2023/PYIT.png" />
+        "/images/slidernew/04.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/con2023/LOGOHUNT.png" />
+        "/images/slidernew/05.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/con2023/MindSpark.png" />
+        "/images/slidernew/06.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/con2023/esport_revolution.jpeg" />
+        "/images/slidernew/07.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/con2023/the_spys_eye.png" />
-    </div>
-    <div>
-      <img className="object-contain h-96 w-full"
-        src=
-        "/images/slider/home/5.jpg" />
-    </div>
-    <div>
-      <img className="object-contain h-96 w-full"
-        src=
-        "/images/slider/home/1.jpg" />
-    </div>
-    <div>
-      <img className="object-contain h-96 w-full"
-        src=
-        "/images/slider/home/2.jpg" />
-    </div>
-    <div>
-      <img className="object-contain h-96 w-full"
-        src=
-        "/images/slider/home/3-1.jpg" />
-    </div>
-    <div>
-      <img className="object-contain h-96 w-full"
-        src=
-        "/images/slider/home/4.jpg" />
+        "/images/slidernew/08.jpg" />
     </div>
   </Carousel>
 );
