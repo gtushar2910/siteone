@@ -14,9 +14,13 @@ export async function GET(request) {
     where: {
       staff_email: email,
     },
-    orderBy: {
+    orderBy: [{
       academic_year: "desc"
+    },
+    {
+      semester: "asc"
     }
+  ]
   })
 
 

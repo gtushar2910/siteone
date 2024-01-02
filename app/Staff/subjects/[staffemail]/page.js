@@ -128,7 +128,7 @@ const StaffTeachings = () => {
       default:
         return (
           <div className="flex flex-col">
-            <p className="font-bold	text-center text-default-500">{cellValue}</p>
+            <p className="font-bold	 text-default-500">{cellValue}</p>
           </div>
         );
     }

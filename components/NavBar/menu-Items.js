@@ -57,11 +57,8 @@ export const menu_Items = [
       {
         title: 'Class & Faculty TimeTables',
         url: '/MenuLinks/Academics/TimeTable'
-      },
-      {
-        title: 'Classteachers',
-        url: '/MenuLinks/Academics/Classteachers'
       }
+     
     ]
   },
   {
