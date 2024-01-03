@@ -1,4 +1,5 @@
 const {nextui} = require("@nextui-org/react");
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -15,6 +16,7 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+    
     },
     container: {
       center: true,

@@ -37,39 +37,39 @@ const StudentList = () => {
   const dropdownItems = [
     {
       key: "s20it",
-      label: "s20it",
+      label: "Adm Year : 2020 (IT)",
     },
     {
       key: "s21it",
-      label: "s21it",
+      label: "Adm Year : 2021 (IT)",
     },
     {
         key: "s21ai",
-        label: "s21ai",
+        label: "Adm Year : 2021 (AIDS)",
       },
     {
       key: "s22itd1",
-      label: "s22itd1",
+      label: "Adm Year : 2022 (IT Div 1)",
     },
     {
       key: "s22itd2",
-      label: "s22itd2",
+      label: "Adm Year : 2022 (IT Div 2)",
     },
     {
       key: "s22ai",
-      label: "s22ai",
+      label: "Adm Year : 2022 (AIDS)",
     },
     {
       key: "s23itd1",
-      label: "s23itd1",
+      label: "Adm Year : 2023 (IT Div 1)",
     },
     {
       key: "s23itd2",
-      label: "s23itd2",
+      label: "Adm Year : 2023 (IT Div 2)",
     },
     {
       key: "s23ai",
-      label: "s23ai",
+      label: "Adm Year : 2023 (AIDS)",
     },
     
   ];

@@ -10,7 +10,7 @@ const MessageFromHead = () => {
             <CardHeader className="pb-0 pt-2 px-4  flex-col">
             {/* <p className="text-xl font-bold text-rose-950 decoration-solid">Message from the Head of the Department</p> */}
             </CardHeader>
-            <CardBody className="overflow-visible py-2 items-center">
+            <CardBody className="overflow-hidden py-2 items-center bg-orange-50	">
                
                 <div className="">
                     <p className="text-l font-bold text-rose-950 decoration-solid ">Dear Students, Faculty, and Stakeholders, </p>
