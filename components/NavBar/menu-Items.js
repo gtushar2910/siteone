@@ -104,7 +104,7 @@ export const menu_Items = [
       },
       {
         title: 'Scholarships',
-        url: ''
+        url: '/Students/Scholarships'
       },
       {
         title: 'Alumni Data',
