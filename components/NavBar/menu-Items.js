@@ -112,7 +112,7 @@ export const menu_Items = [
       },
       {
         title: 'IEP Students',
-        url: ''
+        url: '/Students/IEP'
       },
       {
         title: 'Foreign Students',
