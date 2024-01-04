@@ -112,8 +112,6 @@ const StudentList = () => {
             {(item) => (
               <DropdownItem
                 key={item.key}
-                color={item.key === "delete" ? "danger" : "default"}
-                className={item.key === "delete" ? "text-danger" : ""}
               >
                 {item.label}
               </DropdownItem>
