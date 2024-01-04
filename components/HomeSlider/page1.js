@@ -14,32 +14,32 @@ const Carousel1 = () => (
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/01.jpg" />
+        "/images/slidernew/sn01.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/02.jpg" />
+        "/images/slidernew/sn02.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/03.jpg" />
+        "/images/slidernew/sn03.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/04.jpg" />
+        "/images/slidernew/sn04.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/05.jpg" />
+        "/images/slidernew/sn05.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/06.jpg" />
+        "/images/slidernew/sn06.jpg" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
