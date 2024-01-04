@@ -5,13 +5,14 @@ import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/slide.css';
 import { menu_Items } from './menu-Items';
 import MyMenuComponent from './MyMenuComponent';
+import { LoginButton, LogoutButton, RegisterButton,ProfileButton } from '../buttons/page';
 
 const SiteNavBar = () => {
     return (
         <>
             <div className='flex p-3 justify-center navbar space-x-14'>
                 {menu_Items.map((menu, index) => {
-                    return (<MyMenuComponent items={menu} key={index}/>);
+                    return (<MyMenuComponent items={menu} key={index} />);
                 })}
             </div>
         </>
