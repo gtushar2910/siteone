@@ -12,19 +12,7 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
     const [semester, setSemester] = React.useState("")
     const [tt_softcopy, setTimeTablePdf] = React.useState("")
     const router = useRouter();
-    const [selectedFile, setSelectedFile] = useState(null);
 
-    const onSubmit = async (e) => {
-        setDisableSaveChanges(true)
-        if (selectedFile == null) return
-        const data = new FormData()
-        data.set('file', selectedFile)
-        const response = await axios.post('/api/staff/crud/c/uploadTimeTablePdf', data);
-        setSelectedFile(null)
-        setTimeTablePdf('/docs/staff/tt/' + response.data.result)
-        alert("File Uploaded !!!")
-        setDisableSaveChanges(false)
-    }
 
     useEffect(() => {
         if (id == "New") {
@@ -43,6 +31,7 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
 
     const saveChanges = async (
     ) => {
+        console.log(seqnum + " " + academic_year + " " + semester + " " + tt_softcopy)
         if (academic_year == "" || semester == "" || tt_softcopy == "") {
             alert("Please Enter All the Values!!!");
         } else {
@@ -93,16 +82,8 @@ export default function AddEdit({ id, isOpen, onOpen, onClose, onOpenChange, tim
                                 <Spacer y={1} />
                                 <Input type="text" isRequired placeholder="Enter Semester" value={semester} onValueChange={setSemester} />
                                 <Spacer y={1} />
-                                <div className="flex flex-cols gap-2">
-                                    <input
-                                        type="file"
-                                        name="file"
-                                        onChange={(e) => setSelectedFile(e.target.files?.[0])}
-                                        required
-                                    />
-                                    <button
-                                        class="px-6 py-2 font-sans font-semibold text-white transition duration-300 ease-in-out delay-300 skew-y-6 bg-purple-600 border-b-4 border-purple-800 rounded shadow-lg shadow-purple-600/50 hover:transform-none hover:border-purple-600" onClick={onSubmit}>Upload</button>
-                                </div>
+                                <Input type="text" isRequired placeholder="Enter Time Table URL" value={tt_softcopy} onValueChange={setTimeTablePdf} />
+                                <Spacer y={1} />
 
                             </ModalBody>
                             <ModalFooter>
