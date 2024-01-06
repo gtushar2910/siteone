@@ -15,7 +15,7 @@ const Header = () => {
                         <p className='heading-2'>P.R. Khatiwala Charitable Trust </p>
                     </div>
                     <div className="logoright">
-                        <img src='/SUlogo.jpg' width={85} />
+                    <a href='/'><img src='/SULogo.jpg' width={85} /></a>
                     </div>
                 </div>
             </div>
