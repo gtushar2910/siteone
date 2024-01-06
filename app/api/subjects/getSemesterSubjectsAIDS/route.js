@@ -7,7 +7,7 @@ export async function GET(request) {
   const subjects = await prisma.subject.findMany({
     where: {
       semester: semester,
-      branch: 'IT'
+      branch: 'AIDS'
     }
   })
   return NextResponse.json(subjects)

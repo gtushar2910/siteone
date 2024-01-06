@@ -47,6 +47,10 @@ export const menu_Items = [
         url: '/MenuLinks/Academics/Syllabus'
       },
       {
+        title: 'Syllabus - AIDS',
+        url: '/MenuLinks/Academics/Syllabus-AIDS'
+      },
+      {
         title: 'Result Analysis',
         url: '/MenuLinks/Academics/ResAna'
       },
