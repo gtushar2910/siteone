@@ -9,12 +9,8 @@ export async function PUT(request) {
   const result = await prisma.staff_Timetable.findUnique({
     where: { id: id},
   })
-
-  const path = `/public/${result.tt_softcopy}`
-
   const post = await prisma.staff_Timetable.delete({
     where: { id: id},
   })
-  fs.unlinkSync(process.cwd() + path);
   return NextResponse.json(post)
 }
