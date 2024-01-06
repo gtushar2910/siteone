@@ -132,6 +132,7 @@ subjects         Subject[]
 
 model Subject {
   id               String @id @default(cuid())
+  branch           String @default("IT")
   eff              String
   category         String @default("")
   semester         String
