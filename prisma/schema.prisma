@@ -260,3 +260,11 @@ model IEPStudents {
   email            String
 }
 
+model ForignStudents {
+  id               String @id @default(cuid())
+  enrollment_no    String @unique
+  name             String
+  year             String
+  email            String
+}
+
