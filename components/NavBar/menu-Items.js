@@ -120,7 +120,7 @@ export const menu_Items = [
       },
       {
         title: 'Foreign Students',
-        url: ''
+        url: '/Students/ForeignStudents'
       }
     ]
   },
@@ -156,11 +156,11 @@ export const menu_Items = [
       },
       {
         title: 'Books in Dept',
-        url: ''
+        url: 'https://docs.google.com/spreadsheets/d/1gWMAQb8wakv0Tp4Hq1Y3L_ldzQZtbEBG/edit#gid=2055710262'
       },
       {
         title: 'CDs in Dept',
-        url: ''
+        url: 'https://docs.google.com/document/d/1sBS_0wIFJhIl-GFofH6kntVjEjtke4w4/edit'
       },
       {
         title: 'Central Library Info',
