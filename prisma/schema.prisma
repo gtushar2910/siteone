@@ -277,3 +277,17 @@ model StudentAchievements {
   achievement      String
 }
 
+model ResultAnalysisUG {
+  id               String @id @default(cuid())
+  year             String @unique
+  shift            String
+  sem1             String
+  sem2             String
+  sem3             String
+  sem4             String
+  sem5             String
+  sem6             String
+  sem7             String
+  sem8             String
+}
+
