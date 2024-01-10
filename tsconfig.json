@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "app/MenuLinks/Academics/ResAna/page.js"  ],
   "exclude": [
     "node_modules"
   ]

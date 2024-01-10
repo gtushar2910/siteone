@@ -38,62 +38,24 @@ const ForeignStudentsList = () => {
 
     const renderCell = React.useCallback((listItem, columnKey) => {
         const cellValue = listItem[columnKey];
-
         switch (columnKey) {
-            case "name":
-                return (
-                    <div className="flex flex-col">
-                        <p className=" ">{cellValue}</p>
-                    </div>
-                );
             case "year":
                 return (
                     <div className="flex flex-col">
-                        <p className="text-bold  text-center ">{cellValue}</p>
-                    </div>
-                );
-            case "enrollment_no":
-                return (
-                    <div className="flex flex-col">
-                        <p className="text-bold text-center">{cellValue}</p>
-                    </div>
-                );
-            case "email":
-                return (
-                    <div className="flex flex-col">
-                        <p className="text-center  ">{cellValue}</p>
+                        <p className="text-center ">{cellValue}</p>
                     </div>
                 );
             default:
-              return (
-                <div className="flex flex-col">
-                    <p className="text-center  ">{cellValue}</p>
-                </div>
-            );
+                return (
+                    <div className="flex flex-col items-center">
+                      <Tooltip content="View"  >
+                        <Link href={listItem[columnKey]} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-slate-700" /></Link>
+                      </Tooltip>
+                    </div>
+                  );
         }
     }, []);
 
-    // const classNames = React.useMemo(
-    //   () => ({
-    //     th: ["bg-orange-100","font-sans","font-bold"],
-    //     td: [
-    //       // changing the rows border radius
-    //       // first
-    //       "group-data-[first=true]:first:before:rounded-none",
-    //       "group-data-[first=true]:last:before:rounded-none",
-    //       // middle
-    //       "group-data-[middle=true]:before:rounded-none",
-    //       // last
-    //       "group-data-[last=true]:first:before:rounded-none",
-    //       "group-data-[last=true]:last:before:rounded-none",
-    //       "bg-amber-50",
-    //       "text-zinc-700",
-    //       "font-sans",
-    //       "font-medium"
-    //     ],
-    //   }),
-    //   [],
-    // );
 
     return (
         <div className="px-4 cardAboutDept " >
