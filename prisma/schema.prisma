@@ -240,7 +240,7 @@ model Student {
   enrollment_no    String @unique
   roll_no          String?
   name             String
-  gender           String
+  gender           String?
   dob              String?
   mobile           String?
   parent_mobile    String?
@@ -251,6 +251,8 @@ model Student {
   branch           String?
   addmision_year   String?
   cohort           String?
+  adm_no           String?
+  contact_no       String?
 }
 
 model IEPStudents {

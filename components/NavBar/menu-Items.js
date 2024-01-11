@@ -112,7 +112,7 @@ export const menu_Items = [
       },
       {
         title: 'Alumni Data',
-        url: ''
+        url: '/Students/AlumniList'
       },
       {
         title: 'IEP Students',
