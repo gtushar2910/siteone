@@ -177,7 +177,7 @@ export const menu_Items = [
     url: '/about',
     submenu: [
       {
-        title: 'List of Holidays-2023',
+        title: 'List of Holidays',
         url: '/docs/holiday/holidays.pdf'
       },
       {
