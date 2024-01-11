@@ -25,6 +25,7 @@ model Staff {
   homepage_url     String?
   profile_pdf      String?
   address          String?
+  presently_working String?
   timetables       Staff_Timetable[]
   publications     Staff_Publications[]
   profile          Staff_Profile[]
