@@ -89,7 +89,7 @@ const ForeignStudentsList = () => {
     return (
         <div className="px-4 cardAboutDept " >
             <div className="box-border p-4 border-0 px-4">
-                <h1 className="font-sans text-4xl text-zinc-700 font-black uppercase text-center"> ----- International Experience Program (IEP) -----</h1>
+                <h1 className="font-sans text-4xl text-zinc-700 font-black uppercase text-center"> ----- Foreign Students -----</h1>
             </div>
             <div className="p-4  px-4 items-center  " >
                 <Table aria-label="Example table with custom cells" classNames={classNames} >
