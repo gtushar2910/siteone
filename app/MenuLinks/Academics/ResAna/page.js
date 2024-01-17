@@ -10,7 +10,7 @@ import { DocumentIcon } from '@heroicons/react/24/solid'
 
 
 
-const ForeignStudentsList = () => {
+const ResultAnalysis = () => {
 
     const columns = [
         { name: "ADMISSION YEAR", uid: "year" },
@@ -36,6 +36,15 @@ const ForeignStudentsList = () => {
         getList()
     }, [])
 
+    function isValidUrl(string) {
+        try {
+            new URL(string);
+            return true;
+        } catch (err) {
+            return false;
+        }
+    }
+
     const renderCell = React.useCallback((listItem, columnKey) => {
         const cellValue = listItem[columnKey];
         switch (columnKey) {
@@ -48,65 +57,73 @@ const ForeignStudentsList = () => {
             case "sem1":
                 return (
                     <div className="flex flex-col items-center">
-                        <Tooltip content="View"  >
+                        {isValidUrl(listItem[columnKey]) ? <Tooltip content="View"  >
                             <Link href={listItem[columnKey]} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-indigo-500" /></Link>
-                        </Tooltip>
+                        </Tooltip> : <>&nbsp;</>}
+
                     </div>
                 );
             case "sem2":
                 return (
                     <div className="flex flex-col items-center">
-                        <Tooltip content="View"  >
+                        {isValidUrl(listItem[columnKey]) ? <Tooltip content="View"  >
                             <Link href={listItem[columnKey]} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-amber-500" /></Link>
-                        </Tooltip>
+                        </Tooltip> : <>&nbsp;</>}
+
                     </div>
                 );
             case "sem3":
                 return (
                     <div className="flex flex-col items-center">
-                        <Tooltip content="View"  >
+                        {isValidUrl(listItem[columnKey]) ? <Tooltip content="View"  >
                             <Link href={listItem[columnKey]} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-indigo-600" /></Link>
-                        </Tooltip>
+                        </Tooltip> : <>&nbsp;</>}
+
                     </div>
                 );
             case "sem4":
                 return (
                     <div className="flex flex-col items-center">
-                        <Tooltip content="View"  >
+                        {isValidUrl(listItem[columnKey]) ? <Tooltip content="View"  >
                             <Link href={listItem[columnKey]} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-amber-600" /></Link>
-                        </Tooltip>
+                        </Tooltip> : <>&nbsp;</>}
+
                     </div>
                 );
             case "sem5":
                 return (
                     <div className="flex flex-col items-center">
-                        <Tooltip content="View"  >
+                        {isValidUrl(listItem[columnKey]) ? <Tooltip content="View"  >
                             <Link href={listItem[columnKey]} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-indigo-700" /></Link>
-                        </Tooltip>
+                        </Tooltip> : <>&nbsp;</>}
+
                     </div>
                 );
             case "sem6":
                 return (
                     <div className="flex flex-col items-center">
-                        <Tooltip content="View"  >
+                        {isValidUrl(listItem[columnKey]) ? <Tooltip content="View"  >
                             <Link href={listItem[columnKey]} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-amber-700" /></Link>
-                        </Tooltip>
+                        </Tooltip> : <>&nbsp;</>}
+
                     </div>
                 );
             case "sem7":
                 return (
                     <div className="flex flex-col items-center">
-                        <Tooltip content="View"  >
+                        {isValidUrl(listItem[columnKey]) ? <Tooltip content="View"  >
                             <Link href={listItem[columnKey]} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-indigo-800" /></Link>
-                        </Tooltip>
+                        </Tooltip> : <>&nbsp;</>}
+
                     </div>
                 );
             case "sem8":
                 return (
                     <div className="flex flex-col items-center">
-                        <Tooltip content="View"  >
+                        {isValidUrl(listItem[columnKey]) ? <Tooltip content="View"  >
                             <Link href={listItem[columnKey]} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-amber-800" /></Link>
-                        </Tooltip>
+                        </Tooltip> : <>&nbsp;</>}
+
                     </div>
                 );
             default:
@@ -150,4 +167,4 @@ const ForeignStudentsList = () => {
 
 
 
-export default ForeignStudentsList
+export default ResultAnalysis

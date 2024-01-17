@@ -85,6 +85,15 @@ const StaffTeachings = () => {
     }
   };
 
+  function isValidUrl(string) {
+    try {
+        new URL(string);
+        return true;
+    } catch (err) {
+        return false;
+    }
+}
+
   const renderCell = React.useCallback((listItem, columnKey) => {
     const cellValue = listItem[columnKey];
 
@@ -92,21 +101,22 @@ const StaffTeachings = () => {
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
-            <Tooltip content="View Syllabus"  >
+            {isValidUrl(listItem['syllabus_url']) ? <Tooltip content="View Syllabus"  >
               <Link href={listItem['syllabus_url']} target="_blank" color="primary"><DocumentTextIcon className="h-6 w-6 text-yellow-500" /></Link>
-            </Tooltip>
-            <Tooltip content="Course URL"  >
+            </Tooltip> : <></>}
+            {isValidUrl(listItem['course_url']) ?  <Tooltip content="Course URL"  >
               <Link href={listItem['course_url']} target="_blank" color="primary"><LinkIcon className="h-6 w-6 text-purple-500" /></Link>
-            </Tooltip>
-            <Tooltip content="MATERIALS"  >
+            </Tooltip> : <></>}
+            {isValidUrl(listItem['materials_url']) ?  <Tooltip content="MATERIALS"  >
               <Link href={listItem['materials_url']} target="_blank" color="primary"><BookOpenIcon className="h-6 w-6 text-blue-500" /></Link>
-            </Tooltip>
-            <Tooltip content="MIDTERM"  >
+            </Tooltip> : <></>}
+            {isValidUrl(listItem['midterm_url']) ?  <Tooltip content="MIDTERM"  >
               <Link href={listItem['midterm_url']} target="_blank" color="primary"><BookOpenIcon className="h-6 w-6 text-red-500" /></Link>
-            </Tooltip>
-            <Tooltip content="TUTORIAL"  >
+            </Tooltip> : <></>}
+            {isValidUrl(listItem['tutorial_url']) ?  <Tooltip content="TUTORIAL"  >
               <Link href={listItem['tutorial_url']} target="_blank" color="primary"><BookOpenIcon className="h-6 w-6 text-zinc-500" /></Link>
-            </Tooltip>
+            </Tooltip> : <></>}
+           
           </div>
         );
       case "edit":
