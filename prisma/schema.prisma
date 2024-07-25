@@ -1,0 +1,296 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Staff {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  name             String
+  designation      String
+  qualification    String
+  experience       String
+  area_of_int      String
+  email            String @unique
+  password         String @default("Admin@2023")
+  contact          String?
+  photo            String?
+  homepage_url     String?
+  profile_pdf      String?
+  address          String?
+  presently_working String?
+  timetables       Staff_Timetable[]
+  publications     Staff_Publications[]
+  profile          Staff_Profile[]
+  teachings        Staff_Teachings[]
+  projects         Staff_Projects[]
+}
+
+model Staff_Teachings {
+  id               String @id @default(cuid())
+  staff_email      String
+  academic_year    String
+  semester         String
+  subject_name     String @default("XYZ")
+  subject_code     String
+  syllabus_url     String?
+  classname        String?
+  course_url       String?
+  midterm_url      String?
+  tutorial_url     String?
+  attendance_url   String?
+  materials_url    String?
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+model Staff_Timetable{
+  id               String @id @default(cuid())
+  staff_email      String
+  seqnum           Int @default(0)
+  academic_year    String
+  semester         String
+  tt_softcopy      String
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+model Staff_Publications{
+  id               String @id @default(cuid())
+  type             PublicationsType @default(JOURNAL)
+  level            PublicationsLevel @default(NATIONAL)
+  staff_email      String
+  description      String
+  seqnum           Int
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+enum PublicationsType {
+  BOOK
+  JOURNAL
+  CONFERENCE
+}
+
+enum PublicationsLevel {
+  NATIONAL
+  INTERNATIONAL
+  STATE
+  COLLEGE
+}
+
+model Staff_Profile {
+  id               String @id @default(cuid())
+  staff_email      String
+  type             StaffProfileType @default(WORKSHOP_SEMINAR_STTP)
+  description      String
+  seqnum           Int
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+enum StaffProfileType {
+  EXPERT_LECTURES_DELIVERED
+  ACHIEVEMENTS_AWARDS
+  ADMINISTRATIVE_DUTIES
+  MEMBERSHIPS
+  WORKSHOP_SEMINAR_STTP
+  OTHER
+}
+
+model Staff_Projects{
+  id               String @id @default(cuid())
+  staff_email      String
+  description      String
+  seqnum           Int
+  staff            Staff @relation(fields: [staff_email], references: [email])
+}
+
+model Converse {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  name             String
+  event_dates      String
+  faculty_co       String
+  student_co       String
+  report_url       String?
+}
+
+model Evaluation_Scheme{
+id               String @id @default(cuid())
+seqnum           Int @unique
+tee              Int
+ca1              Int
+ca2              Int
+tep              Int
+ca3              Int
+total            Int
+subjects         Subject[]
+}
+
+model Subject {
+  id               String @id @default(cuid())
+  branch           String @default("IT")
+  eff              String
+  category         String @default("")
+  semester         String
+  code             String
+  syllabus_pdf     String
+  name             String
+  lpw              Int
+  tpw              Int
+  ppw              Int
+  credit           Int
+  esnum            Int
+  evaluation_Scheme          Evaluation_Scheme @relation(fields: [esnum], references: [seqnum])
+}
+
+model TimeTable {
+  id               String @id @default(cuid())
+  seqnum           Int @unique
+  semester         String
+  tt_pdf           String
+}
+
+model AcademicCalender {
+  id               String @id @default(cuid())
+  seqnum           Int @unique
+  academic_year    String
+  semester         String
+  ucd              String
+  ac_pdf           String
+}
+
+model PracticalExam {
+  id               String @id @default(cuid())
+  seqnum           Int @unique
+  description      String
+  tt_pdf           String
+}
+
+model ExamTimeTable {
+  id               String @id @default(cuid())
+  seqnum           Int @unique
+  type             ExamTimeTableType
+  academic_year    String
+  semester         String
+  classname        String?
+  tt_pdf           String
+  seating_arrangement String?
+}
+
+enum ExamTimeTableType {
+  INTERNAL
+  EXTERNAL
+  MIDTERM
+}
+
+model EWS {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  type             String
+  expert           String @default("")
+  description      String
+  event_dates      String
+  faculty_co       String
+  student_co       String
+  report_url       String?
+}
+
+model SWIG {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  alumni           String @default("")
+  description      String
+  event_dates      String
+  faculty_co       String
+  report_url       String?
+}
+
+model ITAthletics {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  event_dates      String
+  faculty_co       String
+  report_url       String?
+}
+
+model IndVisit {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  event_dates      String
+  place            String
+  faculty_co       String
+  report_url       String?
+}
+
+model ResAna {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  academic_year    String
+  semester         String
+  file_url         String?
+}
+
+model Student {
+  id               String @id @default(cuid())
+  enrollment_no    String @unique
+  roll_no          String?
+  name             String
+  gender           String?
+  dob              String?
+  mobile           String?
+  parent_mobile    String?
+  student_email    String?
+  parent_email     String?
+  aadhar_no        String?
+  address          String?
+  branch           String?
+  addmision_year   String?
+  cohort           String?
+  adm_no           String?
+  contact_no       String?
+}
+
+model IEPStudents {
+  id               String @id @default(cuid())
+  enrollment_no    String @unique
+  name             String
+  year             String
+  email            String
+}
+
+model ForignStudents {
+  id               String @id @default(cuid())
+  enrollment_no    String @unique
+  name             String
+  year             String
+  email            String
+}
+
+model StudentAchievements {
+  id               String @id @default(cuid())
+  enrollment_no    String @unique
+  name             String
+  year             String
+  email            String
+  achievement      String
+}
+
+model ResultAnalysisUG {
+  id               String @id @default(cuid())
+  year             String @unique
+  shift            String
+  sem1             String
+  sem2             String
+  sem3             String
+  sem4             String
+  sem5             String
+  sem6             String
+  sem7             String
+  sem8             String
+}
+
