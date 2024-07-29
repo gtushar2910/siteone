@@ -181,8 +181,12 @@ export const menu_Items = [
         url: '/docs/holiday/holidays.pdf'
       },
       {
-        title: 'Department Committies 2023-24',
-        url: '/docs/committees/list/2023-2024.pdf'
+        title: 'Department Committies : 2024-25',
+        url: '/docs/committees/list/2024-2025.pdf'
+      },
+      {
+        title: 'Class Teachers : 2024-25',
+        url: '/docs/classteachers/2024-2025.pdf'
       },
       {
         title: 'CR LR Candidate form',
