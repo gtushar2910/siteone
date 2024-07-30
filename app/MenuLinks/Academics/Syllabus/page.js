@@ -100,6 +100,7 @@ const SyllabusHome = () => {
 
   return (
     <div className="px-4 py-4 cardAboutDept">
+      {/* Information Technology Department Syllabus */}
       <div className="flex flex-col items-center p-4  px-4 ">
         <Dropdown>
           <DropdownTrigger>
