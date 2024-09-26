@@ -14,53 +14,54 @@ const Carousel1 = () => (
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/new/01.JPG" />
+        "/images/slidernew/newone/01.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/new/02.JPG" />
+        "/images/slidernew/newone/02.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/new/03.JPG" />
+        "/images/slidernew/newone/03.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/new/04.JPG" />
+        "/images/slidernew/newone/04.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/new/05.JPG" />
+        "/images/slidernew/newone/05.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/new/06.JPG" />
+        "/images/slidernew/newone/06.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/new/07.JPG" />
+        "/images/slidernew/newone/07.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/new/08.JPG" />
+        "/images/slidernew/newone/08.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/new/09.JPG" />
+        "/images/slidernew/newone/09.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/new/10.JPG" />
+        "/images/slidernew/newone/10.JPG" />
     </div>
+    {/* antd */}
   </Carousel>
 );
 export default Carousel1;
