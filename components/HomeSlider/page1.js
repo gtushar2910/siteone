@@ -14,42 +14,52 @@ const Carousel1 = () => (
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/sn01.JPG" />
+        "/images/slidernew/new/01.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/sn02.JPG" />
+        "/images/slidernew/new/02.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/sn03.JPG" />
+        "/images/slidernew/new/03.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/sn04.JPG" />
+        "/images/slidernew/new/04.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/cs_01.jpg" />
+        "/images/slidernew/new/05.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/cs_02.JPG" />
+        "/images/slidernew/new/06.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/sn06.JPG" />
+        "/images/slidernew/new/07.JPG" />
     </div>
     <div>
       <img className="object-contain h-96 w-full"
         src=
-        "/images/slidernew/sn05.JPG" />
+        "/images/slidernew/new/08.JPG" />
+    </div>
+    <div>
+      <img className="object-contain h-96 w-full"
+        src=
+        "/images/slidernew/new/09.JPG" />
+    </div>
+    <div>
+      <img className="object-contain h-96 w-full"
+        src=
+        "/images/slidernew/new/10.JPG" />
     </div>
   </Carousel>
 );
