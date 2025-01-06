@@ -35,10 +35,7 @@ const StudentList = () => {
   ];
 
   const dropdownItems = [
-    {
-      key: "s20it",
-      label: "Adm Year : 2020 (IT)",
-    },
+   
     {
       key: "s21it",
       label: "Adm Year : 2021 (IT)",
@@ -71,7 +68,18 @@ const StudentList = () => {
       key: "s23ai",
       label: "Adm Year : 2023 (AIDS)",
     },
-    
+    {
+      key: "s24itd1",
+      label: "Adm Year : 2024 (IT Div 1)",
+    },
+    {
+      key: "s24itd2",
+      label: "Adm Year : 2024 (IT Div 2)",
+    },
+    {
+      key: "s24ai",
+      label: "Adm Year : 2024 (AIDS)",
+    },
   ];
 
   const renderCell = React.useCallback((listItem, columnKey) => {

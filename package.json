@@ -13,7 +13,7 @@
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@nextui-org/react": "^2.0.1",
-    "@prisma/client": "^5.1.1",
+    "@prisma/client": "^6.1.0",
     "@szhsin/react-menu": "^4.0.2",
     "antd": "^5.9.3",
     "autoprefixer": "10.4.14",
@@ -43,6 +43,6 @@
   "devDependencies": {
     "@types/node": "20.5.7",
     "@types/react": "18.2.21",
-    "prisma": "^5.1.1"
+    "prisma": "^6.1.0"
   }
 }

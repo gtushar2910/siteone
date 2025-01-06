@@ -96,7 +96,10 @@ const StudentList = () => {
       key: "s19it",
       label: "Batch : 2019-2023",
     },
-    
+    {
+      key: "s20it",
+      label: "Batch : 2020-2024",
+    },
   ];
 
   const renderCell = React.useCallback((listItem, columnKey) => {
