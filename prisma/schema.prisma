@@ -218,6 +218,14 @@ model ITAthletics {
   report_url       String?
 }
 
+model ParentsMeet {
+  id               String @id @default(cuid())
+  seqnum           Int @default(0)
+  parents_meet_date      String
+  report_url       String?
+  description      String?
+}
+
 model IndVisit {
   id               String @id @default(cuid())
   seqnum           Int @default(0)

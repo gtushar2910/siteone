@@ -144,6 +144,10 @@ export const menu_Items = [
         title: 'Alumni Talk',
         url: '/MenuLinks/Events/SWIG'
       },
+      {
+        title: 'Parents Meet',
+        url: '/MenuLinks/Events/ParentsMeet'
+      },
     ]
   },
   {

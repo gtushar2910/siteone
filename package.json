@@ -37,6 +37,7 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.10.1",
     "siteone": "file:",
+    "stylis": "^4.3.5",
     "tailwindcss": "3.3.3",
     "uuid": "^9.0.0"
   },
