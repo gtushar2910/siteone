@@ -5,7 +5,7 @@ const Dropdown = ({ title, submenus }) => {
                 <Menu menuButton={<MenuButton>{title}</MenuButton>} >
                     {
                         submenus.map((submenu, index) => {
-                            return <MenuItem href={submenu.url} key={index}>{submenu.title}</MenuItem>
+                            return <MenuItem href={submenu.url} key={index}>{submenu.title} &nbsp;</MenuItem>
                         })
                     }
                 </Menu>
