@@ -85,7 +85,7 @@ const AcademicCalender = () => {
             >
               <CalTable columns={columns} list={list} renderCell={renderCell}/>
             </Tab>
-            <Tab
+            {/* <Tab
               key="College"
               title={
                 <div className="flex items-center space-x-2">
@@ -106,7 +106,7 @@ const AcademicCalender = () => {
               }
             >
               <CalTable columns={columns} list={list} renderCell={renderCell}/>
-            </Tab>
+            </Tab> */}
           </Tabs>
         </div>
       </div>
