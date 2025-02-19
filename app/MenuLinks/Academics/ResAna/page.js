@@ -13,7 +13,7 @@ import { DocumentIcon } from '@heroicons/react/24/solid'
 const ResultAnalysis = () => {
 
     const columns = [
-        { name: "ADMISSION YEAR", uid: "year" },
+        { name: "ACADEMIC YEAR", uid: "year" },
         { name: "SEM 1", uid: "sem1" },
         { name: "SEM 2", uid: "sem2" },
         { name: "SEM 3", uid: "sem3" },
@@ -24,12 +24,18 @@ const ResultAnalysis = () => {
         { name: "SEM 8", uid: "sem8" },
     ];
 
-    const [list, setList] = useState([])
+    const [listIT, setListIT] = useState([])
+    const [listAIDS, setListAIDS] = useState([])
 
     const getList = async () => {
         const response = await axios.get("/api/resana/getResultAnalysis");
-        if (response)
-            setList(response.data)
+        const shiftA = response.data.filter(item => item.shift === 'A');
+        const shiftAIDS = response.data.filter(item => item.shift === 'AIDS');
+        if (response) {
+            setListIT(shiftA)
+            setListAIDS(shiftAIDS)
+        }
+           
     }
 
     useEffect(() => {
@@ -141,7 +147,7 @@ const ResultAnalysis = () => {
     return (
         <div className="px-4 cardAboutDept " >
             <div className="box-border p-4 border-0 px-4">
-                <h1 className="font-sans text-4xl text-zinc-700 font-black uppercase text-center"> ----- Result Analysis -----</h1>
+                <h1 className="font-sans text-4xl text-zinc-700 font-black uppercase text-center"> ----- Result Analysis for IT -----</h1>
             </div>
             <div className="p-4  px-4 items-center  " >
                 <Table aria-label="Example table with custom cells" classNames={classNames} >
@@ -152,7 +158,28 @@ const ResultAnalysis = () => {
                             </TableColumn>
                         )}
                     </TableHeader>
-                    <TableBody items={list} >
+                    <TableBody items={listIT} >
+                        {(item) => (
+                            <TableRow key={item.id}>
+                                {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
+                            </TableRow>
+                        )}
+                    </TableBody>
+                </Table>
+            </div>
+            <div className="p-4  px-4 items-center  " >
+                <div className="box-border p-4 border-0 px-4">
+                    <h1 className="font-sans text-4xl text-zinc-700 font-black uppercase text-center"> ----- Result Analysis for AIDS -----</h1>
+                </div>
+                <Table aria-label="Example table with custom cells" classNames={classNames}  >
+                    <TableHeader columns={columns}>
+                        {(column) => (
+                            <TableColumn key={column.uid}>
+                                <p className="text-center">{column.name}</p>
+                            </TableColumn>
+                        )}
+                    </TableHeader>
+                    <TableBody items={listAIDS} >
                         {(item) => (
                             <TableRow key={item.id}>
                                 {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}

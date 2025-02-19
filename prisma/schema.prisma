@@ -290,7 +290,7 @@ model StudentAchievements {
 
 model ResultAnalysisUG {
   id               String @id @default(cuid())
-  year             String @unique
+  year             String 
   shift            String
   sem1             String
   sem2             String

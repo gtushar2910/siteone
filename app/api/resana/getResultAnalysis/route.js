@@ -7,5 +7,6 @@ export async function GET(request) {
               year: 'desc',
             }
   });
+  // console.log(list)
   return NextResponse.json(list)
 }
