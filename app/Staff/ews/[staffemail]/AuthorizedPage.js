@@ -19,14 +19,14 @@ import { columns, statusOptions } from "./data";
 import { capitalize } from "./utils";
 import classNames from "../../../../lib/tableClassNames";
 
-const INITIAL_VISIBLE_COLUMNS = ["type", "description", "seqnum","actions"];
+const INITIAL_VISIBLE_COLUMNS = ["seqnum","type", "description", "actions"];
 
 export default function AuthorizedPage({ addRow, user, profiles, renderCell }) {
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
   const [visibleColumns, setVisibleColumns] = React.useState(new Set(INITIAL_VISIBLE_COLUMNS));
   const [statusFilter, setStatusFilter] = React.useState("all");
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(25);
   const [sortDescriptor, setSortDescriptor] = React.useState({
     column: "seqnum",
     direction: "ascending",
@@ -147,16 +147,17 @@ export default function AuthorizedPage({ addRow, user, profiles, renderCell }) {
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-default-400 text-small">Total {profiles.length} profiles</span>
+          <span className="text-default-400 text-small">Total {profiles.length} entries</span>
           <label className="flex items-center text-default-400 text-small">
             Rows per page:
             <select
               className="bg-transparent outline-none text-default-400 text-small"
               onChange={onRowsPerPageChange}
             >
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="15">15</option>
+               <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="75">75</option>
+              <option value="100">100</option>
             </select>
           </label>
         </div>
