@@ -71,7 +71,7 @@ export const menu_Items = [
     submenu: [
       {
         title: 'Continous Evaluation Scheme',
-        url: '/docs/ContEvaluation/Norms_2023-24.pdf'
+        url: '/docs/ContEvaluation/Norms_2025-26.pdf'
       },
       {
         title: 'Schedules',
