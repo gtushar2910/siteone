@@ -35,15 +35,6 @@ const StudentList = () => {
   ];
 
   const dropdownItems = [
-   
-    {
-      key: "s21it",
-      label: "Adm Year : 2021 (IT)",
-    },
-    {
-        key: "s21ai",
-        label: "Adm Year : 2021 (AIDS)",
-      },
     {
       key: "s22itd1",
       label: "Adm Year : 2022 (IT Div 1)",

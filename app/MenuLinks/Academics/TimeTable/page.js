@@ -1,18 +1,23 @@
 "use client"
-import React from "react";
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Tooltip, Link } from "@nextui-org/react";
-
-import axios from 'axios';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { DocumentIcon } from '@heroicons/react/24/solid'
-
-
-
+import React, { useEffect, useState, useCallback } from "react";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+  Tooltip,
+  Link,
+  Card,
+  CardHeader,
+  CardBody
+} from "@nextui-org/react";
+import { DocumentIcon } from "@heroicons/react/24/solid";
+import axios from "axios";
 
 const TimeTableHome = () => {
-
-  const [list, setList] = useState([])
+  const [list, setList] = useState([]);
 
   const columns = [
     { name: "#", uid: "seqnum" },
@@ -22,35 +27,43 @@ const TimeTableHome = () => {
 
   const getList = async () => {
     const response = await axios.get("/api/timetable/getTimeTables");
-    if (response)
-      setList(response.data)
-  }
+    if (response && response.data) {
+      const dataWithIndex = response.data.map((item, index) => ({
+        ...item,
+        seqnum: index + 1,
+      }));
+      setList(dataWithIndex);
+    }
+  };
+
 
   useEffect(() => {
-    getList()
-  }, [])
+    getList();
+  }, []);
 
-  const renderCell = React.useCallback((listItem, columnKey) => {
+  const renderCell = useCallback((listItem, columnKey) => {
     const cellValue = listItem[columnKey];
-   
+
     switch (columnKey) {
       case "semester":
         return (
-          <div className="flex flex-col">
-            <p className="font-bold	 text-center text-indigo-700">{cellValue}</p>
-          </div>
+          <p className="font-semibold text-center text-indigo-600">
+            {cellValue}
+          </p>
         );
       case "seqnum":
         return (
-          <div className="flex flex-col">
-            <p className="text-bold text-sm  text-center text-green-700">{cellValue}</p>
-          </div>
+          <p className="text-center text-green-600 font-medium">
+            {cellValue}
+          </p>
         );
       case "view":
         return (
-          <div className="flex flex-col items-center">
-            <Tooltip content="View Time Tables"  >
-              <Link href={listItem['tt_pdf']} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-blue-500" /></Link>
+          <div className="flex justify-center">
+            <Tooltip content="View Time Table">
+              <Link href={listItem["tt_pdf"]} target="_blank">
+                <DocumentIcon className="h-6 w-6 text-blue-500 hover:text-blue-700 transition-colors" />
+              </Link>
             </Tooltip>
           </div>
         );
@@ -60,35 +73,41 @@ const TimeTableHome = () => {
   }, []);
 
   return (
-    <div className="px-4 cardAboutDept">
-      <div className="box-border p-4 border-0 px-4">
-      <h2 className="text-2xl font-extrabold text-default-600 dark:text-white">Class & Faculty Time Tables</h2>
-      </div>
-      <div className="box-border p-4 border-2 px-4" >
-        <Table aria-label="Example table with custom cells">
-          <TableHeader columns={columns}>
-            {(column) => (
-              <TableColumn key={column.uid}>
-                <p className="text-center text-default-700">{column.name}</p>
-              </TableColumn>
-            )}
-          </TableHeader>
-          <TableBody items={list}>
-            {(item) => (
-              <TableRow key={item.id}>
-                {(columnKey) => <TableCell>{renderCell(item, columnKey)
-                 }</TableCell>}
-              </TableRow>
-          
-            )}
-          </TableBody>
-        </Table>
-      </div>
+    <div className="p-6">
+      <Card shadow="sm" className="w-full max-w-4xl mx-auto">
+        <CardHeader className="flex justify-between items-center border-b border-default-200">
+          <h2 className="text-2xl font-bold text-default-700">
+            Class & Faculty Time Tables
+          </h2>
+        </CardHeader>
+        <CardBody className="p-4">
+          <Table
+            aria-label="Class Time Tables"
+            isStriped
+            className="rounded-md shadow-sm"
+          >
+            <TableHeader columns={columns}>
+              {(column) => (
+                <TableColumn key={column.uid} className="text-center">
+                  {column.name}
+                </TableColumn>
+              )}
+            </TableHeader>
+            <TableBody items={list}>
+              {(item) => (
+                <TableRow key={item.id}>
+                  {(columnKey) => (
+                    <TableCell>{renderCell(item, columnKey)}</TableCell>
+                  )}
+                </TableRow>
+              )}
+            </TableBody>
+
+          </Table>
+        </CardBody>
+      </Card>
     </div>
-
   );
-}
+};
 
-
-
-export default TimeTableHome
+export default TimeTableHome;
