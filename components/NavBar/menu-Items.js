@@ -182,7 +182,7 @@ export const menu_Items = [
     submenu: [
       {
         title: 'List of Holidays',
-        url: '/docs/holiday/holidays.pdf'
+        url: '/docs/holiday/LOH_2025.pdf'
       },
       {
         title: 'Department Committies : 2025-26',
