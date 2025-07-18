@@ -8,7 +8,10 @@ export async function GET(request) {
     where: {
       semester: semester,
       branch: 'AIDS'
-    }
+    },
+  orderBy: {
+    eff: 'desc', // or 'desc' depending on the desired order
+  },
   })
   return NextResponse.json(subjects)
 }
