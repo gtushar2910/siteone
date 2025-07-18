@@ -6,6 +6,8 @@ import {
   DropdownMenu,
   DropdownItem,
   Button,
+  Tabs,
+  Tab,
   Table,
   TableHeader,
   TableColumn,
@@ -101,8 +103,8 @@ const SyllabusHome = () => {
 
   return (
     <div className="px-4 py-4 cardAboutDept">
-      <div className="flex flex-col items-center p-4 px-4">
-        <Dropdown>
+      <div className="flex flex-col items-center">
+        {/* <Dropdown>
           <DropdownTrigger>
             <Button variant="shadow" color="secondary">
               {selectedValue}
@@ -122,10 +124,26 @@ const SyllabusHome = () => {
               </DropdownItem>
             )}
           </DropdownMenu>
-        </Dropdown>
+        </Dropdown> */}
+
+        <Tabs
+          aria-label="Semester Tabs"
+          selectedKey={Array.from(selectedKeys)[0]}
+          onSelectionChange={(key) => setSelectedKeys(new Set([key.toString()]))}
+          color="secondary"
+          variant="bordered"
+          className="w-full justify-center"
+        >
+          <Tab key="IT" title="IT Syllabus" />
+          {dropdownItems.map((item) => (
+            <Tab key={item.key} title={item.label} />
+          ))}
+        </Tabs>
+
+
       </div>
 
-      <div className="flex flex-col p-4 px-4">
+      <div className="flex flex-col  px-4">
         <Spacer y={5} />
         <Table aria-label="Syllabus Table" classNames={classNames}>
           <TableHeader columns={columns}>
