@@ -1,43 +1,38 @@
-"use client"
+"use client";
 import React from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button } from "@nextui-org/react";
-import { Card, CardHeader, CardBody } from "@nextui-org/react";
-import { useState } from "react";
+import { Card, CardHeader, CardBody, Divider, Spacer } from "@nextui-org/react";
 
-export default function App() {
-  const [visible, setVisible] = useState(true);
-
+export default function Vision() {
   return (
-    <>
-      <Modal isOpen={visible} >
-        <ModalContent>
-          <ModalHeader className="flex flex-col gap-1">Vision</ModalHeader>
-          <ModalBody>
-                <p className="text-lg font-medium text-[#243c5a] italic "> 
-                To evolve as a global center of excellence in the field of Information Technology imparting technical education and professional ethics to thrive in an era of globalization.
-                </p>
-                </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onPress={() => {
-              setVisible(false);
-            }}>
-              Close
-            </Button>
-          </ModalFooter>
-        </ModalContent>
+    <Card
+      className="
+        p-6 rounded-2xl 
+        cardAboutDept
+        bg-[var(--card-bg)]
+        border border-[var(--card-border)]
+        shadow-md hover:shadow-xl 
+        transition-all duration-300
+      "
+    >
+      {/* Header */}
+      <CardHeader className="pb-2 pt-0 px-4 flex-col items-center">
+        <h1 className="text-2xl font-bold text-[var(--accent-primary)] uppercase tracking-wide">
+          Vision
+        </h1>
+        <Divider className="my-4 bg-[var(--accent-secondary)] opacity-50 w-full" />
+      </CardHeader>
 
-      </Modal>
-      <Card className="py-4 cardAboutDept">
-            <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
-                <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Vision</h1>
-
-            </CardHeader>
-            <CardBody className="overflow-visible py-2 items-center">
-            <p className="text-lg font-medium text-[#243c5a] italic "> 
-            &quot; To evolve as a global center of excellence in the field of Information Technology imparting technical education and professional ethics to thrive in an era of globalization.&quot;
-                </p>
-            </CardBody>
-        </Card>
-    </>
+      {/* Body */}
+      <CardBody className="overflow-visible py-2 items-center">
+        <p className="
+          text-lg font-medium italic 
+          text-[var(--foreground-color)]
+          leading-relaxed text-center
+        ">
+          “To evolve as a global center of excellence in the field of Information Technology, 
+          imparting technical education and professional ethics to thrive in an era of globalization.”
+        </p>
+      </CardBody>
+    </Card>
   );
 }

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -10,16 +10,23 @@
   --foreground-color: black;
   --menu-foreground-color: #defdff;
   --menu-background-color: #303c6c;
-}
+} */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-    --background-color: #aee9e0;
+:root {
+  --background-color: #FAFAFA;
+  --foreground-color: #1C1C1C;
 
-  }
+  --menu-background-color: #7F1D1D; /* Deep crimson */
+  --menu-foreground-color: #FEE2E2;
+
+  --card-bg: #FFFFFF;
+  --card-border: #F3C5C5;
+
+  --accent-primary: #B91C1C;
+  --accent-secondary: #F87171;
+
+  --table-header: #FFE6E6;
+  --table-row-hover: #FFF1F1;
 }
 
 body {
@@ -58,11 +65,11 @@ body {
   
 }
 
- .navbar {
+.navbar {
   background: var(--menu-background-color);
-  vertical-align: middle;
-  color: var(--menu-foreground-color)
-} 
+  color: var(--menu-foreground-color);
+  border-bottom: 3px solid var(--accent-primary);
+}
 
 
 .logoright {
