@@ -76,11 +76,10 @@ const ResultAnalysis = () => {
     return (
       <div className="flex justify-center">
         {isValidUrl(cellValue) ? (
-          <Tooltip content="View">
             <Link href={cellValue} target="_blank">
               <DocumentIcon className={`h-6 w-6 ${iconColor}`} />
+
             </Link>
-          </Tooltip>
         ) : (
           <Chip color="default" size="sm" variant="flat">N/A</Chip>
         )}
@@ -133,12 +132,28 @@ const ResultAnalysis = () => {
         selectedKey={selectedTab}
         onSelectionChange={(key) => setSelectedTab(key.toString())}
         aria-label="Department Tabs"
-        variant="bordered"
-        color="primary"
+        className="w-full flex justify-start"
+        variant="light"
+        classNames={{
+          base: "bg-[var(--card-bg)] rounded-full p-1 shadow-sm border border-[var(--card-border)] backdrop-blur-md inline-flex",
+          tabList: "gap-1 rounded-full p-1 justify-start",
+          cursor: "rounded-full bg-[var(--accent-primary)] shadow-md scale-105 transition-all duration-300",
+          tab: `
+      px-4 py-2 rounded-full transition-all duration-300 
+      text-[var(--foreground-color)] font-medium 
+      data-[selected=true]:text-white 
+      data-[selected=true]:font-semibold 
+      data-[selected=true]:shadow-md 
+      data-[selected=true]:bg-[var(--accent-primary)] 
+      data-[selected=true]:scale-105
+      hover:bg-[var(--table-row-hover)]
+    `,
+        }}
       >
         <Tab key="IT" title="Information Technology" />
-        <Tab key="AIDS" title="Artificial Intelligence & DS" />
+        <Tab key="AIDS" title="Artificial Intelligence & Data Science" />
       </Tabs>
+
 
       <motion.div
         key={selectedTab}
@@ -151,29 +166,65 @@ const ResultAnalysis = () => {
         ) : filteredData.length === 0 ? (
           <div className="text-center text-gray-400 py-10 italic">No result data available.</div>
         ) : (
-          <Table
-            isHeaderSticky
-            aria-label={`Result table for ${selectedTab}`}
-            className="max-h-[500px] border border-gray-200 rounded-md"
-            classNames={classNames}
+          <div
+  className="
+    rounded-xl overflow-hidden
+    border border-[var(--card-border)]
+    bg-[var(--card-bg)]
+    shadow-md hover:shadow-xl
+    transition-all duration-300
+  "
+>
+  <Table
+    isHeaderSticky
+    aria-label={`Result table for ${selectedTab}`}
+    className="max-h-[500px]"
+    classNames={classNames}
+  >
+    <TableHeader columns={columns}>
+      {(column) => (
+        <TableColumn
+          key={column.uid}
+          className="
+            bg-[var(--table-header)] 
+            border-b border-[var(--card-border)] 
+            py-3
+          "
+        >
+          <p
+            className={`
+              font-semibold tracking-wide text-[var(--accent-primary)]
+              ${["ACADEMIC YEAR"].includes(column.name) ? "text-center" : "text-center"}
+            `}
           >
-            <TableHeader columns={columns}>
-              {(column) => (
-                <TableColumn key={column.uid}>
-                  <p className="text-center">{column.name}</p>
-                </TableColumn>
-              )}
-            </TableHeader>
-            <TableBody items={filteredData}>
-              {(item) => (
-                <TableRow key={item.id} className="odd:bg-white even:bg-gray-50">
-                  {(columnKey) => (
-                    <TableCell>{renderCell(item, columnKey)}</TableCell>
-                  )}
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
+            {column.name}
+          </p>
+        </TableColumn>
+      )}
+    </TableHeader>
+
+    <TableBody items={filteredData}>
+      {(item) => (
+        <TableRow
+          key={item.id}
+          className="
+            hover:bg-[var(--table-row-hover)]
+            transition-colors
+            border-b border-[var(--card-border)]
+            last:border-none
+          "
+        >
+          {(columnKey) => (
+            <TableCell className="py-3 text-[var(--foreground-color)] font-medium">
+              {renderCell(item, columnKey)}
+            </TableCell>
+          )}
+        </TableRow>
+      )}
+    </TableBody>
+  </Table>
+</div>
+
         )}
       </motion.div>
     </div>
