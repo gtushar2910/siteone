@@ -1,93 +1,150 @@
-"use client"
-import React from "react";
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Tooltip, Link } from "@nextui-org/react";
-
-import { columns } from "./data";
-import axios from 'axios';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { DocumentIcon } from '@heroicons/react/24/solid'
+"use client";
+import React, { useEffect, useState } from "react";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+  Divider,
+  Tooltip,
+  Link,
+} from "@nextui-org/react";
+import axios from "axios";
 import classNames from "../../../../lib/tableClassNames";
-
-
+import { DocumentIcon } from "@heroicons/react/24/solid";
+import { columns } from "./data";
 
 const ConverseList = () => {
-
-  const [list, setList] = useState([])
+  const [list, setList] = useState([]);
 
   const getList = async () => {
     const response = await axios.get("/api/events/swig/getList");
-    if (response)
-      setList(response.data)
-  }
+    if (response) setList(response.data);
+  };
 
   useEffect(() => {
-    getList()
-  }, [])
+    getList();
+  }, []);
 
-  const renderCell = React.useCallback((listItem, columnKey) => {
-    const cellValue = listItem[columnKey];
+  const renderCell = React.useCallback((item, columnKey) => {
+    const value = item[columnKey];
 
     switch (columnKey) {
       case "event_dates":
         return (
-          <div className="flex flex-col">
-            <p className="text-bold text-sm   ">{cellValue}</p>
-          </div>
+          <p className="text-center font-medium text-[var(--foreground-color)]">
+            {value}
+          </p>
         );
+
       case "faculty_co":
         return (
-          <div className="flex flex-col">
-            <p className="text-bold text-sm ">{cellValue}</p>
-          </div>
+          <p className="text-left font-medium text-[var(--foreground-color)]">
+            {value}
+          </p>
         );
+
       case "alumni":
         return (
-          <div className="flex flex-col">
-             <p className="text-left  ">{cellValue}</p>
-          </div>
+          <p className="text-left font-medium text-[var(--foreground-color)]">
+            {value}
+          </p>
         );
+
       case "report":
         return (
-          <div className="flex flex-col ">
-            <Tooltip content="View Report"  >
-              <Link href={listItem['report_url']} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-blue-500" /></Link>
-            </Tooltip>
+          <div className="flex justify-center">
+            {item.report_url ? (
+              <Tooltip content="View Report">
+                <Link href={item.report_url} target="_blank">
+                  <DocumentIcon className="h-6 w-6 text-[var(--accent-primary)] hover:scale-110 transition-all" />
+                </Link>
+              </Tooltip>
+            ) : (
+              <p className="italic text-gray-400">N/A</p>
+            )}
           </div>
         );
+
       default:
-        return cellValue;
+        return value;
     }
   }, []);
 
   return (
-    <div className="px-4 cardAboutDept">
-      <div className="box-border p-4 border-0 px-4">
-      <h1 className="font-sans text-4xl text-zinc-700 font-black uppercase text-center"> ----- Share What I Gain -----</h1>
+    <div className="px-6 py-8 cardAboutDept">
+
+      {/* 🔥 Header Card */}
+      <div
+        className="
+          rounded-2xl p-5 mb-6 text-center
+          bg-[var(--card-bg)]
+          border border-[var(--card-border)]
+          shadow-md hover:shadow-xl
+          transition-all duration-300
+        "
+      >
+        <h1 className="text-3xl font-bold text-[var(--accent-primary)] uppercase tracking-wide">
+          Share What I Gain 
+        </h1>
+        <Divider className="mt-4 bg-[var(--accent-secondary)] opacity-40" />
       </div>
-      <div className="box-border p-4 border-2 px-4" >
-        <Table aria-label="Example table with custom cells" classNames={classNames}>
-          <TableHeader columns={columns}>
-            {(column) => (
-              <TableColumn key={column.uid}>
-                <p className="text-left text-default-700">{column.name}</p>
-              </TableColumn>
-            )}
-          </TableHeader>
-          <TableBody items={list}>
-            {(item) => (
-              <TableRow key={item.id}>
-                {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+
+      {/* 🔥 Table Container */}
+      <div
+        className="
+          rounded-xl overflow-hidden
+          border border-[var(--card-border)]
+          bg-[var(--card-bg)]
+          shadow-md hover:shadow-xl
+          transition duration-300
+        "
+      >
+        <div className="overflow-y-auto max-h-[450px] scrollbar-thin scrollbar-thumb-[var(--accent-secondary)] scrollbar-track-transparent">
+
+          <Table aria-label="SWIG List" isHeaderSticky classNames={classNames}>
+            <TableHeader columns={columns}>
+              {(column) => (
+                <TableColumn
+                  key={column.uid}
+                  className="
+                    bg-[var(--table-header)]
+                    border-b border-[var(--card-border)]
+                    py-3
+                  "
+                >
+                  <p className="text-left text-[var(--accent-primary)] font-semibold tracking-wide">
+                    {column.name}
+                  </p>
+                </TableColumn>
+              )}
+            </TableHeader>
+
+            <TableBody items={list} emptyContent="No SWIG Events Found.">
+              {(item) => (
+                <TableRow
+                  key={item.id}
+                  className="
+                    hover:bg-[var(--table-row-hover)]
+                    transition-colors
+                    border-b border-[var(--card-border)]
+                    last:border-none
+                  "
+                >
+                  {(columnKey) => (
+                    <TableCell className="py-3">{renderCell(item, columnKey)}</TableCell>
+                  )}
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+
+        </div>
       </div>
     </div>
-
   );
-}
+};
 
-
-
-export default ConverseList
+export default ConverseList;

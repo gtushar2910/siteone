@@ -13,29 +13,39 @@
 } */
 
 :root {
-  --background-color: #FAFAFA;
-  --foreground-color: #1C1C1C;
+  --background-color: #fafafa;
+  --foreground-color: #1c1c1c;
 
-  --menu-background-color: #7F1D1D; /* Deep crimson */
-  --menu-foreground-color: #FEE2E2;
+  --menu-background-color: #7f1d1d; /* Deep crimson */
+  --menu-foreground-color: #fee2e2;
 
-  --card-bg: #FFFFFF;
-  --card-border: #F3C5C5;
+  --card-bg: #ffffff;
+  --card-border: #f3c5c5;
 
-  --accent-primary: #B91C1C;
-  --accent-secondary: #F87171;
+  --accent-primary: #b91c1c;
+  --accent-secondary: #f87171;
 
-  --table-header: #FFE6E6;
-  --table-row-hover: #FFF1F1;
+  --table-header: #ffe6e6;
+  --table-row-hover: #fff1f1;
 }
 
 body {
-   background: var(--background-color);
-   color: var(--foreground-color)
+  background: var(--background-color);
+  color: var(--foreground-color);
+}
+
+.site-container {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100vh; /* Ensure container is at least viewport height */
+}
+
+main {
+  flex-grow: 1; /* Allow main content to take up available space */
 }
 
 .cardAboutDept {
-  background: var(--background-color)
+  background: var(--background-color);
 }
 
 .header {
@@ -46,23 +56,22 @@ body {
 
 .heading-1 {
   color: var(--foreground-color);
-  font-size:2.5vw;
+  font-size: 2.5vw;
   text-align: center;
   vertical-align: middle;
   text-decoration: solid;
-} 
+}
 
 .heading-2 {
   color: var(--foreground-color);
-  font-size:1vw;
+  font-size: 1vw;
   text-align: center;
   vertical-align: middle;
 }
 
 .container {
   display: flex;
-  background: var(--background-color)
-  
+  background: var(--background-color);
 }
 
 .navbar {
@@ -71,15 +80,13 @@ body {
   border-bottom: 3px solid var(--accent-primary);
 }
 
-
 .logoright {
   align-self: flex-end;
   margin-right: auto;
   margin-top: 15px;
   margin-bottom: 5px;
-  
 }
-img{
+img {
   border-radius: 50%;
 }
 
@@ -90,7 +97,7 @@ img{
   margin-bottom: 5px;
 }
 
-.headercontent{
+.headercontent {
   align-self: center;
   flex-grow: 4;
 }

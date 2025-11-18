@@ -1,120 +1,159 @@
-"use client"
-import React, { Suspense } from "react";
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Tooltip, Link } from "@nextui-org/react";
+"use client";
+import React, { useEffect, useState } from "react";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+  Divider,
+  Tooltip,
+  Link
+} from "@nextui-org/react";
+import axios from "axios";
 import classNames from "../../../../lib/tableClassNames";
+import { DocumentIcon } from "@heroicons/react/24/solid";
 import { columns } from "./data";
-import axios from 'axios';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { DocumentIcon } from '@heroicons/react/24/solid'
-
-
-
 
 const ConverseList = () => {
-
-  const [list, setList] = useState([])
+  const [list, setList] = useState([]);
 
   const getList = async () => {
     const response = await axios.get("/api/events/converse/getList");
-    if (response)
-      setList(response.data)
-  }
+    if (response) setList(response.data);
+  };
 
   useEffect(() => {
-    getList()
-  }, [])
+    getList();
+  }, []);
 
-  const renderCell = React.useCallback((listItem, columnKey) => {
-    const cellValue = listItem[columnKey];
+  const renderCell = React.useCallback((item, columnKey) => {
+    const value = item[columnKey];
 
     switch (columnKey) {
       case "name":
         return (
-          <div className="flex flex-col">
-            <p className="font-bold	 text-center ">{cellValue}</p>
-          </div>
+          <p className="font-semibold text-center text-[var(--foreground-color)]">
+            {value}
+          </p>
         );
+
       case "event_dates":
         return (
-          <div className="flex flex-col">
-            <p className="text-bold  text-center ">{cellValue}</p>
-          </div>
+          <p className="text-center font-medium text-[var(--foreground-color)]">
+            {value}
+          </p>
         );
+
       case "faculty_co":
         return (
-          <div className="flex flex-col">
-            <p className="text-bold">{cellValue}</p>
-          </div>
+          <p className="text-left font-medium text-[var(--foreground-color)]">
+            {value}
+          </p>
         );
+
       case "student_co":
         return (
-          <div className="flex flex-col">
-            <p className="text-left  ">{cellValue}</p>
-          </div>
+          <p className="text-left font-medium text-[var(--foreground-color)]">
+            {value}
+          </p>
         );
+
       case "report":
         return (
-          <div className="flex flex-col items-center">
-            <Tooltip content="View Report"  >
-              <Link href={listItem['report_url']} target="_blank" color="primary"><DocumentIcon className="h-6 w-6 text-amber-500" /></Link>
-            </Tooltip>
+          <div className="flex justify-center">
+            {item.report_url ? (
+                <Link href={item.report_url} target="_blank">
+                  <DocumentIcon className="h-6 w-6 text-[var(--accent-primary)] hover:scale-110 transition-all" />
+                </Link>
+            ) : (
+              <p className="italic text-gray-400">N/A</p>
+            )}
           </div>
         );
+
       default:
-        return cellValue;
+        return value;
     }
   }, []);
 
-  // const classNames = React.useMemo(
-  //   () => ({
-  //     th: ["bg-orange-100","font-sans","font-bold"],
-  //     td: [
-  //       // changing the rows border radius
-  //       // first
-  //       "group-data-[first=true]:first:before:rounded-none",
-  //       "group-data-[first=true]:last:before:rounded-none",
-  //       // middle
-  //       "group-data-[middle=true]:before:rounded-none",
-  //       // last
-  //       "group-data-[last=true]:first:before:rounded-none",
-  //       "group-data-[last=true]:last:before:rounded-none",
-  //       "bg-amber-50",
-  //       "text-zinc-700",
-  //       "font-sans",
-  //       "font-medium"
-  //     ],
-  //   }),
-  //   [],
-  // );
-
   return (
-      <div className="px-4 cardAboutDept">
-        <div className="box-border p-4 border-0 px-4">
-          <h1 className="font-sans text-4xl text-zinc-700 font-black uppercase text-center"> ----- Converse -----</h1>
-        </div>
-        <div className="box-border p-4 border-2 px-4" >
-          <Table aria-label="Example table with custom cells" classNames={classNames} >
+    <div className="px-6 py-8 cardAboutDept">
+
+      {/* 🔥 Header Card */}
+      <div
+        className="
+          rounded-2xl p-5 mb-6 text-center
+          bg-[var(--card-bg)]
+          border border-[var(--card-border)]
+          shadow-md hover:shadow-xl
+          transition-all duration-300
+        "
+      >
+        <h1 className="text-3xl font-bold text-[var(--accent-primary)] uppercase tracking-wide">
+          Converse
+        </h1>
+        <Divider className="mt-4 bg-[var(--accent-secondary)] opacity-40" />
+      </div>
+
+      {/* 🔥 Table Container */}
+      <div
+        className="
+          rounded-xl overflow-hidden
+          border border-[var(--card-border)]
+          bg-[var(--card-bg)]
+          shadow-md hover:shadow-xl
+          transition duration-300
+        "
+      >
+        <div className="overflow-y-auto max-h-[450px] scrollbar-thin scrollbar-thumb-[var(--accent-secondary)] scrollbar-track-transparent">
+
+          <Table aria-label="Converse Table" isHeaderSticky classNames={classNames}>
             <TableHeader columns={columns}>
               {(column) => (
-                <TableColumn key={column.uid}>
-                  <p className="text-center">{column.name}</p>
+                <TableColumn
+                  key={column.uid}
+                  className="
+                    bg-[var(--table-header)]
+                    border-b border-[var(--card-border)]
+                    py-3
+                  "
+                >
+                  <p className="text-center text-[var(--accent-primary)] font-semibold tracking-wide">
+                    {column.name}
+                  </p>
                 </TableColumn>
               )}
             </TableHeader>
-            <TableBody items={list} >
+
+            <TableBody items={list} emptyContent="No Converse Events Found.">
               {(item) => (
-                <TableRow key={item.id}>
-                  {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
+                <TableRow
+                  key={item.id}
+                  className="
+                    hover:bg-[var(--table-row-hover)]
+                    transition-colors
+                    border-b border-[var(--card-border)]
+                    last:border-none
+                  "
+                >
+                  {(columnKey) => (
+                    <TableCell className="py-3">
+                      {renderCell(item, columnKey)}
+                    </TableCell>
+                  )}
                 </TableRow>
               )}
             </TableBody>
+
           </Table>
+
         </div>
       </div>
+
+    </div>
   );
-}
+};
 
-
-
-export default ConverseList
+export default ConverseList;

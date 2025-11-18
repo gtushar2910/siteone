@@ -17,11 +17,14 @@ export default function RootLayout({ children }) {
   return (
 
     <html lang="en" className={inter.className}>
-      <body className="h-screen">
+      <body className="">
       <SessionProvider >
         <NextUIProvider>
           <Header></Header>
-          {children}
+          <main className="site-container">
+            {children}
+          </main>
+          
           <Footer></Footer>
         </NextUIProvider>
         </SessionProvider>
