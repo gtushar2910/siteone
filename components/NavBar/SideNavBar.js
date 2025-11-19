@@ -22,7 +22,7 @@ function SideNavbar({ staff }) {
   const { data: session, status } = useSession();
   const user = session?.user;
   const isLoadingUser = status === 'loading';
-
+  console.log("Session:", staff);
   return (
     <div>
       <Disclosure as="nav">
@@ -91,7 +91,7 @@ function SideNavbar({ staff }) {
                   </Link>
                 </h3>
               </div>
-              {user ? (<> <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              {/* {user ? (<> <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <KeyIcon className="h-6 w-6 text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold">
                 <Link href={`/Staff/changepwd`} size="sm">
@@ -109,7 +109,7 @@ function SideNavbar({ staff }) {
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold " onClick={signIn}>
                   Sign In
                 </h3>
-              </div></>)}
+              </div></>)} */}
             </div>
             {/* setting  */}
 

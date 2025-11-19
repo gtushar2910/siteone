@@ -1,43 +1,109 @@
-"use client"
+"use client";
 
 import React from "react";
-import { Divider } from "@nextui-org/react";
-import { Spacer } from "@nextui-org/react";
+import { Divider, Spacer } from "@nextui-org/react";
 
 export default function AboutDept() {
   return (
-    <div className="px-4 py-4 cardAboutDept font-sans">
-      <div className="box-border p-4 border-2 px-4 	bg-origin-border p-4 border-4 border-dashed">
-        <p className="text-xl font-bold text-rose-950 decoration-solid uppercase"> About Department of Information Technology </p>
-        <Divider className="my-4" />
-        <Spacer x={4} />
-        <p className="text-base font-medium">The Department of Information Technology Engineering, established in 2001 provides one of the best learning opportunities to students with its contemporary course design and curriculum and by providing state-of-art learning resources.</p>
-        <Spacer y={4} />
-        <p className="text-base font-medium">The IT department currently offers two AICTE approved courses of engineering:</p>
+    <div className="px-4 py-6 cardAboutDept font-sans">
+      {/* Crimson Premium Card */}
+      <div
+        className="
+          p-6 rounded-2xl
+          bg-[var(--card-bg)]
+          border border-[var(--card-border)]
+          shadow-md hover:shadow-xl
+          transition-all duration-300
+        "
+      >
+        {/* Heading */}
+        <h1 className="text-2xl font-bold text-[var(--accent-primary)] uppercase tracking-wide">
+          About Department of Information Technology
+        </h1>
+
+        <Divider className="my-4 bg-[var(--accent-secondary)] opacity-50" />
         <Spacer y={2} />
-        <ol className="list-decimal px-6">
-          <li className="text-base font-bold text-indigo-900"> BTech(Information Technology) with an intake of 120 students</li>
-          <Spacer y={2} />
-          <li className="text-base font-bold text-indigo-900"> BTech(Artificial Intelligence and Data Science) with an intake of 60 students</li>
+
+        {/* Content */}
+        <p className="text-base font-medium text-[var(--foreground-color)] leading-relaxed">
+          The Department of Information Technology Engineering, established in
+          2001 provides one of the best learning opportunities to students with
+          its contemporary course design and curriculum and by providing
+          state-of-art learning resources.
+        </p>
+
+        <Spacer y={4} />
+
+        <p className="text-base font-medium text-[var(--foreground-color)]">
+          The IT department currently offers two AICTE approved courses:
+        </p>
+
+        <Spacer y={2} />
+
+        <ol className="list-decimal px-6 space-y-2">
+          <li className="text-base font-semibold text-[var(--accent-primary)]">
+            BTech (Information Technology) — Intake: 120 students
+          </li>
+          <li className="text-base font-semibold text-[var(--accent-primary)]">
+            BTech (Artificial Intelligence and Data Science) — Intake: 60
+            students
+          </li>
         </ol>
+
         <Spacer y={4} />
-        <p className="text-base font-medium">The Department of Information Technology has dedicated, fully-qualified and highly experienced teaching faculty who are committed towards nurturing young IT professionals of the next generation. The department has spacious, well-equipped laboratories with latest computer systems and other resources like laptops, projectors, graphics processing unit and wireless devices in addition to a continuous, high-speed Internet access to facilitate the curriculum’s practical implementation and project-development work.</p>
+
+        <p className="text-base font-medium text-[var(--foreground-color)] leading-relaxed">
+          The department has fully-qualified, highly experienced teaching
+          faculty dedicated to nurturing the next generation of IT
+          professionals. Our laboratories are equipped with modern computers,
+          GPUs, laptops, wireless devices, projectors, and high-speed Internet
+          access to support hands-on learning and innovative project
+          development.
+        </p>
+
         <Spacer y={4} />
-        <p className="text-base font-medium">The I.T. Department regularly organizes seminars, guest lectures, workshops, short term trainings and programming contests for students to expand their knowledge and skill set beyond the regular curriculum. We encourage our students to work on innovative and industry-applicable projects so that they can become the most highly sought after I.T. graduates in the country.</p>
-        <Spacer y={2} />
-        <Divider className="my-4" />
-        <Spacer y={2} />
-        <p className="text-lg font-bold text-rose-950 decoration-solid uppercase">Highlights of the Department</p>
+
+        <p className="text-base font-medium text-[var(--foreground-color)] leading-relaxed">
+          We regularly organize seminars, workshops, training sessions, guest
+          lectures, and programming contests to expand students’ knowledge and
+          skillset beyond the curriculum. Students are encouraged to work on
+          innovative and industry-relevant projects to become highly sought-after
+          IT graduates.
+        </p>
+
+        <Spacer y={4} />
+        <Divider className="my-4 bg-[var(--accent-secondary)] opacity-50" />
+
+        {/* Highlights */}
+        <h2 className="text-xl font-bold text-[var(--accent-primary)] uppercase tracking-wide">
+          Highlights of the Department
+        </h2>
+
         <Spacer y={3} />
-        <ol className="list-disc px-6">
-          <li className="text-base font-medium">Vibrant Learning and Research Environment</li>
-          <li className="text-base font-medium">Jobs for students in reputed MNCs through Campus placement assistance like TCS, Wipro, Cognizant etc.</li>
-          <li className="text-base font-medium">Scholarships for Meritorious students</li>
-          <li className="text-base font-medium">Experienced and Qualified permanent faculty members holding Ph.D. and M.Tech degrees</li>
-          <li className="text-base font-medium">Selection as Student ambassadors in International companies like TCS-India and SAP-Germany</li>
-          <li className="text-base font-medium">IT students have been granted projects under SSIP (Student Startup and Innovation Policy) by Government of Gujarat</li>
-          <li className="text-base font-medium">Consistently good academic records of students with gold medals as branch toppers at GTU</li>
-        </ol>
+
+        <ul className="list-disc px-6 space-y-2">
+          <li className="text-base font-medium text-[var(--foreground-color)]">
+            Vibrant Learning and Research Environment
+          </li>
+          <li className="text-base font-medium text-[var(--foreground-color)]">
+            Placements in top MNCs like TCS, Wipro, Cognizant, etc.
+          </li>
+          <li className="text-base font-medium text-[var(--foreground-color)]">
+            Scholarships for meritorious students
+          </li>
+          <li className="text-base font-medium text-[var(--foreground-color)]">
+            Highly experienced faculty with Ph.D. and M.Tech qualifications
+          </li>
+          <li className="text-base font-medium text-[var(--foreground-color)]">
+            International student ambassador roles (TCS India, SAP Germany)
+          </li>
+          <li className="text-base font-medium text-[var(--foreground-color)]">
+            Students awarded SSIP funding for innovative projects
+          </li>
+          <li className="text-base font-medium text-[var(--foreground-color)]">
+            Consistent academic excellence with GTU gold medalists
+          </li>
+        </ul>
       </div>
     </div>
   );

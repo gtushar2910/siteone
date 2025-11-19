@@ -1,51 +1,116 @@
-"use client"
-import React from 'react'
+"use client";
+import React from "react";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Image,
+  Divider,
+  Link,
+  Spacer,
+} from "@nextui-org/react";
 
-import { Card, CardBody,CardFooter,CardHeader,Image,Divider,Link, Spacer } from "@nextui-org/react";
+const Page = () => {
+  return (
+    <Card
+      className="
+        p-6 rounded-2xl cardAboutDept
+        bg-[var(--card-bg)]
+        border border-[var(--card-border)]
+        shadow-md hover:shadow-xl
+        transition-all duration-300
+      "
+    >
+      {/* Header */}
+      <CardHeader className="pb-2 flex flex-col">
+        <h1 className="text-3xl font-bold text-[var(--accent-primary)] tracking-wide uppercase">
+          Scholarships & Awards
+        </h1>
+        <Divider className="mt-4 bg-[var(--accent-secondary)] opacity-40" />
+      </CardHeader>
 
-const page = () => {
-    return (
-        <Card className="py-4 cardAboutDept flex">
-        <CardHeader className="pb-0 pt-2 px-4   ">
-         
-          <div className="flex flex-col">
-            <p className="text-xl  text-rose-950">Scholarships and Awards</p>
-            <Spacer y={2} />
-          </div>
-        </CardHeader>
-        <Divider/>
-        <CardBody className='overflow-hidden py-2 items-center bg-orange-50			'>
-          <ul className='list-disc ' >
-            <li>
+      {/* Body */}
+      <CardBody
+        className="
+          py-4 px-2
+          text-[var(--foreground-color)]
+        "
+      >
+        <ul className="list-disc space-y-4 pl-6 text-lg leading-relaxed">
+
+          {/* Fees */}
+          <li>
             <Link
-            isExternal
-            showAnchorIcon
-            href="https://scet.ac.in/pages/fees-structure/"
-           >
-            Fees Structure
-          </Link></li>
-            <li>Scholarships: Scholarship is a very important motivational tool for the students and it helps them 
-                in establishing strong educational background which is necessary for a great career. Through a 
-                scholarship a student can receive motivation for studies for various ways from family, school, 
-                institution, society as well as government. A scholarship has various facets, it can be in from of 
-                general education, foreign education, research fellowship, language research fellowship, 
-                talent search etc. A scholarship can be classified into three categories:
-                <ol className='list-decimal list-inside'>
-                    <li><Link isExternal  href='https://scet.ac.in/pages/offered-by-government/'>Government Scholarship</Link> </li>
-                    <li><Link isExternal  href='https://scet.ac.in/pages/assistance-from-community/'>Assistance from Community</Link> </li>
-                    <li><Link isExternal  href='https://scet.ac.in/pages/bank-loans/'>Bank Loans</Link> </li>
-                </ol>
-                
-                </li>
-            <li><Link isExternal href='https://scet.ac.in/pages/awards-at-scet/'>Awards</Link> </li>
-            </ul>
-        </CardBody>
-        <Divider/>
-        <CardFooter className='pb-0 pt-2 px-4  flex-col'>
-         
-        </CardFooter>
-      </Card>
-    )
-}
+              isExternal
+              showAnchorIcon
+              href="https://scet.ac.in/pages/fees-structure/"
+              className="text-[var(--accent-primary)] font-semibold hover:opacity-80"
+            >
+              Fees Structure
+            </Link>
+          </li>
 
-export default page
+          {/* Scholarships */}
+          <li>
+            Scholarships are a vital source of motivation and support for
+            students. They help build a strong academic foundation and encourage
+            excellence through various forms such as general education support,
+            foreign education grants, research fellowships, language
+            scholarships, and talent recognition programs.
+            <br />
+            <br />
+            Scholarships are broadly categorized into:
+            <ol className="list-decimal list-inside mt-3 space-y-2">
+              <li>
+                <Link
+                  isExternal
+                  href="https://scet.ac.in/pages/offered-by-government/"
+                  className="text-[var(--accent-primary)] hover:opacity-80"
+                >
+                  Government Scholarship
+                </Link>
+              </li>
+              <li>
+                <Link
+                  isExternal
+                  href="https://scet.ac.in/pages/assistance-from-community/"
+                  className="text-[var(--accent-primary)] hover:opacity-80"
+                >
+                  Assistance from Community
+                </Link>
+              </li>
+              <li>
+                <Link
+                  isExternal
+                  href="https://scet.ac.in/pages/bank-loans/"
+                  className="text-[var(--accent-primary)] hover:opacity-80"
+                >
+                  Bank Loans
+                </Link>
+              </li>
+            </ol>
+          </li>
+
+          {/* Awards */}
+          <li>
+            <Link
+              isExternal
+              href="https://scet.ac.in/pages/awards-at-scet/"
+              className="text-[var(--accent-primary)] font-semibold hover:opacity-80"
+            >
+              Awards at SCET
+            </Link>
+          </li>
+
+        </ul>
+      </CardBody>
+
+      {/* Footer */}
+      <Divider className="mt-4 bg-[var(--card-border)]" />
+      <CardFooter></CardFooter>
+    </Card>
+  );
+};
+
+export default Page;

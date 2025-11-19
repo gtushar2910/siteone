@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -10,25 +10,42 @@
   --foreground-color: black;
   --menu-foreground-color: #defdff;
   --menu-background-color: #303c6c;
-}
+} */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-    --background-color: #aee9e0;
+:root {
+  --background-color: #fafafa;
+  --foreground-color: #1c1c1c;
 
-  }
+  --menu-background-color: #7f1d1d; /* Deep crimson */
+  --menu-foreground-color: #fee2e2;
+
+  --card-bg: #ffffff;
+  --card-border: #f3c5c5;
+
+  --accent-primary: #b91c1c;
+  --accent-secondary: #f87171;
+
+  --table-header: #ffe6e6;
+  --table-row-hover: #fff1f1;
 }
 
 body {
-   background: var(--background-color);
-   color: var(--foreground-color)
+  background: var(--background-color);
+  color: var(--foreground-color);
+}
+
+.site-container {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  min-height: 75vh; /* Ensure container is at least viewport height */
+}
+
+main {
+  flex-grow: 1; /* Allow main content to take up available space */
 }
 
 .cardAboutDept {
-  background: var(--background-color)
+  background: var(--background-color);
 }
 
 .header {
@@ -39,40 +56,37 @@ body {
 
 .heading-1 {
   color: var(--foreground-color);
-  font-size:2.5vw;
+  font-size: 2.5vw;
   text-align: center;
   vertical-align: middle;
   text-decoration: solid;
-} 
+}
 
 .heading-2 {
   color: var(--foreground-color);
-  font-size:1vw;
+  font-size: 1vw;
   text-align: center;
   vertical-align: middle;
 }
 
 .container {
   display: flex;
-  background: var(--background-color)
-  
+  background: var(--background-color);
 }
 
- .navbar {
+.navbar {
   background: var(--menu-background-color);
-  vertical-align: middle;
-  color: var(--menu-foreground-color)
-} 
-
+  color: var(--menu-foreground-color);
+  border-bottom: 3px solid var(--accent-primary);
+}
 
 .logoright {
   align-self: flex-end;
   margin-right: auto;
   margin-top: 15px;
   margin-bottom: 5px;
-  
 }
-img{
+img {
   border-radius: 50%;
 }
 
@@ -83,7 +97,7 @@ img{
   margin-bottom: 5px;
 }
 
-.headercontent{
+.headercontent {
   align-self: center;
   flex-grow: 4;
 }

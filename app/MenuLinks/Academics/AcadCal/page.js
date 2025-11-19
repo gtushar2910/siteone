@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect, useCallback } from "react";
 import {
   Tabs, Tab, Tooltip, Link,
@@ -15,9 +15,10 @@ const AcademicCalender = () => {
   const getList = async () => {
     try {
       const response = await axios.get(`/api/acadcal/getCalenders?ucd=${selected}`);
-      if (response) setList(response.data);
+      if (response) setList(response.data || []);
     } catch (error) {
       console.error("Error fetching data:", error);
+      setList([]);
     }
   };
 
@@ -35,42 +36,60 @@ const AcademicCalender = () => {
   const renderCell = useCallback((item, columnKey, index) => {
     switch (columnKey) {
       case "seqnum":
-        return (
-          <p className="text-center font-semibold">{index + 1}</p>
-        );
+        return <p className="text-center font-semibold">{index + 1}</p>;
+
       case "academic_year":
       case "semester":
-        return (
-          <p className="text-center font-medium">{item[columnKey]}</p>
-        );
+        return <p className="text-center font-medium text-[var(--foreground-color)]">{item[columnKey]}</p>;
+
       case "view":
         return (
           <div className="flex justify-center">
-            <Tooltip content="View Calendar" placement="top">
+            
               <Link href={item.ac_pdf} target="_blank">
-                <DocumentIcon className="h-6 w-6 text-blue-600 hover:scale-110 transition-transform duration-150" />
+                <DocumentIcon className="h-6 w-6 text-[var(--accent-primary)] hover:scale-110 transition-all duration-200" />
               </Link>
-            </Tooltip>
+            
           </div>
         );
+
       default:
         return item[columnKey];
     }
   }, []);
 
   return (
-    <div className="p-6">
-      <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-200">
+    <div className="p-6 cardAboutDept">
+      <div
+        className="
+          p-6 rounded-2xl 
+          bg-[var(--card-bg)]
+          border border-[var(--card-border)]
+          shadow-md hover:shadow-xl 
+          transition-all duration-300
+        "
+      >
+        {/* 🔥 Premium Crimson Tabs */}
         <Tabs
-          aria-label="Academic Calendar Options"
-          color="secondary"
-          size="lg"
-          variant="solid"
           selectedKey={selected}
           onSelectionChange={setSelected}
+          aria-label="Academic Calendar Options"
+          className="w-full flex justify-start"
+          variant="light"
           classNames={{
-            tabList: "bg-gradient-to-r from-blue-100 to-purple-100 p-2 rounded-xl",
-            tab: "px-4 py-2 rounded-xl font-semibold text-gray-700",
+            base: "bg-[var(--card-bg)] rounded-full p-1 shadow-sm border border-[var(--card-border)] backdrop-blur-md inline-flex",
+            tabList: "gap-1 rounded-full p-1 justify-start",
+            cursor: "rounded-full bg-[var(--accent-primary)] shadow-md scale-105 transition-transform duration-300",
+            tab: `
+              px-4 py-2 rounded-full transition-all duration-300 
+              text-[var(--foreground-color)] font-medium 
+              data-[selected=true]:text-white 
+              data-[selected=true]:font-semibold 
+              data-[selected=true]:shadow-md 
+              data-[selected=true]:bg-[var(--accent-primary)] 
+              data-[selected=true]:scale-105
+              hover:bg-[var(--table-row-hover)]
+            `,
             tabContent: "flex gap-2 items-center",
           }}
         >
@@ -78,22 +97,66 @@ const AcademicCalender = () => {
             key="University"
             title={
               <>
-                <AcademicCapIcon className="h-5 w-5 text-blue-600" />
+                <AcademicCapIcon className="h-5 w-5 text-[var(--accent-primary)]" />
                 <span>University Academic Calendar</span>
               </>
             }
-          >
-            <CalTable
-              columns={columns}
-              list={list}
-              renderCell={(item, key) => renderCell(item, key, list.indexOf(item))}
-            />
-          </Tab>
-
-          {/* You can uncomment these later if you want to include college and department level too */}
-          {/* <Tab key="College" title={<><BuildingLibraryIcon className="h-5 w-5 text-green-600" /><span>College</span></>}>...</Tab> */}
-          {/* <Tab key="Department" title={<><BriefcaseIcon className="h-5 w-5 text-purple-600" /><span>Department</span></>}>...</Tab> */}
+          />
         </Tabs>
+
+        {/* 🔥 Table Wrapper */}
+        <div
+          className="
+            mt-6 rounded-xl overflow-hidden 
+            border border-[var(--card-border)] 
+            bg-[var(--card-bg)]
+            shadow-md hover:shadow-xl
+            transition-all duration-300
+          "
+        >
+          <Table
+            aria-label="Academic Calendar Table"
+            className="max-h-[500px]"
+          >
+            <TableHeader columns={columns}>
+              {(column) => (
+                <TableColumn
+                  key={column.uid}
+                  className="bg-[var(--table-header)] border-b border-[var(--card-border)] py-3"
+                >
+                  <p
+                    className={`
+                      font-semibold tracking-wide text-[var(--accent-primary)]
+                      ${column.uid === "seqnum" ? "text-center" : "text-center"}
+                    `}
+                  >
+                    {column.name}
+                  </p>
+                </TableColumn>
+              )}
+            </TableHeader>
+
+            <TableBody items={list}>
+              {(item) => (
+                <TableRow
+                  key={item.id}
+                  className="
+                    hover:bg-[var(--table-row-hover)]
+                    transition-colors
+                    border-b border-[var(--card-border)]
+                    last:border-none
+                  "
+                >
+                  {(columnKey) => (
+                    <TableCell className="py-3 text-[var(--foreground-color)] font-medium">
+                      {renderCell(item, columnKey, list.indexOf(item))}
+                    </TableCell>
+                  )}
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </div>
   );
