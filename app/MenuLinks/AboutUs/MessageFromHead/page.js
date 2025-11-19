@@ -41,7 +41,7 @@ const MessageFromHead = () => {
         <Spacer y={4} />
 
         <p className="text-base font-medium">
-          In today's fast-paced world, information technology stands at the
+          In today&apos;s fast-paced world, information technology stands at the
           forefront of innovation, transforming industries and redefining the way
           we live and work. Our department is committed to empowering students
           with the technical knowledge, practical exposure, and problem-solving
@@ -71,7 +71,7 @@ const MessageFromHead = () => {
         <p className="text-base font-medium">
           I encourage students and faculty alike to participate actively in
           research, workshops, hackathons, and extracurricular engagements. The
-          department is more than an academic unit—it's a thriving community of
+          department is more than an academic unit—it is a thriving community of
           creators, innovators, and leaders.
         </p>
 
