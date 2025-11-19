@@ -22,7 +22,7 @@ function SideNavbar({ staff }) {
   const { data: session, status } = useSession();
   const user = session?.user;
   const isLoadingUser = status === 'loading';
-
+  console.log("Session:", staff);
   return (
     <div>
       <Disclosure as="nav">

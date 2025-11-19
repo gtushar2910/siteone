@@ -102,7 +102,7 @@ const ConverseList = () => {
           transition duration-300
         "
       >
-        <div className="overflow-y-auto max-h-[450px] scrollbar-thin scrollbar-thumb-[var(--accent-secondary)] scrollbar-track-transparent">
+        <div className="overflow-y-auto max-h-[560px] scrollbar-thin scrollbar-thumb-[var(--accent-secondary)] scrollbar-track-transparent">
 
           <Table aria-label="SWIG List" isHeaderSticky classNames={classNames}>
             <TableHeader columns={columns}>

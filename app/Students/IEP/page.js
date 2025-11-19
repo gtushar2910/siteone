@@ -91,7 +91,7 @@ const IEPList = () => {
         "
       >
         {/* Scrollable wrapper */}
-        <div className="overflow-y-auto max-h-[450px] scrollbar-thin scrollbar-thumb-[var(--accent-secondary)] scrollbar-track-transparent">
+        <div className="overflow-y-auto max-h-[560px] scrollbar-thin scrollbar-thumb-[var(--accent-secondary)] scrollbar-track-transparent">
 
           <Table aria-label="IEP Student List" isHeaderSticky classNames={classNames}>
 

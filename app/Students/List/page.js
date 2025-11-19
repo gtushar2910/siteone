@@ -83,9 +83,9 @@ const StudentList = () => {
         transition-all duration-300
       "
         >
-         <h1 className="text-3xl font-bold text-[var(--accent-primary)] uppercase tracking-wide">
-  Student List {selectedValue !== "Select Cohort" && `— ${selectedValue}`}
-</h1>
+          <h1 className="text-3xl font-bold text-[var(--accent-primary)] uppercase tracking-wide">
+            Student List {selectedValue !== "Select Cohort" && `— ${selectedValue}`}
+          </h1>
 
         </div>
 
@@ -134,7 +134,7 @@ const StudentList = () => {
     "
       >
         {/* Scroll wrapper */}
-        <div className="overflow-y-auto max-h-[450px] scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[var(--accent-secondary)]">
+        <div className="overflow-y-auto max-h-[560px] scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[var(--accent-secondary)]">
 
           <Table
             aria-label="Student Table"

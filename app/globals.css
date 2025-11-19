@@ -37,7 +37,7 @@ body {
 .site-container {
   display: flex;
   flex-direction: column; /* Stack children vertically */
-  min-height: 100vh; /* Ensure container is at least viewport height */
+  min-height: 75vh; /* Ensure container is at least viewport height */
 }
 
 main {
